@@ -181,6 +181,13 @@ Both `_config.yml`, as well as the `_toc.yml` are to remain in the root of the `
 
 After a successful run, the TOC displayed in the menu, located on the left side of the page.
 
+### 4a. Add your own logo
+
+If you want your institution to be placed in the top left corner of this website, we recommend that you follow these steps:
+* name your institue logo in as `logo_int.png` and place it inside the data-science-for-esm folder.
+* Run `oet-extension/merge_logo.py` to combine your institute with as smaller image of TU Berlin's and OET's logo
+* Within `_config.yml`, make sure that the logo is directed to `logo: logo_merged.png`.
+
 ## 5. GitHub Workflow Deployment
 
 In [Deploy Settings](./00-build_your_own_content.md#3-deploy-settings) we defined the deployment branch in the `.github/workflows/deploy.yml` [file][deploy], which is used by the workflow, whenever performing `git push`.
