@@ -9,9 +9,9 @@ This guide helps you in building your own **Data Science for Energy System Model
 
 <!-- If you want to see what others have created, you can visit -->
 
-Before starting, please make sure that you are using the correct python environment that have at least all the python package dependencies from `environment.yaml` or `requirements.txt`. The instruction are [here if you are using conda (reccomended)](../intro.md#-with-conda-recommended') and [here if you are using pip](../intro.md#-with-pip').
+Before starting, please make sure that you are using the correct python environment that have at least all the python package dependencies from `environment.yaml` or `requirements.txt`. The instruction are [here if you are using conda (reccomended)](../intro.md#with-conda-recommended) and [here if you are using pip](../intro.md#with-pip).
 
-To follow this tutorial, basic usage of [Git][Git_1] is a prerequisit. Here are some resources and tutorials to help you get started with Git:
+To follow this tutorial, basic usage of Git is a prerequisit. Here are some resources and tutorials to help you get started with Git:
 
 * [Atlassian: Getting Git right](https://www.atlassian.com/git)
 * [PyPSA: Git](https://pypsa-earth.readthedocs.io/en/latest/software_hints.html#git)
@@ -35,7 +35,7 @@ By doing so, you will reduce further branch creation, required by the workflow.
     <a href='https://github.com/fneum/data-science-for-esm/fork'>
     <img src='https://github.com/open-energy-transition/data-science-for-esm/raw/stanford/data-science-for-esm/_images/03_fork_option.png' alt='' width='95%' style='vertical-align:middle;border:5px solid goldenrod;margin:20px 0px' />
     </a>
-    <figcaption>Clicking on the image above will lead directly to the **Create a new fork**</figcaption>
+    <figcaption>Clicking on the image above will lead directly to the <strong>Create a new fork</strong></figcaption>
 </figure>
 </center>
 :::
@@ -57,7 +57,7 @@ git push origin content_branch
 
 > **Note:** The remote `gh-pages`, itself, hosts the required `.html`, `.css`, `.js`, and the other files, used for generating the `https://github.com/<your-username>/data-science-for-esm` website. <br /> <u>There is no requirement of having this branch locally.</u>
 
-These will be re-generated, upon a successful workflow execution, every time `git push` is performed, in the prior specified git branch. Branch specification is provided in [Deploy Settings](./00-build_your_own_content.md#3-deploy-settings).
+These will be re-generated, upon a successful workflow execution, every time `git push` is performed, in the prior specified git branch. Branch specification is provided in [Deploy Settings](deploy-settings).
 
 ## 2. GitHub Pages Setting
 
@@ -68,18 +68,18 @@ In your fork of this repository, there is a single GitHub Setting that needs mod
 * In the **GitHub Pages** heading, go to the **Branch** section, and change the selection from `None` to `gh-pages` `/root`.
 
 Once the branch has been selected, at the top of the page a URL will be provided:
-* **Your site is live at [`https://<your-username>.github.io/data-science-for-esm`](https://fneum.github.io/data-science-for-esm/intro.html)**.
+* **Your site is live at `https://<your-username>.github.io/data-science-for-esm`**.
 
 <center>
 <figure>
     <a href='https://github.com/open-energy-transition/data-science-for-esm/settings/pages'>
     <img src='https://raw.githubusercontent.com/open-energy-transition/data-science-for-esm/stanford/data-science-for-esm/_images/04_gh_pages-options.png' width='97%'style='vertical-align:middle;border:5px solid darkgreen;margin:30px 30px' />
     </a>
-    <figcaption>Clicking on this figure will lead directly to the our **GitHub Pages** settings menu</figcaption>
+    <figcaption>Clicking on this figure will lead directly to the our <strong>GitHub Pages</strong> settings menu</figcaption>
 </figure>
 </center>
 
-<u>Clone the forked `data-science-for-esm` repository:</u>
+Clone the forked `data-science-for-esm` repository:
 ```
 git clone https://github.com/<your-username>/data-science-for-esm.git
 cd ./data-science-for-esm
@@ -89,9 +89,9 @@ cd ./data-science-for-esm
 
 ## 3. Deploy Settings
 
-<!--> **Note:** The key point is to set the correct deployment branch in the <code>./github/workflows/deploy.yml</code>. -->
+<!-- **Note:** The key point is to set the correct deployment branch in the <code>./github/workflows/deploy.yml</code>. -->
 
-In the <code>.github/workflows/deploy.yml</code> [file][deploy_1], of the cloned repository, specify the branch, to be used by the workflow:
+In the `.github/workflows/deploy.yml`file of the cloned repository, specify the branch, to be used by the workflow:
 
 ~~~
 on:
@@ -102,9 +102,9 @@ on:
 ~~~
 Upon the `git push` command to the specified branch, which in this example is the `main` branch, the workflow will be triggered.
 
-> **Note:** This can be any `branch` other than the <ins>`gh-pages`</ins>.
+> **Note:** This can be any `branch` other than the `gh-pages`.
 
-In the same [`deploy.yml` file][deploy_2] set the following permissions:
+In the same `deploy.yml` [file][deploy] make sure of the following permissions:
 
 ~~~
 permissions:
@@ -116,9 +116,9 @@ permissions:
   checks: read
 ~~~
 
-This setup uses the `main` branch in the workflow, but it can also be any other newly created side-branch. Upon the `git push`, the [workflow](./00-build_your_own_content#github-workflow-deployment) will be triggered.
+This setup uses the `main` branch in the workflow, but it can also be any other newly created side-branch. Upon the `git push`, the [workflow](github-workflow-deployment) will be triggered.
 
-The deployment itself is the `jupyter-build book data-science-for-esm` [command][command]. This command is in charge generating the HTML code from the data provided in the data-science-for-esm [folder][folder].
+The deployment itself is the `jupyter-build book data-science-for-esm` command. This command is in charge generating the HTML code from the data provided in the data-science-for-esm [folder][folder].
 
 Further explanation of this command, i.e. the `jupyter-book build`, as well as the other commands is provided in the [README.md](https://github.com/open-energy-transition/data-science-for-esm/blob/main/README.md) file. A more detailed explanation is to be found in the following Jupyter Book references:
 * [Build from the command line](https://jupyterbook.org/en/stable/basics/build.html)
@@ -172,7 +172,7 @@ Please use the provided files as templates, as this will assist you in content c
 git status
 git add .
 git commit -m 'new changes applied'
-git push origin stanford
+git push origin content_branch
 ~~~
 
 Both `_config.yml`, as well as the `_toc.yml` are to remain in the root of the `data-science-for esm` folder. The details of the website, such as the author, logo, other relevant GitHub and Google Collab links, are defined in the `_config.yml`. Please use the already provided `_toc` and `_config.yml` files as a template, and follow their structure.
@@ -190,12 +190,12 @@ If you want your institution to be placed in the top left corner of this website
 
 ## 5. GitHub Workflow Deployment
 
-In [Deploy Settings](./00-build_your_own_content.md#3-deploy-settings) we defined the deployment branch in the `.github/workflows/deploy.yml` [file][deploy], which is used by the workflow, whenever performing `git push`.
+In [Deploy Settings](deploy-settings) we defined the deployment branch in the `.github/workflows/deploy.yml` file, which is used by the workflow, whenever performing `git push`.
 
 You are free to use any branch, other than the `gh-pages`, keeping in mind that only upon the `git push`, the workflow will be triggered.
 
 The workflow deployment itself is tracked by your repository's status indicator, in this case a beige-brown dot &nbsp;<strong><b><font color='peru'>⏺</font></strong></b>
-* _Clicking on it will show the running status, and the deployment details_.
+* Clicking on it will show the running status, and the deployment details.
 
 As mentioned, the deployment takes minutes to finish, depending on the content files, i.e. the python commands in the Jupyter Notebooks. These will take up the most of the required deployment time.
 
@@ -204,14 +204,14 @@ As mentioned, the deployment takes minutes to finish, depending on the content f
     <!-- <a href='https://github.com/open-energy-transition/data-science-for-esm/settings/pages'> -->
     <img src='https://raw.githubusercontent.com/mdzzg/data-science-for-esm/mdzzg/data-science-for-esm/_images/05_deployment_status.png' width='85%'style='vertical-align:middle;border:5px solid paleturquoise;margin:30px 30px' />
     <!-- </a> -->
-    <figcaption>Deployment status upon <code>git push</code> to the branch specified in the **deploy.yml** file</figcaption>
+    <figcaption>Deployment status upon <code>git push</code> to the branch specified in the <code>deploy.yml</code> file</figcaption>
 </figure>
 </center>
 
 Upon the deployment finalization, the status indicator turns to:
-* _successful_: a green thick <strong><b><font color='green'>🗸</font></strong></b>
+* successful: a green thick <strong><b><font color='green'>🗸</font></strong></b>
     * you should be able to see the changes taking place, after some moments, at the specified `https://<your-username>.github.io/data-science-for-esm`<b>[^1]</b>
-* _unsuccessful_: a red cross mark <font color="red">🗶</font>
+* unsuccessful: a red cross mark <font color="red">🗶</font>
     * indicating an error in the `_toc.yml`, or one of the content files, which need to be revisited.
 
 <center>
@@ -238,9 +238,6 @@ If you’d like to add your course to this list, please reach out to XXX. -->
 [gh_actions_python]:    https://github.com/peaceiris/actions-gh-pages?tab=readme-ov-file#%EF%B8%8F-static-site-generators-with-python
 [fneum]:    https://github.com/fneum/data-science-for-esm
 [OET]:      https://open-energy-transition.github.io/handbook/docs/Engineering/SoftForkStrategy/#contributing-oet-changes-to-upstream-via-cherry-picking
-[deploy]:   https://github.com/open-energy-transition/data-science-for-esm/blob/ef394898e3100e2bd2d074a8b2da89235355cd4e/.github/workflows/deploy.yml#L4-L7
-[deploy_1]: https://github.com/open-energy-transition/data-science-for-esm/blob/ef394898e3100e2bd2d074a8b2da89235355cd4e/.github/workflows/deploy.yml#L4-L7
-[deploy_2]: https://github.com/open-energy-transition/data-science-for-esm/blob/ef394898e3100e2bd2d074a8b2da89235355cd4e/.github/workflows/deploy.yml#L9C1-L15C15
-[command]:  https://github.com/open-energy-transition/data-science-for-esm/blob/b1ab15c6d99fb325ca3877b0d33578a42669c3b7/.github/workflows/deploy.yml#L37
-[folder]:   https://github.com/fneum/data-science-for-esm/tree/bc6e35f5c007a33972d23d1df7e26c59f2a875dd/data-science-for-esm
+[deploy]:   https://github.com/open-energy-transition/data-science-for-esm/blob/main/.github/workflows/deploy.yml
+[folder]:   https://github.com/open-energy-transition/data-science-for-esm/tree/main/data-science-for-esm
 
