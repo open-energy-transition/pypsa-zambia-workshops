@@ -1,5 +1,6 @@
 .ipynb-checkpoints
 dsesm/data
+python_basics_tutorial/data
 *.geojson
 *.nc
 *.tiff
@@ -9,6 +10,9 @@ dsesm/data
 dsesm/tmp/
 dsesm/_build/
 dsesm/*.csv
+python_basics_tutorial/tmp/
+python_basics_tutorial/_build/
+python_basics_tutorial/tmp.csv
 *cleared.ipynb
 data
 
