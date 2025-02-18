@@ -1,12 +1,23 @@
-# Python Introduction Tutorial
+# Welcome
 
-Welcome to the **Python Introduction Tutorial**, designed for participants interested in energy system modeling. This tutorial provides a foundational introduction to Python, focusing on key packages essential for data analysis and visualization: `numpy`, `pandas`, and `matplotlib`.
+Welcome to the website accompanying the course [Data Science for Energy System Modelling](https://moseskonto.tu-berlin.de/moses/modultransfersystem/bolognamodule/beschreibung/anzeigen.html?nummer=31027&version=2&sprache=2). This course is being developed by [Dr. Fabian Neumann](https://fneum.org) and offered as part of the curriculum of the [Department of Digital Transformation of Energy Systems at TU Berlin](https://www.tu.berlin/ensys).
 
-Please note that this is not a comprehensive Python course. Instead, it serves as a stepping stone for those new to the language, equipping them with the basics needed for energy system modeling.
+On this website you will find practical introductions to many Python packages that are useful for dealing with energy data and building energy system models. Course materials other than practical introductions to Python packages for students at TU Berlin are provided on [ISIS](https://isis.tu-berlin.de/course/view.php?id=40132) (winter semeter 2024/2025).
 
-For a more in-depth exploration of Python in energy system modeling, we recommend the following course by Dr. Fabian Neumann:
+The course covers tutorials and examples for getting started with Python, `numpy`, `matplotlib`, `pandas`, `geopandas`, `cartopy`, `rasterio`,  `pysheds`, `atlite`, `networkx`, `linopy`, `pypsa`, `plotly`, `hvplot`, and `streamlit`. Topics covered include:
 
-🔗 **[Data Science for Energy System Modelling](https://moseskonto.tu-berlin.de/moses/modultransfersystem/bolognamodule/beschreibung/anzeigen.html?nummer=31027&version=2&sprache=2)** – A comprehensive resource covering advanced methodologies and applications.
+- time series analysis (e.g. wind and solar production)
+- tabular data (e.g. LNG terminals, power plants, industrial sites)
+- geographical data (e.g. location of power plants)
+- data visualisation
+- converting weather data to renewable generation
+- land eligibility analysis (e.g. where can we build wind turbines)
+- optimisation
+- electricity market modelling
+- power flow modelling (linearised)
+- capacity expansion planning
+- sector-coupling
+- interactive visualisation and dashboarding
 
 ## Installing the package manager `conda`
 
