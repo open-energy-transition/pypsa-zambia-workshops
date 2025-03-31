@@ -57,7 +57,7 @@ logo_TU = Image.open("../logo.png")
 logo_OET = Image.open("logo_OET.png")
 logo_I = Image.open("../logo_int.png")
 
-logo_C = create_contribution_image(logo_TU, logo_OET)
+logo_C = logo_OET.copy()
 logo = merge_institue_image(logo_C, logo_I)
 
 logo.save('../logo_merged.png')

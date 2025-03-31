@@ -1,12 +1,14 @@
-# Data Science for Energy System Modelling
+# Open-TYNDP Workshops
 
-Course at TU Berlin to learn energy system modelling with data.
+Series of hands-on workshops facilitated by Open Energy Transition (OET) to accompany the development of an open-source energy modeling tool for the TYNDP.
+With every workshop a new notebook will be added to the repository investigating different functionalities of PyPSA 
+and implementations for the Open-TYNDP workflow.
 
 ## Usage
 
 ### Building the book
 
-If you'd like to develop and/or build the Data Science for Energy System Modelling book, you should:
+If you'd like to develop and/or build the Open-TYNDP Workshops book, you should:
 
 1. Clone this repository
 2. Run `uv sync`
@@ -27,4 +29,4 @@ We welcome and recognize all contributions. You can see a list of current contri
 
 ## Credits
 
-This project is created using the excellent open source [Jupyter Book project](https://jupyterbook.org/) and the [executablebooks/cookiecutter-jupyter-book template](https://github.com/executablebooks/cookiecutter-jupyter-book).
+This project is created by forking of [Fabian Neumann](https://github.com/fneum)'s excellent open-source course [Data Science for Energy System Modelling](https://github.com/fneum/data-science-for-esm) which uses the open source [Jupyter Book project](https://jupyterbook.org/) and the [executablebooks/cookiecutter-jupyter-book template](https://github.com/executablebooks/cookiecutter-jupyter-book).
