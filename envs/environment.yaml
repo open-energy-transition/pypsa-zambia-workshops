@@ -11,6 +11,8 @@ dependencies:
 - pandas>=2
 - pypsa>=1.1.2
 - geopandas>=1
+- snakemake-minimal>=9
+- snakemake-storage-plugin-http>=0.3
 - xarray
 - networkx
 - yaml

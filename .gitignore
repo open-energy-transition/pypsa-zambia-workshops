@@ -3,6 +3,7 @@ dsesm/data
 python_basics_tutorial/data
 data-science-for-esm/data
 open-tyndp-workshops/data
+.idea
 *.geojson
 *.nc
 *.tiff
@@ -18,6 +19,7 @@ python_basics_tutorial/tmp.csv
 data-science-for-esm/tmp/
 data-science-for-esm/_build/
 data-science-for-esm/tmp.csv
+*.svg
 open-tyndp-workshops/tmp/
 open-tyndp-workshops/_build/
 open-tyndp-workshops/tmp.csv
@@ -26,3 +28,5 @@ data
 
 # MyST build outputs
 _build
+.snakemake/
+CLAUDE.md
