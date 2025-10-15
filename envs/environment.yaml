@@ -1,6 +1,7 @@
 name: esm-ss-26 # Name needs to be changed in .github/workflows/update-pinned-env.yaml too
 channels:
 - conda-forge
+- bioconda
 dependencies:
 - python>=3.13,<3.14
 - pip
@@ -42,18 +43,23 @@ dependencies:
 - libgdal-netcdf
 - cfgrib
 - pdf2image
+- numexpr
+- pyyaml
 
   # geodata utilities
 - shapely>2
 - pyepsg
 - cartopy>=0.22
 - country_converter
+- mapclassify
 
   # plotting
 - matplotlib>=3.9
 - plotly
 - geoviews>=1.10
 - graphviz
+- fiona
+- folium
 
   # publishing
 - jupyter-book
@@ -62,3 +68,4 @@ dependencies:
 
 - pip:
   - highspy>=1.13
+  - tables
