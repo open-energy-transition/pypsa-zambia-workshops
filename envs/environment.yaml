@@ -21,6 +21,8 @@ dependencies:
 - atlite>=0.5
 - powerplantmatching>=0.8.1
 - rasterio>=1.4.3
+- pypsa>=0.31,<1.0
+- atlite>=0.2.14
 - pysheds
 - pyarrow
 - numba
@@ -39,6 +41,7 @@ dependencies:
 - libgdal-hdf5
 - libgdal-netcdf
 - cfgrib
+- pdf2image
 
   # geodata utilities
 - shapely>2
