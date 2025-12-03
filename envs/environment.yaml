@@ -69,3 +69,4 @@ dependencies:
 - pip:
   - highspy>=1.13
   - tables
+  - pypsa-explorer
