@@ -25,29 +25,14 @@ jobs:
     steps:
     - uses: actions/checkout@v5
 
-    # Install dependencies
-    - uses: conda-incubator/setup-miniconda@v3
-      with:
-        miniforge-version: latest
-        activate-environment: esm-ws-24-25
-        channel-priority: strict
-
-    - name: Cache Conda env
-      uses: actions/cache@v4
-      with:
-        path: ${{ env.CONDA }}/envs
-        key: conda-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles(format('{0}', env.env_file)) }}
-      id: cache-env
-
-    - name: Update environment
+    - name: Install environment with uv
       run: |
-        conda env update -n esm-ws-24-25 -f environment.yaml
-        echo "Run conda list" && conda list
+        python -m pip install uv
+        uv sync
 
-    # Build the book
-    - name: Build the book
+    - name: Build HTML Assets
       run: |
-        jupyter-book build data-science-for-esm
+        uv run jupyter-book build --html --execute
 
     # Deploy the preview
     - name: Deploy preview
