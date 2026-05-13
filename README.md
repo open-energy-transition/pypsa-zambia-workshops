@@ -1,19 +1,19 @@
-# Open-TYNDP Workshops
+# PyPSA-Zambia Workshops
 
-Series of hands-on workshops facilitated by Open Energy Transition (OET) to accompany the development of an open-source energy modeling tool for the TYNDP.
+Series of hands-on workshops facilitated by Open Energy Transition (OET) to accompany the development of an open-source energy modeling tool for Zambia.
 With every workshop a new notebook will be added to the repository investigating different functionalities of PyPSA
-and implementations for the Open-TYNDP workflow.
+and implementations for the PyPSA-Zambia workflow.
 
 ## Usage
 
-To follow and explore the series of hands-on workshops, you can visit the deployed [workshop page](https://open-energy-transition.github.io/open-tyndp-workshops/intro.html). There, you can also simply launch each notebook in a Google Colab notebook environment by clicking the rocket logo in the top right corner.
-Alternatively, you can also build and explore the Open-TYNDP Workshops book locally.
+To follow and explore the series of hands-on workshops, you can visit the deployed [workshop page](https://open-energy-transition.github.io/pypsa-zambia-workshops/intro.html). There, you can also simply launch each notebook in a Google Colab notebook environment by clicking the rocket logo in the top right corner.
+Alternatively, you can also build and explore the PyPSA-Zambia Workshops book locally.
 
 All notebooks are currently compatible with PyPSA v1.0.5.
 
 ### Building the book
 
-If you'd like to develop and/or build the Open-TYNDP Workshops book locally, you should:
+If you'd like to develop and/or build the PyPSA-Zambia Workshops book locally, you should:
 
 1. Clone this repository
 2. Run `uv sync`
