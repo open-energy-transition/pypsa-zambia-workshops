@@ -30,7 +30,7 @@ jobs:
     - uses: conda-incubator/setup-miniconda@v3
       with:
         miniforge-version: latest
-        activate-environment: open-tyndp-workshops
+        activate-environment: pypsa-zambia-workshops
         channel-priority: strict
 
     - name: Cache Conda env
@@ -42,17 +42,17 @@ jobs:
 
     - name: Update environment
       run: |
-        conda env update -n open-tyndp-workshops -f environment.yaml
+        conda env update -n pypsa-zambia-workshops -f environment.yaml
         echo "Run conda list" && conda list
 
     # Build the book
     - name: Build the book
       run: |
-        jupyter-book build open-tyndp-workshops
+        jupyter-book build pypsa-zambia-workshops
 
     # Deploy the book's HTML to gh-pages branch
     - name: GitHub Pages action
       uses: peaceiris/actions-gh-pages@v3.6.1
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: open-tyndp-workshops/_build/html
+        publish_dir: pypsa-zambia-workshops/_build/html
