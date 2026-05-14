@@ -1,4 +1,4 @@
-name: open-tyndp-workshops
+name: pypsa-zambia-workshops
 channels:
 - conda-forge
 - bioconda
