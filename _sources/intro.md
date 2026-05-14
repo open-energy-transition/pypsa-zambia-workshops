@@ -1,26 +1,16 @@
-# Welcome: Open-TYNDP Workshops
+# Welcome: PyPSA-Zambia Workshops
 
-Welcome to the website covering a series of hands-on workshops facilitated by Open Energy Transition (OET) to accompany the development of an open-source energy modeling tool for the Ten-Year Network Development Plan (TYNDP).
-With every workshop a new notebook will be added to this website investigating different functionalities of PyPSA and implementations for the Open-TYNDP workflow. All notebooks are currently compatible with PyPSA v1.0.5.
+Welcome to the website covering a series of hands-on workshops facilitated by Open Energy Transition (OET) to accompany the development of an open-source energy modeling tool for Zambia.
+With every workshop a new notebook will be added to this website investigating different functionalities of PyPSA and implementations for the PyPSA-Zambia workflow. All notebooks are currently compatible with PyPSA v1.0.5.
 
-The workshops will, one by one, introduce modellers to the basics of the PyPSA framework and investigate important features of the TYNDP Scenario Building introduced by the OET team.
-Notably, this will include:
-
-- Electricity and H2 reference grids
-- PyPSA framework introduction
-- Snakemake workflows
-- Open-TYNDP benchmarking framework
-- Offshore Hubs
-- Demand profiles
-- Existing supply infrastructure (PEMMDB) & climate data (PECD)
-- EVs, Synthetic fuels & Hybrid Heat Pumps
+The workshops will, one by one, introduce modellers to the basics of the PyPSA framework and investigate important features of PyPSA, Python and other topics.
 
 ## Setting up the environment
 
 ### For the workshop: Google Colab
 
 For these workshops we will cover the material without a local Python installation using the online service  [Google Colab (colab.google)](https://colab.google) which provides an online Python version
-in a [Jupyter Notebook](jupyter.org/) environment. This requires a Google account.
+in a [Jupyter Notebook](https://jupyter.org/) environment. This requires a Google account.
 
 For running the notebook using Google Colab you can simply launch it by clicking on the little rocket symbol in the top right corner of the page:
 
@@ -66,11 +56,11 @@ Windows users have multiple options for this:
 - Recommended: Use [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/install) which will allow you to follow the Linux installation instructions for conda and the python environment.
 - Install Windows native conda via `Anaconda` (described above) or `miniconda` (described above), which gives you access to the "Anaconda Prompt" desktop application. From the Anaconda Prompt, you should be able to run `conda` and other shell commands. Visit the [Conda Website](https://docs.conda.io/projects/conda/en/stable/user-guide/install/windows.html) for more information.
 
-#### Environment for these workshops: `open-tyndp-workshops`
+#### Environment for these workshops: `pypsa-zambia-workshops`
 
 The latest environment specification for this course can be downloaded under the following link as a [`YAML`-file](https://en.wikipedia.org/wiki/YAML):
 
-https://github.com/open-energy-transition/open-tyndp-workshops/blob/main/environment.yaml
+https://github.com/open-energy-transition/pypsa-zambia-workshops/blob/main/environment.yaml
 
 There is a download button in the top-right corner.
 
@@ -81,7 +71,7 @@ you can create this environment using `conda`
 
 Activate this environment
 
-    conda activate open-tyndp-workshops
+    conda activate pypsa-zambia-workshops
 
 This environment should be sufficient for all of your work in these workshops.
 
