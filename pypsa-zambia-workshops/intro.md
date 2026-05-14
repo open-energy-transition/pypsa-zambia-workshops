@@ -10,7 +10,7 @@ The workshops will, one by one, introduce modellers to the basics of the PyPSA f
 ### For the workshop: Google Colab
 
 For these workshops we will cover the material without a local Python installation using the online service  [Google Colab (colab.google)](https://colab.google) which provides an online Python version
-in a [Jupyter Notebook](jupyter.org/) environment. This requires a Google account.
+in a [Jupyter Notebook](https://jupyter.org/) environment. This requires a Google account.
 
 For running the notebook using Google Colab you can simply launch it by clicking on the little rocket symbol in the top right corner of the page:
 
