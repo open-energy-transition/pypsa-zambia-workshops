@@ -17,12 +17,17 @@ If you'd like to develop and/or build the PyPSA-Zambia Workshops book locally, y
 
 1. Clone this repository
 2. Install the environment by running `conda env create -f environment.yaml`
-3. Activate the environment by running `conda activate PyPSA-Zambia-workshops`
-3. (Optional) Edit the books source files located in the `PyPSA-Zambia-workshops/` directory
+3. Activate the environment by running `conda activate pypsa-zambia-workshops`
+3. (Optional) Edit the books source files located in the `pypsa-zambia-workshops/` directory
 4. Run `jupyter-book clean pypsa-zambia-workshops/` to remove any existing builds
 5. Run `jupyter-book build pypsa-zambia-workshops/`
 
 A fully-rendered HTML version of the book will be built in `pypsa-zambia-workshops/_build/html/`.
+
+#### Adding a notebook to the book
+
+1. Add your Jupyter notebook to the `pypsa-zambia-workshops/` folder
+2. Add the filename to the `pypsa-zambia-workshops/_toc.yml`
 
 ### Hosting the book
 
