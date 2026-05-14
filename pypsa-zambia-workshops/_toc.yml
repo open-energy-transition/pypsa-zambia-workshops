@@ -5,6 +5,7 @@ format: jb-book
 root: intro
 chapters:
 - file: 01-workshop-python.ipynb
-
+- file: 09-workshop-pypsa.ipynb
+- file: 10-workshop-pypsa-cem.ipynb
 
 # - file: oet-extension/00-reference.md
