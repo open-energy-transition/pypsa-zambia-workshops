@@ -1,5 +1,11 @@
 # Introduction to Modelling and Scenarios
 
+## Individual learning outcomes
+
+- Use exploratory and normative scenarios approaches to structure a modelling analysis
+- Categorise models and know when to use which sort of model
+- Reflect on the trade-offs and simplifications necessary when translating a real-life energy system into an energy system model.
+
 ## Energy system models are used to answer questions
 
 - What is the least-cost investments in generation to increase security of supply?

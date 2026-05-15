@@ -18,19 +18,20 @@ Start Time | Duration |   | Trainer
 ## Individual learning outcomes
 
 At the end of the training, you will be able to:
-- Describe the difference between optimisation and simulation; capacity expansion and operational modelling approaches; and how time is represented in the PyPSA-Zambia model
+
+- Use exploratory and normative scenarios approaches to structure a modelling analysis
+- Categorise models and know when to use which sort of model
 - Reflect on the trade-offs and simplifications necessary when translating a real-life energy system into an energy system model.
 - Understand the core building blocks of PyPSA-Zambia
   - Snakemake - is a workflow management tool - which splits a complex process into connected rules, each of which performs a task such as downloading data, or computing a value
   - PyPSA - is an energy system modelling framework for representing a sector-coupled energy system
 - Understand the key functional elements of a PyPSA model - lines, generators, links and how they are combined to represent an energy system
-- Interpret the results from a PyPSA model, understanding the difference between model parameters and variables (inputs and results); what insights can be obtained from the model, and how assumptions and data quality affect the results.
 - Use Python operators, data types (lists, dicts etc.), write functions into scripts which you can execute.
+- Interpret the results from a PyPSA model, understanding the difference between model parameters and variables (inputs and results); what insights can be obtained from the model, and how assumptions and data quality affect the results.
 
 Will not be covering the following in today's workshop:
 - Critique the choice of (public) data sources, and how these might influence the model results.
 - Understand and describe the different types of data used to parameterise a PyPSA model, including spatial data (raster, vector), timeseries, economic (cost), load/demand, renewable resource and other datasets.
-
 
 ## Teaching and Learning Style
 
