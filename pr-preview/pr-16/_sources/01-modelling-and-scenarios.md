@@ -1,16 +1,4 @@
-# Introduction to Energy System Modelling for Policy Support
-
-## Teaching and Learning Style
-
-- Our aim is to give you the knowledge you need to support this project
-- Interactive 
-  - ask questions 
-  - be prepared to reflect on and think about the subject
-- If you don't understand a concept, please stop me and ask
-  - there are no silly questions
-- Be nice
-  - Listen - let others speak
-  - Support one another's learning
+# Introduction to Modelling and Scenarios
 
 ## Energy system models are used to answer questions
 
