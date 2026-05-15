@@ -1,3 +1,5 @@
+[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/open-energy-transition/pypsa-zambia-workshops/badge)](https://scorecard.dev/viewer/?uri=github.com/open-energy-transition/pypsa-zambia-workshops)
+
 # PyPSA-Zambia Workshops
 
 Series of hands-on workshops facilitated by Open Energy Transition (OET) to accompany the development of an open-source energy modeling tool for Zambia.
