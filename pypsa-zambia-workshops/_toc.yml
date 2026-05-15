@@ -8,6 +8,7 @@ chapters:
 - file: 00-overview.md
 - file: 01-modelling-and-scenarios.md
 - file: 05-workshop-python.ipynb
+- file: 08-closing.md
 
 
 # - file: oet-extension/00-reference.md
