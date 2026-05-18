@@ -3,9 +3,13 @@
 
 format: jb-book
 root: intro
+
 chapters:
-- file: 01-workshop-python.ipynb
+- file: 00-overview.md
+- file: 01-modelling-and-scenarios.md
 - file: 02-pypsa-components.ipynb
+- file: 05-workshop-python.ipynb
+- file: 08-closing.md
 
 
 # - file: oet-extension/00-reference.md
