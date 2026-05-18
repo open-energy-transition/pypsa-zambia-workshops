@@ -1,0 +1,2078 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Add generators &#8212; PyPSA-Zambia Workshops</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '02-pypsa-scenarios';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/oet_logo.svg" class="logo__image only-light" alt="PyPSA-Zambia Workshops - Home"/>
+    <img src="_static/oet_logo.svg" class="logo__image only-dark pst-js-only" alt="PyPSA-Zambia Workshops - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome: PyPSA-Zambia Workshops
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="00-overview.html">Overview of the workshop and individual learning outcomes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-modelling-and-scenarios.html">Introduction to Modelling and Scenarios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05-workshop-python.html">Python</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="08-closing.html">Summary of the day</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/open-energy-transition/pypsa-zambia-workshops/blob/zambia/pypsa-zambia-workshops/02-pypsa-scenarios.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/open-energy-transition/pypsa-zambia-workshops" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/open-energy-transition/pypsa-zambia-workshops/issues/new?title=Issue%20on%20page%20%2F02-pypsa-scenarios.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/02-pypsa-scenarios.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Add generators</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Add generators</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#add-loads">Add loads</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modify-network">Modify network</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hydrological-scenarios">Hydrological scenarios</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pypsa</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span><span class="w"> </span><span class="nn">pypsa</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">miniconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">pypsa</span><span class="o">-</span><span class="n">zambia</span><span class="o">-</span><span class="n">workshops</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.13</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">pypsa</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">21</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="n">__copyright__</span> <span class="o">=</span> <span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span>     <span class="s2">&quot;Copyright 2015-2025 PyPSA Developers, see https://docs.pypsa.org/latest/contributing/contributors.html, &quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span>     <span class="s2">&quot;MIT License&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">NoReturn</span>
+<span class="ne">---&gt; </span><span class="mi">21</span> <span class="kn">from</span><span class="w"> </span><span class="nn">pypsa</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span>     <span class="n">clustering</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span>     <span class="n">common</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span>     <span class="n">components</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">25</span>     <span class="n">costs</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">26</span>     <span class="n">descriptors</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">27</span>     <span class="n">examples</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">28</span>     <span class="n">geo</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">29</span>     <span class="n">optimization</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">30</span>     <span class="n">plot</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">31</span>     <span class="n">statistics</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">32</span> <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">33</span> <span class="kn">from</span><span class="w"> </span><span class="nn">pypsa._options</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">34</span>     <span class="n">option_context</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">35</span>     <span class="n">options</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">36</span> <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">37</span> <span class="kn">from</span><span class="w"> </span><span class="nn">pypsa.collection</span><span class="w"> </span><span class="kn">import</span> <span class="n">NetworkCollection</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">miniconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">pypsa</span><span class="o">-</span><span class="n">zambia</span><span class="o">-</span><span class="n">workshops</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.13</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">pypsa</span><span class="o">/</span><span class="n">examples</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">19</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="kn">from</span><span class="w"> </span><span class="nn">platformdirs</span><span class="w"> </span><span class="kn">import</span> <span class="n">user_cache_dir</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="kn">from</span><span class="w"> </span><span class="nn">pypsa._options</span><span class="w"> </span><span class="kn">import</span> <span class="n">options</span>
+<span class="ne">---&gt; </span><span class="mi">19</span> <span class="kn">from</span><span class="w"> </span><span class="nn">pypsa.networks</span><span class="w"> </span><span class="kn">import</span> <span class="n">Network</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="kn">from</span><span class="w"> </span><span class="nn">pypsa.version</span><span class="w"> </span><span class="kn">import</span> <span class="n">__version_base__</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">miniconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">pypsa</span><span class="o">-</span><span class="n">zambia</span><span class="o">-</span><span class="n">workshops</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.13</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">pypsa</span><span class="o">/</span><span class="n">networks</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">29</span>
+<span class="g g-Whitespace">     </span><span class="mi">25</span>     <span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="g g-Whitespace">     </span><span class="mi">27</span> <span class="kn">import</span><span class="w"> </span><span class="nn">functools</span>
+<span class="ne">---&gt; </span><span class="mi">29</span> <span class="kn">import</span><span class="w"> </span><span class="nn">linopy</span>
+<span class="g g-Whitespace">     </span><span class="mi">30</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="g g-Whitespace">     </span><span class="mi">31</span> <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">miniconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">pypsa</span><span class="o">-</span><span class="n">zambia</span><span class="o">-</span><span class="n">workshops</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.13</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">linopy</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">21</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="kn">from</span><span class="w"> </span><span class="nn">linopy.expressions</span><span class="w"> </span><span class="kn">import</span> <span class="n">LinearExpression</span><span class="p">,</span> <span class="n">QuadraticExpression</span><span class="p">,</span> <span class="n">merge</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="kn">from</span><span class="w"> </span><span class="nn">linopy.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">read_netcdf</span>
+<span class="ne">---&gt; </span><span class="mi">21</span> <span class="kn">from</span><span class="w"> </span><span class="nn">linopy.model</span><span class="w"> </span><span class="kn">import</span> <span class="n">Model</span><span class="p">,</span> <span class="n">Variable</span><span class="p">,</span> <span class="n">Variables</span><span class="p">,</span> <span class="n">available_solvers</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="kn">from</span><span class="w"> </span><span class="nn">linopy.objective</span><span class="w"> </span><span class="kn">import</span> <span class="n">Objective</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span> <span class="kn">from</span><span class="w"> </span><span class="nn">linopy.remote</span><span class="w"> </span><span class="kn">import</span> <span class="n">OetcHandler</span><span class="p">,</span> <span class="n">RemoteHandler</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">miniconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">pypsa</span><span class="o">-</span><span class="n">zambia</span><span class="o">-</span><span class="n">workshops</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.13</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">linopy</span><span class="o">/</span><span class="n">model</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">63</span>
+<span class="g g-Whitespace">     </span><span class="mi">61</span> <span class="kn">from</span><span class="w"> </span><span class="nn">linopy.matrices</span><span class="w"> </span><span class="kn">import</span> <span class="n">MatrixAccessor</span>
+<span class="g g-Whitespace">     </span><span class="mi">62</span> <span class="kn">from</span><span class="w"> </span><span class="nn">linopy.objective</span><span class="w"> </span><span class="kn">import</span> <span class="n">Objective</span>
+<span class="ne">---&gt; </span><span class="mi">63</span> <span class="kn">from</span><span class="w"> </span><span class="nn">linopy.remote</span><span class="w"> </span><span class="kn">import</span> <span class="n">OetcHandler</span><span class="p">,</span> <span class="n">RemoteHandler</span>
+<span class="g g-Whitespace">     </span><span class="mi">64</span> <span class="kn">from</span><span class="w"> </span><span class="nn">linopy.solver_capabilities</span><span class="w"> </span><span class="kn">import</span> <span class="n">SolverFeature</span><span class="p">,</span> <span class="n">solver_supports</span>
+<span class="g g-Whitespace">     </span><span class="mi">65</span> <span class="kn">from</span><span class="w"> </span><span class="nn">linopy.solvers</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">66</span>     <span class="n">IO_APIS</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">67</span>     <span class="n">available_solvers</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">68</span> <span class="p">)</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">miniconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">pypsa</span><span class="o">-</span><span class="n">zambia</span><span class="o">-</span><span class="n">workshops</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.13</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">linopy</span><span class="o">/</span><span class="n">remote</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">11</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span><span class="sd"> Remote execution handlers for linopy models.</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span><span class="sd"> </span>
+<span class="sd">   (...)      8 - OetcHandler: Cloud-based execution via OET Cloud service</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="ne">---&gt; </span><span class="mi">11</span> <span class="kn">from</span><span class="w"> </span><span class="nn">linopy.remote.oetc</span><span class="w"> </span><span class="kn">import</span> <span class="n">OetcCredentials</span><span class="p">,</span> <span class="n">OetcHandler</span><span class="p">,</span> <span class="n">OetcSettings</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="kn">from</span><span class="w"> </span><span class="nn">linopy.remote.ssh</span><span class="w"> </span><span class="kn">import</span> <span class="n">RemoteHandler</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span>     <span class="s2">&quot;RemoteHandler&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span>     <span class="s2">&quot;OetcHandler&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span>     <span class="s2">&quot;OetcSettings&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span>     <span class="s2">&quot;OetcCredentials&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="p">]</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">miniconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">pypsa</span><span class="o">-</span><span class="n">zambia</span><span class="o">-</span><span class="n">workshops</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.13</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">linopy</span><span class="o">/</span><span class="n">remote</span><span class="o">/</span><span class="n">oetc</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">13</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="kn">from</span><span class="w"> </span><span class="nn">enum</span><span class="w"> </span><span class="kn">import</span> <span class="n">Enum</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<span class="ne">---&gt; </span><span class="mi">13</span> <span class="kn">from</span><span class="w"> </span><span class="nn">google.cloud</span><span class="w"> </span><span class="kn">import</span> <span class="n">storage</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="kn">from</span><span class="w"> </span><span class="nn">google.oauth2</span><span class="w"> </span><span class="kn">import</span> <span class="n">service_account</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="kn">from</span><span class="w"> </span><span class="nn">requests</span><span class="w"> </span><span class="kn">import</span> <span class="n">RequestException</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">miniconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">pypsa</span><span class="o">-</span><span class="n">zambia</span><span class="o">-</span><span class="n">workshops</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.13</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">google</span><span class="o">/</span><span class="n">cloud</span><span class="o">/</span><span class="n">storage</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">35</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Copyright 2014 Google LLC</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1">#</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>     <span class="mi">12</span> <span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="c1"># limitations under the License.</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Shortcut methods for getting set up with Google Cloud Storage.</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span><span class="sd"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span><span class="sd"> You&#39;ll typically use these to get started with the API:</span>
+<span class="sd">   (...)     31   machine).</span>
+<span class="g g-Whitespace">     </span><span class="mi">32</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="ne">---&gt; </span><span class="mi">35</span> <span class="kn">from</span><span class="w"> </span><span class="nn">pkg_resources</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_distribution</span>
+<span class="g g-Whitespace">     </span><span class="mi">37</span> <span class="n">__version__</span> <span class="o">=</span> <span class="n">get_distribution</span><span class="p">(</span><span class="s2">&quot;google-cloud-storage&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">version</span>
+<span class="g g-Whitespace">     </span><span class="mi">39</span> <span class="kn">from</span><span class="w"> </span><span class="nn">google.cloud.storage.batch</span><span class="w"> </span><span class="kn">import</span> <span class="n">Batch</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;pkg_resources&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="n">pypsa</span><span class="o">.</span><span class="n">Network</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Bus&quot;</span><span class="p">,</span> <span class="s2">&quot;Copperbelt&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=-</span><span class="mf">15.42</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mf">28.2</span><span class="p">,</span> <span class="n">v_nom</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
+<span class="n">n</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Bus&quot;</span><span class="p">,</span> <span class="s2">&quot;Lusaka&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=-</span><span class="mf">13.0</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mf">28.0</span><span class="p">,</span> <span class="n">v_nom</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+    <span class="s2">&quot;Line&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Lusaka-Copperbelt&quot;</span><span class="p">,</span>
+    <span class="n">bus0</span><span class="o">=</span><span class="s2">&quot;Lusaka&quot;</span><span class="p">,</span>
+    <span class="n">bus1</span><span class="o">=</span><span class="s2">&quot;Copperbelt&quot;</span><span class="p">,</span>
+    <span class="n">s_nom</span><span class="o">=</span><span class="mi">1_500</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">r</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">explore</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:pypsa.plot:Components rendered on the map: Bus, Line.
+INFO:pypsa.plot:Components omitted as they are missing or not selected: Generator, Link, Load, StorageUnit, Transformer.
+</pre></div>
+</div>
+<div class="output text_html"><div style="width:100%;"><div style="position:relative;width:100%;height:0;padding-bottom:60%;"><span style="color:#565656">Make this Notebook Trusted to load map: File -> Trust Notebook</span><iframe srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    
+    &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=UTF-8&quot; /&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://code.jquery.com/jquery-3.7.1.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js&quot;&gt;&lt;/script&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css&quot;/&gt;
+    
+            &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
+            &lt;style&gt;
+                #map_4dfa9b7e8b60d32b7b3d1951d31971e9 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            &lt;/style&gt;
+
+            &lt;style&gt;html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            &lt;/style&gt;
+
+            &lt;style&gt;#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            &lt;/style&gt;
+
+            &lt;script&gt;
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            &lt;/script&gt;
+
+        
+    
+                    &lt;style&gt;
+                        .foliumtooltip {
+                            
+                        }
+                       .foliumtooltip table{
+                            margin: auto;
+                        }
+                        .foliumtooltip tr{
+                            text-align: left;
+                        }
+                        .foliumtooltip th{
+                            padding: 2px; padding-right: 8px;
+                        }
+                    &lt;/style&gt;
+            
+    
+                    &lt;style&gt;
+                        .foliumpopup {
+                            margin: auto;
+                        }
+                       .foliumpopup table{
+                            margin: auto;
+                        }
+                        .foliumpopup tr{
+                            text-align: left;
+                        }
+                        .foliumpopup th{
+                            padding: 2px; padding-right: 8px;
+                        }
+                    &lt;/style&gt;
+            
+    
+                    &lt;style&gt;
+                        .foliumtooltip {
+                            
+                        }
+                       .foliumtooltip table{
+                            margin: auto;
+                        }
+                        .foliumtooltip tr{
+                            text-align: left;
+                        }
+                        .foliumtooltip th{
+                            padding: 2px; padding-right: 8px;
+                        }
+                    &lt;/style&gt;
+            
+    
+                    &lt;style&gt;
+                        .foliumpopup {
+                            margin: auto;
+                        }
+                       .foliumpopup table{
+                            margin: auto;
+                        }
+                        .foliumpopup tr{
+                            text-align: left;
+                        }
+                        .foliumpopup th{
+                            padding: 2px; padding-right: 8px;
+                        }
+                    &lt;/style&gt;
+            
+&lt;/head&gt;
+&lt;body&gt;
+    
+    &lt;h4 style=&#x27;position:absolute;z-index:100000;left:1vw;bottom:5px&#x27;&gt;PyPSA Network: &lt;/h4&gt;
+    
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_4dfa9b7e8b60d32b7b3d1951d31971e9&quot; &gt;&lt;/div&gt;
+        
+&lt;/body&gt;
+&lt;script&gt;
+    
+    
+            var map_4dfa9b7e8b60d32b7b3d1951d31971e9 = L.map(
+                &quot;map_4dfa9b7e8b60d32b7b3d1951d31971e9&quot;,
+                {
+                    center: [0.0, 0.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  &quot;zoom&quot;: 1,
+  &quot;zoomControl&quot;: true,
+  &quot;preferCanvas&quot;: false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_e014b8df8d11b2b20496679c79ab8364 = L.tileLayer(
+                &quot;https://tile.openstreetmap.org/{z}/{x}/{y}.png&quot;,
+                {
+  &quot;minZoom&quot;: 0,
+  &quot;maxZoom&quot;: 19,
+  &quot;maxNativeZoom&quot;: 19,
+  &quot;noWrap&quot;: false,
+  &quot;attribution&quot;: &quot;\u0026copy; \u003ca href=\&quot;https://www.openstreetmap.org/copyright\&quot;\u003eOpenStreetMap\u003c/a\u003e contributors&quot;,
+  &quot;subdomains&quot;: &quot;abc&quot;,
+  &quot;detectRetina&quot;: false,
+  &quot;tms&quot;: false,
+  &quot;opacity&quot;: 1,
+}
+
+            );
+        
+    
+            tile_layer_e014b8df8d11b2b20496679c79ab8364.addTo(map_4dfa9b7e8b60d32b7b3d1951d31971e9);
+        
+    
+        function geo_json_918e69bf615124b5bb77dd329d474df4_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {&quot;color&quot;: &quot;#BC8F8F&quot;, &quot;fillColor&quot;: &quot;#BC8F8F&quot;, &quot;fillOpacity&quot;: 0.5, &quot;weight&quot;: 2};
+            }
+        }
+        function geo_json_918e69bf615124b5bb77dd329d474df4_highlighter(feature) {
+            switch(feature.id) {
+                default:
+                    return {&quot;fillOpacity&quot;: 0.75};
+            }
+        }
+        function geo_json_918e69bf615124b5bb77dd329d474df4_pointToLayer(feature, latlng) {
+            var opts = {
+  &quot;stroke&quot;: true,
+  &quot;color&quot;: &quot;#3388ff&quot;,
+  &quot;weight&quot;: 3,
+  &quot;opacity&quot;: 1.0,
+  &quot;lineCap&quot;: &quot;round&quot;,
+  &quot;lineJoin&quot;: &quot;round&quot;,
+  &quot;dashArray&quot;: null,
+  &quot;dashOffset&quot;: null,
+  &quot;fill&quot;: true,
+  &quot;fillColor&quot;: &quot;#3388ff&quot;,
+  &quot;fillOpacity&quot;: 0.2,
+  &quot;fillRule&quot;: &quot;evenodd&quot;,
+  &quot;bubblingMouseEvents&quot;: true,
+  &quot;radius&quot;: 2,
+};
+            
+            let style = geo_json_918e69bf615124b5bb77dd329d474df4_styler(feature)
+            Object.assign(opts, style)
+            
+            return new L.CircleMarker(latlng, opts)
+        }
+
+        function geo_json_918e69bf615124b5bb77dd329d474df4_onEachFeature(feature, layer) {
+
+            layer.on({
+                mouseout: function(e) {
+                    if(typeof e.target.setStyle === &quot;function&quot;){
+                            geo_json_918e69bf615124b5bb77dd329d474df4.resetStyle(e.target);
+                    }
+                },
+                mouseover: function(e) {
+                    if(typeof e.target.setStyle === &quot;function&quot;){
+                        const highlightStyle = geo_json_918e69bf615124b5bb77dd329d474df4_highlighter(e.target.feature)
+                        e.target.setStyle(highlightStyle);
+                    }
+                },
+            });
+        };
+        var geo_json_918e69bf615124b5bb77dd329d474df4 = L.geoJson(null, {
+                onEachFeature: geo_json_918e69bf615124b5bb77dd329d474df4_onEachFeature,
+            
+                style: geo_json_918e69bf615124b5bb77dd329d474df4_styler,
+                pointToLayer: geo_json_918e69bf615124b5bb77dd329d474df4_pointToLayer,
+            ...{
+}
+        });
+
+        function geo_json_918e69bf615124b5bb77dd329d474df4_add (data) {
+            geo_json_918e69bf615124b5bb77dd329d474df4
+                .addData(data);
+        }
+            geo_json_918e69bf615124b5bb77dd329d474df4_add({&quot;bbox&quot;: [28.0, -15.42, 28.2, -13.0], &quot;features&quot;: [{&quot;bbox&quot;: [28.0, -15.42, 28.2, -13.0], &quot;geometry&quot;: {&quot;coordinates&quot;: [[28.0, -13.0], [28.2, -15.42]], &quot;type&quot;: &quot;LineString&quot;}, &quot;id&quot;: &quot;0&quot;, &quot;properties&quot;: {&quot;Line&quot;: &quot;Lusaka-Copperbelt&quot;, &quot;__folium_color&quot;: &quot;#BC8F8F&quot;, &quot;b&quot;: 0.0, &quot;b_pu&quot;: 0.0, &quot;build_year&quot;: 0, &quot;bus0&quot;: &quot;Lusaka&quot;, &quot;bus1&quot;: &quot;Copperbelt&quot;, &quot;capital_cost&quot;: 0.0, &quot;carrier&quot;: &quot;&quot;, &quot;g&quot;: 0.0, &quot;g_pu&quot;: 0.0, &quot;length&quot;: 0.0, &quot;lifetime&quot;: Infinity, &quot;num_parallel&quot;: 1.0, &quot;r&quot;: 1.0, &quot;r_pu&quot;: 0.0, &quot;r_pu_eff&quot;: 0.0, &quot;s_max_pu&quot;: 1.0, &quot;s_nom&quot;: 1500.0, &quot;s_nom_extendable&quot;: false, &quot;s_nom_max&quot;: Infinity, &quot;s_nom_min&quot;: 0.0, &quot;s_nom_mod&quot;: 0.0, &quot;s_nom_opt&quot;: 0.0, &quot;sub_network&quot;: &quot;&quot;, &quot;terrain_factor&quot;: 1.0, &quot;type&quot;: &quot;&quot;, &quot;v_ang_max&quot;: Infinity, &quot;v_ang_min&quot;: -Infinity, &quot;x&quot;: 1.0, &quot;x_pu&quot;: 0.0, &quot;x_pu_eff&quot;: 0.0}, &quot;type&quot;: &quot;Feature&quot;}], &quot;type&quot;: &quot;FeatureCollection&quot;});
+
+        
+    
+    geo_json_918e69bf615124b5bb77dd329d474df4.bindTooltip(
+    function(layer){
+    let div = L.DomUtil.create(&#x27;div&#x27;);
+    
+    let handleObject = feature =&gt; {
+        if (feature === null) {
+            return &#x27;&#x27;;
+        } else if (typeof(feature)==&#x27;object&#x27;) {
+            return JSON.stringify(feature);
+        } else {
+            return feature;
+        }
+    }
+    let fields = [&quot;Line&quot;, &quot;bus0&quot;, &quot;bus1&quot;, &quot;type&quot;, &quot;x&quot;, &quot;r&quot;, &quot;g&quot;, &quot;b&quot;, &quot;s_nom&quot;, &quot;s_nom_mod&quot;, &quot;s_nom_extendable&quot;, &quot;s_nom_min&quot;, &quot;s_nom_max&quot;, &quot;s_max_pu&quot;, &quot;capital_cost&quot;, &quot;build_year&quot;, &quot;lifetime&quot;, &quot;length&quot;, &quot;carrier&quot;, &quot;terrain_factor&quot;, &quot;num_parallel&quot;, &quot;v_ang_min&quot;, &quot;v_ang_max&quot;, &quot;sub_network&quot;, &quot;x_pu&quot;, &quot;r_pu&quot;, &quot;g_pu&quot;, &quot;b_pu&quot;, &quot;x_pu_eff&quot;, &quot;r_pu_eff&quot;, &quot;s_nom_opt&quot;];
+    let aliases = [&quot;Line&quot;, &quot;bus0&quot;, &quot;bus1&quot;, &quot;type&quot;, &quot;x&quot;, &quot;r&quot;, &quot;g&quot;, &quot;b&quot;, &quot;s_nom&quot;, &quot;s_nom_mod&quot;, &quot;s_nom_extendable&quot;, &quot;s_nom_min&quot;, &quot;s_nom_max&quot;, &quot;s_max_pu&quot;, &quot;capital_cost&quot;, &quot;build_year&quot;, &quot;lifetime&quot;, &quot;length&quot;, &quot;carrier&quot;, &quot;terrain_factor&quot;, &quot;num_parallel&quot;, &quot;v_ang_min&quot;, &quot;v_ang_max&quot;, &quot;sub_network&quot;, &quot;x_pu&quot;, &quot;r_pu&quot;, &quot;g_pu&quot;, &quot;b_pu&quot;, &quot;x_pu_eff&quot;, &quot;r_pu_eff&quot;, &quot;s_nom_opt&quot;];
+    let table = &#x27;&lt;table&gt;&#x27; +
+        String(
+        fields.map(
+        (v,i)=&gt;
+        `&lt;tr&gt;
+            &lt;th&gt;${aliases[i]}&lt;/th&gt;
+            
+            &lt;td&gt;${handleObject(layer.feature.properties[v])}&lt;/td&gt;
+        &lt;/tr&gt;`).join(&#x27;&#x27;))
+    +&#x27;&lt;/table&gt;&#x27;;
+    div.innerHTML=table;
+    
+    return div
+    }
+    ,{
+  &quot;sticky&quot;: true,
+  &quot;className&quot;: &quot;foliumtooltip&quot;,
+});
+                     
+    
+    geo_json_918e69bf615124b5bb77dd329d474df4.bindPopup(
+    function(layer){
+    let div = L.DomUtil.create(&#x27;div&#x27;);
+    
+    let handleObject = feature =&gt; {
+        if (feature === null) {
+            return &#x27;&#x27;;
+        } else if (typeof(feature)==&#x27;object&#x27;) {
+            return JSON.stringify(feature);
+        } else {
+            return feature;
+        }
+    }
+    let fields = [&quot;Line&quot;, &quot;bus0&quot;, &quot;bus1&quot;, &quot;type&quot;, &quot;x&quot;, &quot;r&quot;, &quot;g&quot;, &quot;b&quot;, &quot;s_nom&quot;, &quot;s_nom_mod&quot;, &quot;s_nom_extendable&quot;, &quot;s_nom_min&quot;, &quot;s_nom_max&quot;, &quot;s_max_pu&quot;, &quot;capital_cost&quot;, &quot;build_year&quot;, &quot;lifetime&quot;, &quot;length&quot;, &quot;carrier&quot;, &quot;terrain_factor&quot;, &quot;num_parallel&quot;, &quot;v_ang_min&quot;, &quot;v_ang_max&quot;, &quot;sub_network&quot;, &quot;x_pu&quot;, &quot;r_pu&quot;, &quot;g_pu&quot;, &quot;b_pu&quot;, &quot;x_pu_eff&quot;, &quot;r_pu_eff&quot;, &quot;s_nom_opt&quot;];
+    let aliases = [&quot;Line&quot;, &quot;bus0&quot;, &quot;bus1&quot;, &quot;type&quot;, &quot;x&quot;, &quot;r&quot;, &quot;g&quot;, &quot;b&quot;, &quot;s_nom&quot;, &quot;s_nom_mod&quot;, &quot;s_nom_extendable&quot;, &quot;s_nom_min&quot;, &quot;s_nom_max&quot;, &quot;s_max_pu&quot;, &quot;capital_cost&quot;, &quot;build_year&quot;, &quot;lifetime&quot;, &quot;length&quot;, &quot;carrier&quot;, &quot;terrain_factor&quot;, &quot;num_parallel&quot;, &quot;v_ang_min&quot;, &quot;v_ang_max&quot;, &quot;sub_network&quot;, &quot;x_pu&quot;, &quot;r_pu&quot;, &quot;g_pu&quot;, &quot;b_pu&quot;, &quot;x_pu_eff&quot;, &quot;r_pu_eff&quot;, &quot;s_nom_opt&quot;];
+    let table = &#x27;&lt;table&gt;&#x27; +
+        String(
+        fields.map(
+        (v,i)=&gt;
+        `&lt;tr&gt;
+            &lt;th&gt;${aliases[i].toLocaleString()}&lt;/th&gt;
+            
+            &lt;td&gt;${handleObject(layer.feature.properties[v]).toLocaleString()}&lt;/td&gt;
+        &lt;/tr&gt;`).join(&#x27;&#x27;))
+    +&#x27;&lt;/table&gt;&#x27;;
+    div.innerHTML=table;
+    
+    return div
+    }
+    ,{
+  &quot;className&quot;: &quot;foliumpopup&quot;,
+});
+                     
+    
+            geo_json_918e69bf615124b5bb77dd329d474df4.addTo(map_4dfa9b7e8b60d32b7b3d1951d31971e9);
+        
+    
+        function geo_json_04eb838bf9a6e4644ea93dea53a159d3_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {&quot;color&quot;: &quot;#5F9EA0&quot;, &quot;fillColor&quot;: &quot;#5F9EA0&quot;, &quot;fillOpacity&quot;: 0.5, &quot;weight&quot;: 2};
+            }
+        }
+        function geo_json_04eb838bf9a6e4644ea93dea53a159d3_highlighter(feature) {
+            switch(feature.id) {
+                default:
+                    return {&quot;fillOpacity&quot;: 0.75};
+            }
+        }
+        function geo_json_04eb838bf9a6e4644ea93dea53a159d3_pointToLayer(feature, latlng) {
+            var opts = {
+  &quot;stroke&quot;: true,
+  &quot;color&quot;: &quot;#3388ff&quot;,
+  &quot;weight&quot;: 3,
+  &quot;opacity&quot;: 1.0,
+  &quot;lineCap&quot;: &quot;round&quot;,
+  &quot;lineJoin&quot;: &quot;round&quot;,
+  &quot;dashArray&quot;: null,
+  &quot;dashOffset&quot;: null,
+  &quot;fill&quot;: true,
+  &quot;fillColor&quot;: &quot;#3388ff&quot;,
+  &quot;fillOpacity&quot;: 0.2,
+  &quot;fillRule&quot;: &quot;evenodd&quot;,
+  &quot;bubblingMouseEvents&quot;: true,
+  &quot;radius&quot;: 4,
+};
+            
+            let style = geo_json_04eb838bf9a6e4644ea93dea53a159d3_styler(feature)
+            Object.assign(opts, style)
+            
+            return new L.CircleMarker(latlng, opts)
+        }
+
+        function geo_json_04eb838bf9a6e4644ea93dea53a159d3_onEachFeature(feature, layer) {
+
+            layer.on({
+                mouseout: function(e) {
+                    if(typeof e.target.setStyle === &quot;function&quot;){
+                            geo_json_04eb838bf9a6e4644ea93dea53a159d3.resetStyle(e.target);
+                    }
+                },
+                mouseover: function(e) {
+                    if(typeof e.target.setStyle === &quot;function&quot;){
+                        const highlightStyle = geo_json_04eb838bf9a6e4644ea93dea53a159d3_highlighter(e.target.feature)
+                        e.target.setStyle(highlightStyle);
+                    }
+                },
+            });
+        };
+        var geo_json_04eb838bf9a6e4644ea93dea53a159d3 = L.geoJson(null, {
+                onEachFeature: geo_json_04eb838bf9a6e4644ea93dea53a159d3_onEachFeature,
+            
+                style: geo_json_04eb838bf9a6e4644ea93dea53a159d3_styler,
+                pointToLayer: geo_json_04eb838bf9a6e4644ea93dea53a159d3_pointToLayer,
+            ...{
+}
+        });
+
+        function geo_json_04eb838bf9a6e4644ea93dea53a159d3_add (data) {
+            geo_json_04eb838bf9a6e4644ea93dea53a159d3
+                .addData(data);
+        }
+            geo_json_04eb838bf9a6e4644ea93dea53a159d3_add({&quot;bbox&quot;: [28.0, -15.42, 28.2, -13.0], &quot;features&quot;: [{&quot;bbox&quot;: [28.2, -15.42, 28.2, -15.42], &quot;geometry&quot;: {&quot;coordinates&quot;: [28.2, -15.42], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;0&quot;, &quot;properties&quot;: {&quot;Bus&quot;: &quot;Copperbelt&quot;, &quot;__folium_color&quot;: &quot;#5F9EA0&quot;, &quot;carrier&quot;: &quot;AC&quot;, &quot;control&quot;: &quot;PQ&quot;, &quot;generator&quot;: &quot;&quot;, &quot;sub_network&quot;: &quot;&quot;, &quot;type&quot;: &quot;&quot;, &quot;unit&quot;: &quot;&quot;, &quot;v_mag_pu_max&quot;: Infinity, &quot;v_mag_pu_min&quot;: 0.0, &quot;v_mag_pu_set&quot;: 1.0, &quot;v_nom&quot;: 400.0, &quot;x&quot;: 28.2, &quot;y&quot;: -15.42}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [28.0, -13.0, 28.0, -13.0], &quot;geometry&quot;: {&quot;coordinates&quot;: [28.0, -13.0], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;1&quot;, &quot;properties&quot;: {&quot;Bus&quot;: &quot;Lusaka&quot;, &quot;__folium_color&quot;: &quot;#5F9EA0&quot;, &quot;carrier&quot;: &quot;AC&quot;, &quot;control&quot;: &quot;PQ&quot;, &quot;generator&quot;: &quot;&quot;, &quot;sub_network&quot;: &quot;&quot;, &quot;type&quot;: &quot;&quot;, &quot;unit&quot;: &quot;&quot;, &quot;v_mag_pu_max&quot;: Infinity, &quot;v_mag_pu_min&quot;: 0.0, &quot;v_mag_pu_set&quot;: 1.0, &quot;v_nom&quot;: 400.0, &quot;x&quot;: 28.0, &quot;y&quot;: -13.0}, &quot;type&quot;: &quot;Feature&quot;}], &quot;type&quot;: &quot;FeatureCollection&quot;});
+
+        
+    
+    geo_json_04eb838bf9a6e4644ea93dea53a159d3.bindTooltip(
+    function(layer){
+    let div = L.DomUtil.create(&#x27;div&#x27;);
+    
+    let handleObject = feature =&gt; {
+        if (feature === null) {
+            return &#x27;&#x27;;
+        } else if (typeof(feature)==&#x27;object&#x27;) {
+            return JSON.stringify(feature);
+        } else {
+            return feature;
+        }
+    }
+    let fields = [&quot;Bus&quot;, &quot;v_nom&quot;, &quot;type&quot;, &quot;x&quot;, &quot;y&quot;, &quot;carrier&quot;, &quot;unit&quot;, &quot;v_mag_pu_set&quot;, &quot;v_mag_pu_min&quot;, &quot;v_mag_pu_max&quot;, &quot;control&quot;, &quot;generator&quot;, &quot;sub_network&quot;];
+    let aliases = [&quot;Bus&quot;, &quot;v_nom&quot;, &quot;type&quot;, &quot;x&quot;, &quot;y&quot;, &quot;carrier&quot;, &quot;unit&quot;, &quot;v_mag_pu_set&quot;, &quot;v_mag_pu_min&quot;, &quot;v_mag_pu_max&quot;, &quot;control&quot;, &quot;generator&quot;, &quot;sub_network&quot;];
+    let table = &#x27;&lt;table&gt;&#x27; +
+        String(
+        fields.map(
+        (v,i)=&gt;
+        `&lt;tr&gt;
+            &lt;th&gt;${aliases[i]}&lt;/th&gt;
+            
+            &lt;td&gt;${handleObject(layer.feature.properties[v])}&lt;/td&gt;
+        &lt;/tr&gt;`).join(&#x27;&#x27;))
+    +&#x27;&lt;/table&gt;&#x27;;
+    div.innerHTML=table;
+    
+    return div
+    }
+    ,{
+  &quot;sticky&quot;: true,
+  &quot;className&quot;: &quot;foliumtooltip&quot;,
+});
+                     
+    
+    geo_json_04eb838bf9a6e4644ea93dea53a159d3.bindPopup(
+    function(layer){
+    let div = L.DomUtil.create(&#x27;div&#x27;);
+    
+    let handleObject = feature =&gt; {
+        if (feature === null) {
+            return &#x27;&#x27;;
+        } else if (typeof(feature)==&#x27;object&#x27;) {
+            return JSON.stringify(feature);
+        } else {
+            return feature;
+        }
+    }
+    let fields = [&quot;Bus&quot;, &quot;v_nom&quot;, &quot;type&quot;, &quot;x&quot;, &quot;y&quot;, &quot;carrier&quot;, &quot;unit&quot;, &quot;v_mag_pu_set&quot;, &quot;v_mag_pu_min&quot;, &quot;v_mag_pu_max&quot;, &quot;control&quot;, &quot;generator&quot;, &quot;sub_network&quot;];
+    let aliases = [&quot;Bus&quot;, &quot;v_nom&quot;, &quot;type&quot;, &quot;x&quot;, &quot;y&quot;, &quot;carrier&quot;, &quot;unit&quot;, &quot;v_mag_pu_set&quot;, &quot;v_mag_pu_min&quot;, &quot;v_mag_pu_max&quot;, &quot;control&quot;, &quot;generator&quot;, &quot;sub_network&quot;];
+    let table = &#x27;&lt;table&gt;&#x27; +
+        String(
+        fields.map(
+        (v,i)=&gt;
+        `&lt;tr&gt;
+            &lt;th&gt;${aliases[i].toLocaleString()}&lt;/th&gt;
+            
+            &lt;td&gt;${handleObject(layer.feature.properties[v]).toLocaleString()}&lt;/td&gt;
+        &lt;/tr&gt;`).join(&#x27;&#x27;))
+    +&#x27;&lt;/table&gt;&#x27;;
+    div.innerHTML=table;
+    
+    return div
+    }
+    ,{
+  &quot;className&quot;: &quot;foliumpopup&quot;,
+});
+                     
+    
+            geo_json_04eb838bf9a6e4644ea93dea53a159d3.addTo(map_4dfa9b7e8b60d32b7b3d1951d31971e9);
+        
+    
+            map_4dfa9b7e8b60d32b7b3d1951d31971e9.fitBounds(
+                [[-15.42, 28.0], [-13.0, 28.2]],
+                {}
+            );
+        
+    
+            var layer_control_b65dbb0ee05a7f62d2506c9f60ea1118_layers = {
+                base_layers : {
+                    &quot;OpenStreetMap&quot; : tile_layer_e014b8df8d11b2b20496679c79ab8364,
+                },
+                overlays :  {
+                    &quot;Lines&quot; : geo_json_918e69bf615124b5bb77dd329d474df4,
+                    &quot;Buses&quot; : geo_json_04eb838bf9a6e4644ea93dea53a159d3,
+                },
+            };
+            let layer_control_b65dbb0ee05a7f62d2506c9f60ea1118 = L.control.layers(
+                layer_control_b65dbb0ee05a7f62d2506c9f60ea1118_layers.base_layers,
+                layer_control_b65dbb0ee05a7f62d2506c9f60ea1118_layers.overlays,
+                {
+  &quot;position&quot;: &quot;topright&quot;,
+  &quot;collapsed&quot;: true,
+  &quot;autoZIndex&quot;: true,
+}
+            ).addTo(map_4dfa9b7e8b60d32b7b3d1951d31971e9);
+
+        
+&lt;/script&gt;
+&lt;/html&gt;" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+    <span class="s2">&quot;Carrier&quot;</span><span class="p">,</span>
+    <span class="p">[</span><span class="s2">&quot;coal&quot;</span><span class="p">,</span> <span class="s2">&quot;hydro&quot;</span><span class="p">],</span>
+    <span class="c1">#co2_emissions=emissions,</span>
+    <span class="n">nice_name</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Coal&quot;</span><span class="p">,</span> <span class="s2">&quot;Hydro&quot;</span><span class="p">],</span>
+    <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;dimgrey&quot;</span><span class="p">,</span> <span class="s2">&quot;royalblue&quot;</span><span class="p">],</span>
+<span class="p">)</span>
+
+<span class="n">n</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Carrier&quot;</span><span class="p">,</span> <span class="s2">&quot;AC&quot;</span><span class="p">,</span> <span class="n">nice_name</span><span class="o">=</span><span class="s2">&quot;Electricity&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;crimson&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="add-generators">
+<h1>Add generators<a class="headerlink" href="#add-generators" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+    <span class="s2">&quot;Generator&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Hydro Generation&quot;</span><span class="p">,</span>
+    <span class="n">bus</span><span class="o">=</span><span class="s2">&quot;Lusaka&quot;</span><span class="p">,</span>
+    <span class="n">carrier</span><span class="o">=</span><span class="s2">&quot;hydro&quot;</span><span class="p">,</span>
+    <span class="n">p_nom</span><span class="o">=</span><span class="mi">5000</span><span class="p">,</span>  <span class="c1"># MW</span>
+    <span class="n">p_max_pu</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span>
+    <span class="n">marginal_cost</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>  <span class="c1"># default</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fuel_cost</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="n">coal</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
+    <span class="n">gas</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">oil</span><span class="o">=</span><span class="mi">48</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">efficiency</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="n">coal</span><span class="o">=</span><span class="mf">0.33</span><span class="p">,</span>
+    <span class="n">gas</span><span class="o">=</span><span class="mf">0.58</span><span class="p">,</span>
+    <span class="n">oil</span><span class="o">=</span><span class="mf">0.35</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+    <span class="s2">&quot;Generator&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Coal Generation&quot;</span><span class="p">,</span>
+    <span class="n">bus</span><span class="o">=</span><span class="s2">&quot;Copperbelt&quot;</span><span class="p">,</span>
+    <span class="n">carrier</span><span class="o">=</span><span class="s2">&quot;coal&quot;</span><span class="p">,</span>
+    <span class="n">efficiency</span><span class="o">=</span><span class="n">efficiency</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;coal&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+    <span class="n">p_nom</span><span class="o">=</span><span class="mi">1750</span><span class="p">,</span>
+    <span class="n">marginal_cost</span><span class="o">=</span><span class="n">fuel_cost</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;coal&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">/</span> <span class="n">efficiency</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;coal&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+<span class="p">)</span>
+<span class="n">n</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+    <span class="s2">&quot;Generator&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Oil Generation&quot;</span><span class="p">,</span>
+    <span class="n">bus</span><span class="o">=</span><span class="s2">&quot;Copperbelt&quot;</span><span class="p">,</span>
+    <span class="n">carrier</span><span class="o">=</span><span class="s2">&quot;oil&quot;</span><span class="p">,</span>
+    <span class="n">efficiency</span><span class="o">=</span><span class="n">efficiency</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;oil&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+    <span class="n">p_nom</span><span class="o">=</span><span class="mi">1200</span><span class="p">,</span>
+    <span class="n">marginal_cost</span><span class="o">=</span><span class="n">fuel_cost</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;oil&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">/</span> <span class="n">efficiency</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;oil&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="add-loads">
+<h1>Add loads<a class="headerlink" href="#add-loads" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">loads</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Lusaka&quot;</span><span class="p">:</span> <span class="mi">700</span><span class="p">,</span>
+    <span class="s2">&quot;Copperbelt&quot;</span><span class="p">:</span> <span class="mi">3000</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+    <span class="s2">&quot;Load&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Lusaka electricity demand&quot;</span><span class="p">,</span>
+    <span class="n">bus</span><span class="o">=</span><span class="s2">&quot;Lusaka&quot;</span><span class="p">,</span>
+    <span class="n">p_set</span><span class="o">=</span><span class="n">loads</span><span class="p">[</span><span class="s2">&quot;Lusaka&quot;</span><span class="p">],</span>
+    <span class="n">carrier</span><span class="o">=</span><span class="s2">&quot;AC&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+    <span class="s2">&quot;Load&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Copperbelt electricity demand&quot;</span><span class="p">,</span>
+    <span class="n">bus</span><span class="o">=</span><span class="s2">&quot;Copperbelt&quot;</span><span class="p">,</span>
+    <span class="n">p_set</span><span class="o">=</span><span class="n">loads</span><span class="p">[</span><span class="s2">&quot;Copperbelt&quot;</span><span class="p">],</span>
+    <span class="n">carrier</span><span class="o">=</span><span class="s2">&quot;AC&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_dry_year</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">n_wet_year</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">optimize</span><span class="p">(</span><span class="n">solver_name</span><span class="o">=</span><span class="s2">&quot;highs&quot;</span><span class="p">,</span> <span class="n">log_to_console</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING:pypsa.consistency:The following generators have carriers which are not defined:
+Index([&#39;Hydro Generation&#39;, &#39;Coal Generation&#39;, &#39;Oil Generation&#39;], dtype=&#39;object&#39;, name=&#39;Generator&#39;)
+WARNING:pypsa.consistency:The following generators have carriers which are not defined:
+Index([&#39;Hydro Generation&#39;, &#39;Coal Generation&#39;, &#39;Oil Generation&#39;], dtype=&#39;object&#39;, name=&#39;Generator&#39;)
+INFO:linopy.model: Solve problem using Highs solver
+INFO:linopy.model:Solver options:
+ - log_to_console: False
+INFO:linopy.io: Writing time: 0.01s
+INFO:linopy.constants: Optimization successful: 
+Status: ok
+Termination condition: optimal
+Solution: 4 primals, 10 duals
+Objective: 4.12e+04
+Solver model: available
+Solver message: Optimal
+
+INFO:pypsa.optimization.optimize:The shadow-prices of the constraints Generator-fix-p-lower, Generator-fix-p-upper, Line-fix-s-lower, Line-fix-s-upper were not assigned to the network.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Running HiGHS 1.11.0 (git hash: n/a): Copyright (c) 2025 HiGHS under MIT licence terms
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;ok&#39;, &#39;optimal&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">loads</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Lusaka&#39;: 700, &#39;Copperbelt&#39;: 3000}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">statistics</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>Optimal Capacity</th>
+      <th>Installed Capacity</th>
+      <th>Supply</th>
+      <th>Withdrawal</th>
+      <th>Energy Balance</th>
+      <th>Transmission</th>
+      <th>Capacity Factor</th>
+      <th>Curtailment</th>
+      <th>Capital Expenditure</th>
+      <th>Operational Expenditure</th>
+      <th>Revenue</th>
+      <th>Market Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="3" valign="top">Generator</th>
+      <th>coal</th>
+      <td>1750.0</td>
+      <td>1750.0</td>
+      <td>1700.0</td>
+      <td>0.0</td>
+      <td>1700.0</td>
+      <td>0.0</td>
+      <td>0.971429</td>
+      <td>50.0</td>
+      <td>0.0</td>
+      <td>41212.12121</td>
+      <td>41212.12121</td>
+      <td>24.242424</td>
+    </tr>
+    <tr>
+      <th>hydro</th>
+      <td>5000.0</td>
+      <td>5000.0</td>
+      <td>2000.0</td>
+      <td>0.0</td>
+      <td>2000.0</td>
+      <td>0.0</td>
+      <td>0.400000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.00000</td>
+      <td>48484.84848</td>
+      <td>24.242424</td>
+    </tr>
+    <tr>
+      <th>oil</th>
+      <td>1200.0</td>
+      <td>1200.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>1200.0</td>
+      <td>0.0</td>
+      <td>0.00000</td>
+      <td>0.00000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>Line</th>
+      <th>Electricity</th>
+      <td>1500.0</td>
+      <td>1500.0</td>
+      <td>1300.0</td>
+      <td>1300.0</td>
+      <td>0.0</td>
+      <td>1300.0</td>
+      <td>0.866667</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.00000</td>
+      <td>0.00000</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Load</th>
+      <th>Electricity</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3700.0</td>
+      <td>-3700.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.00000</td>
+      <td>-89696.96970</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="modify-network">
+<h1>Modify network<a class="headerlink" href="#modify-network" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">lines</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;Lusaka-Copperbelt&quot;</span><span class="p">,</span> <span class="s2">&quot;s_nom&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">750</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">optimize</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING:pypsa.consistency:The following generators have carriers which are not defined:
+Index([&#39;Hydro Generation&#39;, &#39;Coal Generation&#39;, &#39;Oil Generation&#39;], dtype=&#39;object&#39;, name=&#39;Generator&#39;)
+WARNING:pypsa.consistency:The following generators have carriers which are not defined:
+Index([&#39;Hydro Generation&#39;, &#39;Coal Generation&#39;, &#39;Oil Generation&#39;], dtype=&#39;object&#39;, name=&#39;Generator&#39;)
+INFO:linopy.model: Solve problem using Highs solver
+INFO:linopy.io: Writing time: 0.01s
+INFO:linopy.constants: Optimization successful: 
+Status: ok
+Termination condition: optimal
+Solution: 4 primals, 10 duals
+Objective: 1.11e+05
+Solver model: available
+Solver message: Optimal
+
+INFO:pypsa.optimization.optimize:The shadow-prices of the constraints Generator-fix-p-lower, Generator-fix-p-upper, Line-fix-s-lower, Line-fix-s-upper were not assigned to the network.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Running HiGHS 1.11.0 (git hash: n/a): Copyright (c) 2025 HiGHS under MIT licence terms
+LP   linopy-problem-mi6h8h83 has 10 rows; 4 cols; 13 nonzeros
+Coefficient ranges:
+  Matrix [1e+00, 1e+00]
+  Cost   [2e+01, 1e+02]
+  Bound  [0e+00, 0e+00]
+  RHS    [7e+02, 3e+03]
+Presolving model
+1 rows, 2 cols, 2 nonzeros  0s
+0 rows, 0 cols, 0 nonzeros  0s
+Presolve : Reductions: rows 0(-10); columns 0(-4); elements 0(-13) - Reduced to empty
+Solving the original LP from the solution after postsolve
+Model name          : linopy-problem-mi6h8h83
+Model status        : Optimal
+Objective value     :  1.1099567100e+05
+P-D objective error :  1.3110285785e-16
+HiGHS run time      :          0.00
+Writing the solution to /private/var/folders/qn/vpndfm21795ckkq89np1ckp40000gn/T/linopy-solve-lmo88dja.sol
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;ok&#39;, &#39;optimal&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">statistics</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>Optimal Capacity</th>
+      <th>Installed Capacity</th>
+      <th>Supply</th>
+      <th>Withdrawal</th>
+      <th>Energy Balance</th>
+      <th>Transmission</th>
+      <th>Capacity Factor</th>
+      <th>Curtailment</th>
+      <th>Capital Expenditure</th>
+      <th>Operational Expenditure</th>
+      <th>Revenue</th>
+      <th>Market Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="3" valign="top">Generator</th>
+      <th>coal</th>
+      <td>1750.0</td>
+      <td>1750.0</td>
+      <td>1750.0</td>
+      <td>0.0</td>
+      <td>1750.0</td>
+      <td>0.0</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>42424.24242</td>
+      <td>240000.00000</td>
+      <td>137.142857</td>
+    </tr>
+    <tr>
+      <th>hydro</th>
+      <td>5000.0</td>
+      <td>5000.0</td>
+      <td>1450.0</td>
+      <td>0.0</td>
+      <td>1450.0</td>
+      <td>0.0</td>
+      <td>0.290000</td>
+      <td>550.0</td>
+      <td>0.0</td>
+      <td>0.00000</td>
+      <td>0.00000</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>oil</th>
+      <td>1200.0</td>
+      <td>1200.0</td>
+      <td>500.0</td>
+      <td>0.0</td>
+      <td>500.0</td>
+      <td>0.0</td>
+      <td>0.416667</td>
+      <td>700.0</td>
+      <td>0.0</td>
+      <td>68571.42857</td>
+      <td>68571.42857</td>
+      <td>137.142857</td>
+    </tr>
+    <tr>
+      <th>Line</th>
+      <th>Electricity</th>
+      <td>750.0</td>
+      <td>750.0</td>
+      <td>750.0</td>
+      <td>750.0</td>
+      <td>0.0</td>
+      <td>750.0</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.00000</td>
+      <td>102857.14286</td>
+      <td>137.142857</td>
+    </tr>
+    <tr>
+      <th>Load</th>
+      <th>Electricity</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3700.0</td>
+      <td>-3700.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.00000</td>
+      <td>-411428.57143</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="hydrological-scenarios">
+<h1>Hydrological scenarios<a class="headerlink" href="#hydrological-scenarios" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_dry_year</span><span class="o">.</span><span class="n">generators</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;Hydro Generation&quot;</span><span class="p">,</span> <span class="s2">&quot;p_max_pu&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.3</span>
+<span class="n">n_wet_year</span><span class="o">.</span><span class="n">generators</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;Hydro Generation&quot;</span><span class="p">,</span> <span class="s2">&quot;p_max_pu&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.6</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_dry_year</span><span class="o">.</span><span class="n">optimize</span><span class="p">(</span><span class="n">solver_name</span><span class="o">=</span><span class="s2">&quot;highs&quot;</span><span class="p">,</span> <span class="n">log_to_console</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING:pypsa.consistency:The following generators have carriers which are not defined:
+Index([&#39;Hydro Generation&#39;, &#39;Coal Generation&#39;, &#39;Oil Generation&#39;], dtype=&#39;object&#39;, name=&#39;Generator&#39;)
+WARNING:pypsa.consistency:The following generators have carriers which are not defined:
+Index([&#39;Hydro Generation&#39;, &#39;Coal Generation&#39;, &#39;Oil Generation&#39;], dtype=&#39;object&#39;, name=&#39;Generator&#39;)
+INFO:linopy.model: Solve problem using Highs solver
+INFO:linopy.model:Solver options:
+ - log_to_console: False
+INFO:linopy.io: Writing time: 0.01s
+INFO:linopy.constants: Optimization successful: 
+Status: ok
+Termination condition: optimal
+Solution: 4 primals, 10 duals
+Objective: 1.04e+05
+Solver model: available
+Solver message: Optimal
+
+INFO:pypsa.optimization.optimize:The shadow-prices of the constraints Generator-fix-p-lower, Generator-fix-p-upper, Line-fix-s-lower, Line-fix-s-upper were not assigned to the network.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Running HiGHS 1.11.0 (git hash: n/a): Copyright (c) 2025 HiGHS under MIT licence terms
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;ok&#39;, &#39;optimal&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_wet_year</span><span class="o">.</span><span class="n">optimize</span><span class="p">(</span><span class="n">solver_name</span><span class="o">=</span><span class="s2">&quot;highs&quot;</span><span class="p">,</span> <span class="n">log_to_console</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING:pypsa.consistency:The following generators have carriers which are not defined:
+Index([&#39;Hydro Generation&#39;, &#39;Coal Generation&#39;, &#39;Oil Generation&#39;], dtype=&#39;object&#39;, name=&#39;Generator&#39;)
+WARNING:pypsa.consistency:The following generators have carriers which are not defined:
+Index([&#39;Hydro Generation&#39;, &#39;Coal Generation&#39;, &#39;Oil Generation&#39;], dtype=&#39;object&#39;, name=&#39;Generator&#39;)
+INFO:linopy.model: Solve problem using Highs solver
+INFO:linopy.model:Solver options:
+ - log_to_console: False
+INFO:linopy.io: Writing time: 0.01s
+INFO:linopy.constants: Optimization successful: 
+Status: ok
+Termination condition: optimal
+Solution: 4 primals, 10 duals
+Objective: 3.64e+04
+Solver model: available
+Solver message: Optimal
+
+INFO:pypsa.optimization.optimize:The shadow-prices of the constraints Generator-fix-p-lower, Generator-fix-p-upper, Line-fix-s-lower, Line-fix-s-upper were not assigned to the network.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Running HiGHS 1.11.0 (git hash: n/a): Copyright (c) 2025 HiGHS under MIT licence terms
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;ok&#39;, &#39;optimal&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">statistics</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>Optimal Capacity</th>
+      <th>Installed Capacity</th>
+      <th>Supply</th>
+      <th>Withdrawal</th>
+      <th>Energy Balance</th>
+      <th>Transmission</th>
+      <th>Capacity Factor</th>
+      <th>Curtailment</th>
+      <th>Capital Expenditure</th>
+      <th>Operational Expenditure</th>
+      <th>Revenue</th>
+      <th>Market Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="3" valign="top">Generator</th>
+      <th>coal</th>
+      <td>1750.0</td>
+      <td>1750.0</td>
+      <td>1750.0</td>
+      <td>0.0</td>
+      <td>1750.0</td>
+      <td>0.0</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>42424.24242</td>
+      <td>240000.00000</td>
+      <td>137.142857</td>
+    </tr>
+    <tr>
+      <th>hydro</th>
+      <td>5000.0</td>
+      <td>5000.0</td>
+      <td>1450.0</td>
+      <td>0.0</td>
+      <td>1450.0</td>
+      <td>0.0</td>
+      <td>0.290000</td>
+      <td>550.0</td>
+      <td>0.0</td>
+      <td>0.00000</td>
+      <td>0.00000</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>oil</th>
+      <td>1200.0</td>
+      <td>1200.0</td>
+      <td>500.0</td>
+      <td>0.0</td>
+      <td>500.0</td>
+      <td>0.0</td>
+      <td>0.416667</td>
+      <td>700.0</td>
+      <td>0.0</td>
+      <td>68571.42857</td>
+      <td>68571.42857</td>
+      <td>137.142857</td>
+    </tr>
+    <tr>
+      <th>Line</th>
+      <th>Electricity</th>
+      <td>750.0</td>
+      <td>750.0</td>
+      <td>750.0</td>
+      <td>750.0</td>
+      <td>0.0</td>
+      <td>750.0</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.00000</td>
+      <td>102857.14286</td>
+      <td>137.142857</td>
+    </tr>
+    <tr>
+      <th>Load</th>
+      <th>Electricity</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3700.0</td>
+      <td>-3700.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.00000</td>
+      <td>-411428.57143</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_dry_year</span><span class="o">.</span><span class="n">statistics</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>Optimal Capacity</th>
+      <th>Installed Capacity</th>
+      <th>Supply</th>
+      <th>Withdrawal</th>
+      <th>Energy Balance</th>
+      <th>Transmission</th>
+      <th>Capacity Factor</th>
+      <th>Curtailment</th>
+      <th>Capital Expenditure</th>
+      <th>Operational Expenditure</th>
+      <th>Revenue</th>
+      <th>Market Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="3" valign="top">Generator</th>
+      <th>coal</th>
+      <td>1750.0</td>
+      <td>1750.0</td>
+      <td>1750.0</td>
+      <td>0.0</td>
+      <td>1750.0</td>
+      <td>0.0</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>42424.24242</td>
+      <td>240000.00000</td>
+      <td>137.142857</td>
+    </tr>
+    <tr>
+      <th>hydro</th>
+      <td>5000.0</td>
+      <td>5000.0</td>
+      <td>1500.0</td>
+      <td>0.0</td>
+      <td>1500.0</td>
+      <td>0.0</td>
+      <td>0.300000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.00000</td>
+      <td>205714.28571</td>
+      <td>137.142857</td>
+    </tr>
+    <tr>
+      <th>oil</th>
+      <td>1200.0</td>
+      <td>1200.0</td>
+      <td>450.0</td>
+      <td>0.0</td>
+      <td>450.0</td>
+      <td>0.0</td>
+      <td>0.375000</td>
+      <td>750.0</td>
+      <td>0.0</td>
+      <td>61714.28571</td>
+      <td>61714.28571</td>
+      <td>137.142857</td>
+    </tr>
+    <tr>
+      <th>Line</th>
+      <th>Electricity</th>
+      <td>1500.0</td>
+      <td>1500.0</td>
+      <td>800.0</td>
+      <td>800.0</td>
+      <td>0.0</td>
+      <td>800.0</td>
+      <td>0.533333</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.00000</td>
+      <td>0.00000</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Load</th>
+      <th>Electricity</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3700.0</td>
+      <td>-3700.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.00000</td>
+      <td>-507428.57143</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_wet_year</span><span class="o">.</span><span class="n">statistics</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>Optimal Capacity</th>
+      <th>Installed Capacity</th>
+      <th>Supply</th>
+      <th>Withdrawal</th>
+      <th>Energy Balance</th>
+      <th>Transmission</th>
+      <th>Capacity Factor</th>
+      <th>Curtailment</th>
+      <th>Capital Expenditure</th>
+      <th>Operational Expenditure</th>
+      <th>Revenue</th>
+      <th>Market Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="3" valign="top">Generator</th>
+      <th>coal</th>
+      <td>1750.0</td>
+      <td>1750.0</td>
+      <td>1500.0</td>
+      <td>0.0</td>
+      <td>1500.0</td>
+      <td>0.0</td>
+      <td>0.857143</td>
+      <td>250.0</td>
+      <td>0.0</td>
+      <td>36363.63636</td>
+      <td>36363.63636</td>
+      <td>24.242424</td>
+    </tr>
+    <tr>
+      <th>hydro</th>
+      <td>5000.0</td>
+      <td>5000.0</td>
+      <td>2200.0</td>
+      <td>0.0</td>
+      <td>2200.0</td>
+      <td>0.0</td>
+      <td>0.440000</td>
+      <td>800.0</td>
+      <td>0.0</td>
+      <td>0.00000</td>
+      <td>0.00000</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>oil</th>
+      <td>1200.0</td>
+      <td>1200.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>1200.0</td>
+      <td>0.0</td>
+      <td>0.00000</td>
+      <td>0.00000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>Line</th>
+      <th>Electricity</th>
+      <td>1500.0</td>
+      <td>1500.0</td>
+      <td>1500.0</td>
+      <td>1500.0</td>
+      <td>0.0</td>
+      <td>1500.0</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.00000</td>
+      <td>36363.63636</td>
+      <td>24.242424</td>
+    </tr>
+    <tr>
+      <th>Load</th>
+      <th>Electricity</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3700.0</td>
+      <td>-3700.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.00000</td>
+      <td>-72727.27273</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Add generators</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#add-loads">Add loads</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modify-network">Modify network</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hydrological-scenarios">Hydrological scenarios</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Open Energy Transition
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
