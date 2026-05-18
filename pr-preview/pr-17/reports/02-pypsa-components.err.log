@@ -28,16 +28,18 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-import pandas as pd
+#import pandas as pd
 import pypsa
+#pypsa.options.params.optimize.include_objective_constant = True
 ------------------
 
 
 [31m---------------------------------------------------------------------------[39m
 [31mModuleNotFoundError[39m                       Traceback (most recent call last)
 [36mCell[39m[36m [39m[32mIn[1][39m[32m, line 2[39m
-[32m      1[39m [38;5;28;01mimport[39;00m pandas [38;5;28;01mas[39;00m pd
+[32m      1[39m [38;5;66;03m#import pandas as pd[39;00m
 [32m----> [39m[32m2[39m [38;5;28;01mimport[39;00m pypsa
+[32m      3[39m [38;5;66;03m#pypsa.options.params.optimize.include_objective_constant = True[39;00m
 
 [36mFile [39m[32m~/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages/pypsa/__init__.py:21[39m
 [32m     13[39m __copyright__ = (
