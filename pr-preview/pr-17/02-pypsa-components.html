@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>PyPSA: Introduction &#8212; PyPSA-Zambia Workshops</title>
+    <title>Key Concepts in PyPSA &#8212; PyPSA-Zambia Workshops</title>
   
   
   
@@ -174,7 +174,7 @@
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="00-overview.html">Overview of the workshop and individual learning outcomes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="01-modelling-and-scenarios.html">Introduction to Modelling and Scenarios</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">PyPSA: Introduction</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Key Concepts in PyPSA</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05-workshop-python.html">Python</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="08-closing.html">Summary of the day</a></li>
@@ -391,7 +391,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>PyPSA: Introduction</h1>
+    <h1>Key Concepts in PyPSA</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -424,8 +424,8 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="pypsa-introduction">
-<h1>PyPSA: Introduction<a class="headerlink" href="#pypsa-introduction" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="key-concepts-in-pypsa">
+<h1>Key Concepts in PyPSA<a class="headerlink" href="#key-concepts-in-pypsa" title="Link to this heading">#</a></h1>
 <img src="https://docs.pypsa.org/latest/assets/logo/logo-primary-light.svg#only-light" width="300px" />
 <p>PyPSA stands for <strong>Python for Power System Analysis</strong>.</p>
 <p>PyPSA is an open source Python package for simulating and optimising modern energy systems that include features such as</p>
@@ -509,13 +509,13 @@
 <h2>From structured data to optimisation<a class="headerlink" href="#from-structured-data-to-optimisation" title="Link to this heading">#</a></h2>
 <p><strong>The design principle of PyPSA is that each component is associated with a set of variables and constraints that will be added to the optimisation model based on the input data stored for the components.</strong></p>
 <p>For an <em>hourly</em> electricity market simulation, PyPSA will solve an optimisation problem that looks like this</p>
-<div class="amsmath math notranslate nohighlight" id="equation-544251aa-807a-40d7-9491-ded79f9d8f88">
-<span class="eqno">(1)<a class="headerlink" href="#equation-544251aa-807a-40d7-9491-ded79f9d8f88" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-61bd53a9-da6b-43e1-ad73-fcaeb62420df">
+<span class="eqno">(1)<a class="headerlink" href="#equation-61bd53a9-da6b-43e1-ad73-fcaeb62420df" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \min_{g_{i,s,t}; f_{\ell,t}; g_{i,r,t,\text{charge}}; g_{i,r,t,\text{discharge}}; e_{i,r,t}} \sum_s o_{s} g_{i,s,t}
 \end{equation}\]</div>
 <p>such that</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e74a8fa8-f175-4d48-9b94-47cd837c5bec">
-<span class="eqno">(2)<a class="headerlink" href="#equation-e74a8fa8-f175-4d48-9b94-47cd837c5bec" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c03f66cc-5649-4131-a5bc-78368eec8276">
+<span class="eqno">(2)<a class="headerlink" href="#equation-c03f66cc-5649-4131-a5bc-78368eec8276" title="Permalink to this equation">#</a></span>\[\begin{align}
 0 &amp; \leq g_{i,s,t} \leq \hat{g}_{i,s,t} G_{i,s}  &amp; \text{generation limits : generator} \\
 -F_\ell &amp;\leq f_{\ell,t} \leq F_\ell &amp; \text{transmission limits : line}  \\
 d_{i,t} &amp;= \sum_s g_{i,s,t} + \sum_r g_{i,r,t,\text{discharge}} - \sum_r g_{i,r,t,\text{charge}} - \sum_\ell K_{i\ell} f_{\ell,t} &amp; \text{KCL : bus} \\
