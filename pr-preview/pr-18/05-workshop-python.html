@@ -418,6 +418,10 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pure-and-impure-functions">Pure and Impure Functions</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#file-paths">File Paths</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#absolute-vs-relative-paths">Absolute vs Relative Paths</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
 </ul>
 </li>
@@ -1531,6 +1535,72 @@ technology Stored Hydro
 <p>In general, pure functions are safer and more reliable, since they do not lead to unexpected value changes.</p>
 </section>
 </section>
+<section id="file-paths">
+<h2>File Paths<a class="headerlink" href="#file-paths" title="Link to this heading">#</a></h2>
+<p>In your daily work you will work with file paths a lot. It is important to understand how to work with file locations for the purpose of reading or writing outputs of your work.</p>
+<p>A file path tells Python where a file or folder is located, this is different depending on the operating system you are using.
+For example:</p>
+<p><strong>Linux / Mac</strong>
+“/home/mypc/data/report.csv”</p>
+<p><strong>Windows</strong>
+“C:/Users/mypc/Documents/report.csv”</p>
+<p><strong>Relative path</strong>
+“data/report.csv”</p>
+<p>The best place to start in understanding file paths is to know where you currently are, that is your current working directory. This is because Python runs relative paths from the current working directory.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print current working directory</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">current_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Current Working Directory:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">current_dir</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Current Working Directory:
+/home/runner/work/pypsa-zambia-workshops/pypsa-zambia-workshops/pypsa-zambia-workshops
+</pre></div>
+</div>
+</div>
+</div>
+<section id="absolute-vs-relative-paths">
+<h3>Absolute vs Relative Paths<a class="headerlink" href="#absolute-vs-relative-paths" title="Link to this heading">#</a></h3>
+<p>It is important to be able to differentaite the two;</p>
+<ul class="simple">
+<li><p>Absolute path starts from the root of the computer</p></li>
+<li><p>Relative path starts from the current working directory</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ABSOLUTE PATH</span>
+<span class="n">absolute_path</span> <span class="o">=</span> <span class="s2">&quot;/home/mypc/project/data/file.csv&quot;</span>
+
+<span class="c1"># RELATIVE PATH</span>
+<span class="n">relative_path</span> <span class="o">=</span> <span class="s2">&quot;data/file.csv&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Absolute Path:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">absolute_path</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Relative Path:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">relative_path</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Absolute Path:
+/home/mypc/project/data/file.csv
+
+Relative Path:
+data/file.csv
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
 <section id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
 <p>Here are some exercises to practice and reinforce what you have learned in this notebook.
@@ -1649,6 +1719,10 @@ You can find the solutions in the solutions section of the course website.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries">Dictionaries</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pure-and-impure-functions">Pure and Impure Functions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#file-paths">File Paths</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#absolute-vs-relative-paths">Absolute vs Relative Paths</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
