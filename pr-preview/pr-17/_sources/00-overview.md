@@ -11,7 +11,7 @@ Start Time | Duration |   | Trainer
 13:00 | 01:00 | Key Concepts in PyPSA | Katia/Albert
 14:00  | 00:15 | Recap of key concepts. What’s unclear? | Will/Katia
 14:15  | 00:45 | [Python Refresher](pypsa-zambia-workshops/05-workshop-python.ipynb) | Mwiche
-15:00  | 00:45 | Example: changing inputs to create scenarios and interpret the results (Google Colab, Binder) | Katia
+15:00  | 00:45 | PyPSA: Modelling Capacity Expansion Scenarios | Katia
 15:45  | 01:00 | Exploring [current!] results PyPSA-Zambia | Albert
 16:45  | 00:15 | Summary of the day | Will
 
