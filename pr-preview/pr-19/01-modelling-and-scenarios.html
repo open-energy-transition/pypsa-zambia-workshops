@@ -173,6 +173,7 @@
 <li class="toctree-l1"><a class="reference internal" href="00-overview.html">Overview of the workshop and individual learning outcomes</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Introduction to Modelling and Scenarios</a></li>
 
+
 <li class="toctree-l1"><a class="reference internal" href="05-workshop-python.html">Python</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="08-closing.html">Summary of the day</a></li>
@@ -393,6 +394,7 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#snakemake">Snakemake</a></li>
 </ul>
 </li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
 </ul>
 
             </nav>
@@ -574,13 +576,13 @@ Scenario analysis has a long history, building out of work at the Shell oil comp
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Take</span> <span class="n">a</span> <span class="n">raw</span> <span class="n">onion</span><span class="o">.</span> <span class="n">Chop</span> <span class="n">the</span> <span class="n">onion</span><span class="o">.</span> <span class="n">Make</span> <span class="n">chopped</span> <span class="n">onion</span><span class="o">.</span>
 <span class="n">Take</span> <span class="n">chopped</span> <span class="n">onion</span><span class="o">.</span> <span class="n">Fry</span> <span class="n">the</span> <span class="n">onion</span> <span class="n">to</span> <span class="n">make</span> <span class="n">fried</span> <span class="n">onion</span><span class="o">.</span>
 <span class="n">Take</span> <span class="n">fried</span> <span class="n">onion</span><span class="p">,</span> <span class="n">add</span> <span class="n">chopped</span> <span class="n">tomato</span> <span class="ow">and</span> <span class="n">cook</span> <span class="n">to</span> <span class="n">make</span> <span class="n">a</span> <span class="n">sauce</span><span class="o">.</span>
-<span class="n">Take</span> <span class="n">water</span><span class="o">.</span> <span class="n">Boil</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">large</span> <span class="n">saucepan</span><span class="o">.</span> <span class="n">Cooked</span> <span class="n">pasta</span><span class="o">.</span>
+<span class="n">Take</span> <span class="n">a</span> <span class="n">saucepan</span><span class="p">,</span> <span class="n">water</span> <span class="ow">and</span> <span class="n">pasta</span><span class="o">.</span> <span class="n">Cook</span> <span class="n">the</span> <span class="n">pasta</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">boiling</span> <span class="n">water</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">saucepan</span><span class="o">.</span> <span class="n">Cooked</span> <span class="n">pasta</span><span class="o">.</span>
 <span class="n">Take</span> <span class="n">cooked</span> <span class="n">pasta</span><span class="o">.</span> <span class="n">Drain</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">colander</span><span class="o">.</span> <span class="n">Drained</span> <span class="n">cooked</span> <span class="n">pasta</span><span class="o">.</span>
 <span class="n">Take</span> <span class="n">a</span> <span class="n">plate</span><span class="p">,</span> <span class="n">drained</span> <span class="n">cooked</span> <span class="n">pasta</span> <span class="ow">and</span> <span class="n">sauce</span><span class="o">.</span> <span class="n">Place</span> <span class="n">pasta</span> <span class="ow">and</span> <span class="n">sauce</span> <span class="n">on</span> <span class="n">the</span> <span class="n">plate</span><span class="o">.</span>  <span class="n">Serve</span> <span class="n">the</span> <span class="n">meal</span><span class="o">.</span>
 </pre></div>
 </div>
-<p>In snakemake, we define each step of the workflows as a rule.</p>
-<p>A rule has a name, input and outputs and runs code to transform the inputs into an output.</p>
+<p>In snakemake, we define each step of the workflow as a rule.</p>
+<p>A rule has a name, one or more inputs and one or more outputs and runs code to transform the inputs into the outputs.</p>
 <p>The links between the rules are created by the dependencies between input files and output files.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rule</span> <span class="n">chop_onions</span><span class="p">:</span>
   <span class="n">inputs</span><span class="p">:</span> 
@@ -597,7 +599,21 @@ Scenario analysis has a long history, building out of work at the Shell oil comp
   <span class="n">run</span><span class="p">:</span> <span class="n">fry_onions</span><span class="o">.</span><span class="n">txt</span>
 </pre></div>
 </div>
+<p>What is useful is that as you add rules, the structure of the workflow emerges. You can add or substitute different rules, and the workflow will still work, as long as all the inputs and outputs match.</p>
+<p>Snakemake also understands the relationship between the rules, so it will run the rules in the correct order. It knows that the rule <code class="docutils literal notranslate"><span class="pre">fry_onions</span></code> needs <code class="docutils literal notranslate"><span class="pre">chopped_onion.txt</span></code> as an input. So it first runs the <code class="docutils literal notranslate"><span class="pre">chop_onions</span></code> rule, which produces <code class="docutils literal notranslate"><span class="pre">chopped_onion.txt</span></code> as an output.</p>
+<p>That’s all you need to know about Snakemake for now, but hopefully you can see that it’s a useful tool for preparing the data inputs for an energy system model. We use Snakemake to manage the complexity of transforming all the different data sources from renewable potential, through to economic costs and demand projections.  We also use Snakemake to prepare the PyPSA network and run the PyPSA model.  More on this later…</p>
+<p><img alt="Workflow for PyPSA Zambia dispatch" src="_images/rulegraph.png" /></p>
 </section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="summary">
+<h1>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h1>
+<p>In this session we covered:</p>
+<ul class="simple">
+<li><p>Using exploratory and normative scenarios approaches to structure a modelling analysis</p></li>
+<li><p>Categorising models and knowing when to use which sort of model</p></li>
+<li><p>Reflecting on some of the trade-offs and simplifications necessary when translating a real-life energy system into an energy system model</p></li>
+<li><p>The core building blocks of PyPSA-Zambia - PyPSA and Snakemake</p></li>
+</ul>
 </section>
 
     <script type="text/x-thebe-config">
@@ -691,6 +707,7 @@ Scenario analysis has a long history, building out of work at the Shell oil comp
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#snakemake">Snakemake</a></li>
 </ul>
 </li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
 </ul>
 
   </nav></div>

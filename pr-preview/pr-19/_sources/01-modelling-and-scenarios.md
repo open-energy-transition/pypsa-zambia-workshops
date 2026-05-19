@@ -168,14 +168,14 @@ Think of this as a more powerful alternative to writing a long list of instructi
 Take a raw onion. Chop the onion. Make chopped onion.
 Take chopped onion. Fry the onion to make fried onion.
 Take fried onion, add chopped tomato and cook to make a sauce.
-Take water. Boil in a large saucepan. Cooked pasta.
+Take a saucepan, water and pasta. Cook the pasta in the boiling water in the saucepan. Cooked pasta.
 Take cooked pasta. Drain in a colander. Drained cooked pasta.
 Take a plate, drained cooked pasta and sauce. Place pasta and sauce on the plate.  Serve the meal.
 ```
 
-In snakemake, we define each step of the workflows as a rule. 
+In snakemake, we define each step of the workflow as a rule. 
 
-A rule has a name, input and outputs and runs code to transform the inputs into an output. 
+A rule has a name, one or more inputs and one or more outputs and runs code to transform the inputs into the outputs. 
 
 The links between the rules are created by the dependencies between input files and output files.
 
@@ -194,3 +194,20 @@ rule fry_onions:
   outputs: fried_onions.txt
   run: fry_onions.txt
 ```
+
+What is useful is that as you add rules, the structure of the workflow emerges. You can add or substitute different rules, and the workflow will still work, as long as all the inputs and outputs match.
+
+Snakemake also understands the relationship between the rules, so it will run the rules in the correct order. It knows that the rule `fry_onions` needs `chopped_onion.txt` as an input. So it first runs the `chop_onions` rule, which produces `chopped_onion.txt` as an output.
+
+That's all you need to know about Snakemake for now, but hopefully you can see that it's a useful tool for preparing the data inputs for an energy system model. We use Snakemake to manage the complexity of transforming all the different data sources from renewable potential, through to economic costs and demand projections.  We also use Snakemake to prepare the PyPSA network and run the PyPSA model.  More on this later...
+
+![Workflow for PyPSA Zambia dispatch](rulegraph.png)
+
+# Summary
+
+In this session we covered:
+
+- Using exploratory and normative scenarios approaches to structure a modelling analysis
+- Categorising models and knowing when to use which sort of model
+- Reflecting on some of the trade-offs and simplifications necessary when translating a real-life energy system into an energy system model
+- The core building blocks of PyPSA-Zambia - PyPSA and Snakemake
