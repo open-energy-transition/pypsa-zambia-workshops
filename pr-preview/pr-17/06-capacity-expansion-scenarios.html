@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>PyPSA: Capacity Expansion &#8212; PyPSA-Zambia Workshops</title>
+    <title>PyPSA: Modelling Capacity Expansion Scenarios &#8212; PyPSA-Zambia Workshops</title>
   
   
   
@@ -177,7 +177,7 @@
 <li class="toctree-l1"><a class="reference internal" href="02-pypsa-components.html">Key Concepts in PyPSA</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05-workshop-python.html">Python</a></li>
 
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">PyPSA: Capacity Expansion</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">PyPSA: Modelling Capacity Expansion Scenarios</a></li>
 <li class="toctree-l1"><a class="reference internal" href="08-closing.html">Summary of the day</a></li>
 </ul>
 
@@ -392,7 +392,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>PyPSA: Capacity Expansion</h1>
+    <h1>PyPSA: Modelling Capacity Expansion Scenarios</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -402,6 +402,7 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#individual-learning-outcomes">Individual learning outcomes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mathematical-representation-of-capacity-expansion-planning">Mathematical representation of capacity expansion planning</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#technology-data-inputs">Technology Data Inputs</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#toolset-available">Toolset available</a></li>
@@ -428,13 +429,17 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="pypsa-capacity-expansion">
-<h1>PyPSA: Capacity Expansion<a class="headerlink" href="#pypsa-capacity-expansion" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="pypsa-modelling-capacity-expansion-scenarios">
+<h1>PyPSA: Modelling Capacity Expansion Scenarios<a class="headerlink" href="#pypsa-modelling-capacity-expansion-scenarios" title="Link to this heading">#</a></h1>
+<section id="individual-learning-outcomes">
+<h2>Individual learning outcomes<a class="headerlink" href="#individual-learning-outcomes" title="Link to this heading">#</a></h2>
+<p>Use exploratory and normative scenarios approaches to structure a modelling analysis</p>
 <img src="https://docs.pypsa.org/latest/assets/logo/logo-primary-light.svg#only-light" width="300px" />
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Also in this tutorial, you might want to refer to the PyPSA documentation for more details: <a class="reference external" href="https://docs.pypsa.org">https://docs.pypsa.org</a>.</p>
 </div>
+</section>
 <section id="mathematical-representation-of-capacity-expansion-planning">
 <h2>Mathematical representation of capacity expansion planning<a class="headerlink" href="#mathematical-representation-of-capacity-expansion-planning" title="Link to this heading">#</a></h2>
 <p>Review the problem formulation of the power system model. Below you can find an adapted version
@@ -1052,7 +1057,7 @@ Solver message: Infeasible
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Running HiGHS 1.11.0 (git hash: n/a): Copyright (c) 2025 HiGHS under MIT licence terms
-LP   linopy-problem-msegl3wo has 36 rows; 12 cols; 36 nonzeros
+LP   linopy-problem-o2ofmofz has 36 rows; 12 cols; 36 nonzeros
 Coefficient ranges:
   Matrix [1e+00, 1e+00]
   Cost   [2e+02, 2e+02]
@@ -1060,11 +1065,11 @@ Coefficient ranges:
   RHS    [1e+03, 2e+03]
 Presolving model
 Problem status detected on presolve: Infeasible
-Model name          : linopy-problem-msegl3wo
+Model name          : linopy-problem-o2ofmofz
 Model status        : Infeasible
 Objective value     :  0.0000000000e+00
 HiGHS run time      :          0.00
-Writing the solution to /private/var/folders/qn/vpndfm21795ckkq89np1ckp40000gn/T/linopy-solve-wtygrc08.sol
+Writing the solution to /private/var/folders/qn/vpndfm21795ckkq89np1ckp40000gn/T/linopy-solve-o52cz0y7.sol
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;warning&#39;, &#39;infeasible&#39;)
@@ -1113,7 +1118,7 @@ Writing the solution to /private/var/folders/qn/vpndfm21795ckkq89np1ckp40000gn/T
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:linopy.model: Solve problem using Highs solver
-INFO:linopy.io: Writing time: 0.02s
+INFO:linopy.io: Writing time: 0.01s
 INFO:linopy.constants: Optimization successful: 
 Status: ok
 Termination condition: optimal
@@ -1126,7 +1131,7 @@ INFO:pypsa.optimization.optimize:The shadow-prices of the constraints Generator-
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Running HiGHS 1.11.0 (git hash: n/a): Copyright (c) 2025 HiGHS under MIT licence terms
-LP   linopy-problem-gztjkh4p has 61 rows; 25 cols; 85 nonzeros
+LP   linopy-problem-gu7he7nk has 61 rows; 25 cols; 85 nonzeros
 Coefficient ranges:
   Matrix [1e+00, 1e+00]
   Cost   [2e+02, 1e+05]
@@ -1137,12 +1142,12 @@ Presolving model
 0 rows, 0 cols, 0 nonzeros  0s
 Presolve : Reductions: rows 0(-61); columns 0(-25); elements 0(-85) - Reduced to empty
 Solving the original LP from the solution after postsolve
-Model name          : linopy-problem-gztjkh4p
+Model name          : linopy-problem-gu7he7nk
 Model status        : Optimal
 Objective value     :  1.5480393270e+08
 P-D objective error :  1.0588411402e-15
 HiGHS run time      :          0.00
-Writing the solution to /private/var/folders/qn/vpndfm21795ckkq89np1ckp40000gn/T/linopy-solve-3tbi8y73.sol
+Writing the solution to /private/var/folders/qn/vpndfm21795ckkq89np1ckp40000gn/T/linopy-solve-_0ebfz3p.sol
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;ok&#39;, &#39;optimal&#39;)
@@ -1159,9 +1164,9 @@ Writing the solution to /private/var/folders/qn/vpndfm21795ckkq89np1ckp40000gn/T
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>component  carrier        bus_carrier
-Load       -              AC            -16510.53933
 Generator  Coal           AC             15000.00000
            Load Shedding  AC              1510.53933
+Load       -              AC            -16510.53933
 dtype: float64
 </pre></div>
 </div>
@@ -1212,7 +1217,7 @@ INFO:pypsa.optimization.optimize:The shadow-prices of the constraints Generator-
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Running HiGHS 1.11.0 (git hash: n/a): Copyright (c) 2025 HiGHS under MIT licence terms
-LP   linopy-problem-dx5o4woq has 145 rows; 73 cols; 229 nonzeros
+LP   linopy-problem-a2ngodbi has 145 rows; 73 cols; 229 nonzeros
 Coefficient ranges:
   Matrix [1e+00, 1e+00]
   Cost   [2e+02, 1e+05]
@@ -1230,13 +1235,13 @@ Using EKK dual simplex solver - serial
           0     0.0000000000e+00 Pr: 24(22179.4) 0s
          31     2.8521402682e+06 Pr: 0(0) 0s
 Solving the original LP from the solution after postsolve
-Model name          : linopy-problem-dx5o4woq
+Model name          : linopy-problem-a2ngodbi
 Model status        : Optimal
 Simplex   iterations: 31
 Objective value     :  2.8521402682e+06
 P-D objective error :  8.1633643841e-17
 HiGHS run time      :          0.00
-Writing the solution to /private/var/folders/qn/vpndfm21795ckkq89np1ckp40000gn/T/linopy-solve-t1syksua.sol
+Writing the solution to /private/var/folders/qn/vpndfm21795ckkq89np1ckp40000gn/T/linopy-solve-0kbf1ber.sol
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;ok&#39;, &#39;optimal&#39;)
@@ -1376,7 +1381,7 @@ INFO:pypsa.optimization.optimize:The shadow-prices of the constraints Generator-
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Running HiGHS 1.11.0 (git hash: n/a): Copyright (c) 2025 HiGHS under MIT licence terms
-LP   linopy-problem-7mcshz1v has 170 rows; 86 cols; 274 nonzeros
+LP   linopy-problem-stp3koh8 has 170 rows; 86 cols; 274 nonzeros
 Coefficient ranges:
   Matrix [8e-04, 1e+00]
   Cost   [1e-03, 1e+05]
@@ -1394,13 +1399,13 @@ Using EKK dual simplex solver - serial
           0     0.0000000000e+00 Ph1: 0(0) 0s
          22     6.0779986506e+05 Pr: 0(0) 0s
 Solving the original LP from the solution after postsolve
-Model name          : linopy-problem-7mcshz1v
+Model name          : linopy-problem-stp3koh8
 Model status        : Optimal
 Simplex   iterations: 22
 Objective value     :  6.0779986506e+05
 P-D objective error :  9.5767729438e-17
 HiGHS run time      :          0.00
-Writing the solution to /private/var/folders/qn/vpndfm21795ckkq89np1ckp40000gn/T/linopy-solve-ml259q5a.sol
+Writing the solution to /private/var/folders/qn/vpndfm21795ckkq89np1ckp40000gn/T/linopy-solve-opbql7nn.sol
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;ok&#39;, &#39;optimal&#39;)
@@ -1564,7 +1569,7 @@ INFO:pypsa.optimization.optimize:The shadow-prices of the constraints Generator-
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:linopy.model: Solve problem using Highs solver
 INFO:linopy.model:Solver options:
  - log_to_console: False
-INFO:linopy.io: Writing time: 0.04s
+INFO:linopy.io: Writing time: 0.03s
 INFO:linopy.constants: Optimization successful: 
 Status: ok
 Termination condition: optimal
@@ -1856,6 +1861,7 @@ INFO:pypsa.optimization.optimize:The shadow-prices of the constraints Generator-
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#individual-learning-outcomes">Individual learning outcomes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mathematical-representation-of-capacity-expansion-planning">Mathematical representation of capacity expansion planning</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#technology-data-inputs">Technology Data Inputs</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#toolset-available">Toolset available</a></li>

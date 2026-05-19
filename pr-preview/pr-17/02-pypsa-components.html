@@ -177,7 +177,7 @@
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Key Concepts in PyPSA</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05-workshop-python.html">Python</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="06-capacity-expansion-scenarios.html">PyPSA: Capacity Expansion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06-capacity-expansion-scenarios.html">PyPSA: Modelling Capacity Expansion Scenarios</a></li>
 <li class="toctree-l1"><a class="reference internal" href="08-closing.html">Summary of the day</a></li>
 </ul>
 
@@ -402,6 +402,7 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#individual-learning-outcomes">Individual learning outcomes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-structure">Basic Structure</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-structured-data-to-optimisation">From structured data to optimisation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-example">Simple example</a><ul class="nav section-nav flex-column">
@@ -427,6 +428,12 @@
                   
   <section class="tex2jax_ignore mathjax_ignore" id="key-concepts-in-pypsa">
 <h1>Key Concepts in PyPSA<a class="headerlink" href="#key-concepts-in-pypsa" title="Link to this heading">#</a></h1>
+<section id="individual-learning-outcomes">
+<h2>Individual learning outcomes<a class="headerlink" href="#individual-learning-outcomes" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Get overall understanding on the core building blocks used in PyPSA</p></li>
+<li><p>Understand the key functional elements of a PyPSA model</p></li>
+</ul>
 <img src="https://docs.pypsa.org/latest/assets/logo/logo-primary-light.svg#only-light" width="300px" />
 <p>PyPSA stands for <strong>Python for Power System Analysis</strong>.</p>
 <p>PyPSA is an open source Python package for simulating and optimising modern energy systems that include features such as</p>
@@ -455,6 +462,7 @@
 <p class="admonition-title">Note</p>
 <p>Documentation for PyPSA is available at <a class="reference external" href="https://docs.pypsa.org">https://docs.pypsa.org</a> including hand-ons examples.</p>
 </div>
+</section>
 <section id="basic-structure">
 <h2>Basic Structure<a class="headerlink" href="#basic-structure" title="Link to this heading">#</a></h2>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -510,13 +518,13 @@
 <h2>From structured data to optimisation<a class="headerlink" href="#from-structured-data-to-optimisation" title="Link to this heading">#</a></h2>
 <p><strong>The design principle of PyPSA is that each component is associated with a set of variables and constraints that will be added to the optimisation model based on the input data stored for the components.</strong></p>
 <p>For an <em>hourly</em> electricity market simulation, PyPSA will solve an optimisation problem that looks like this</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3af88147-61b4-432b-a3ca-f6f1099dc3be">
-<span class="eqno">(1)<a class="headerlink" href="#equation-3af88147-61b4-432b-a3ca-f6f1099dc3be" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-aa6cf3b6-7ad7-4541-b9c1-ccd19ca37487">
+<span class="eqno">(1)<a class="headerlink" href="#equation-aa6cf3b6-7ad7-4541-b9c1-ccd19ca37487" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \min_{g_{i,s,t}; f_{\ell,t}; g_{i,r,t,\text{charge}}; g_{i,r,t,\text{discharge}}; e_{i,r,t}} \sum_s o_{s} g_{i,s,t}
 \end{equation}\]</div>
 <p>such that</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d7ed29e2-1b14-45fa-822e-6dc6612531dd">
-<span class="eqno">(2)<a class="headerlink" href="#equation-d7ed29e2-1b14-45fa-822e-6dc6612531dd" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-2ebedf5d-c18a-4aae-8c0e-497c2abe79d8">
+<span class="eqno">(2)<a class="headerlink" href="#equation-2ebedf5d-c18a-4aae-8c0e-497c2abe79d8" title="Permalink to this equation">#</a></span>\[\begin{align}
 0 &amp; \leq g_{i,s,t} \leq \hat{g}_{i,s,t} G_{i,s}  &amp; \text{generation limits : generator} \\
 -F_\ell &amp;\leq f_{\ell,t} \leq F_\ell &amp; \text{transmission limits : line}  \\
 d_{i,t} &amp;= \sum_s g_{i,s,t} + \sum_r g_{i,r,t,\text{discharge}} - \sum_r g_{i,r,t,\text{charge}} - \sum_\ell K_{i\ell} f_{\ell,t} &amp; \text{KCL : bus} \\
@@ -2442,6 +2450,7 @@ INFO:pypsa.optimization.optimize:The shadow-prices of the constraints Generator-
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#individual-learning-outcomes">Individual learning outcomes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-structure">Basic Structure</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-structured-data-to-optimisation">From structured data to optimisation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-example">Simple example</a><ul class="nav section-nav flex-column">
