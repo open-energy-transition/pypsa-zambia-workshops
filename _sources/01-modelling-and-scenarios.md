@@ -5,6 +5,9 @@
 - Use exploratory and normative scenarios approaches to structure a modelling analysis
 - Categorise models and know when to use which sort of model
 - Reflect on the trade-offs and simplifications necessary when translating a real-life energy system into an energy system model.
+- Understand the core building blocks of PyPSA-Zambia
+  - Snakemake - is a workflow management tool - which splits a complex process into connected rules, each of which performs a task such as downloading data, or computing a value
+  - PyPSA - is an energy system modelling framework for representing a sector-coupled energy system
 
 ## Energy system models are used to answer questions
 
@@ -133,3 +136,78 @@ Is it possible to forecast the energy sector?  If so, under what conditions?
 
 Why and when would you use a scenario instead of a forecast?
 
+# Parts of an open energy system modelling study
+
+Now lets focus on the technical, quantitative part of the energy system modelling process. At Open Energy Transition, we believe that open modelling is the right way to do modelling. We like to use open data where possible, only use open source models and we build worklows which combine data and modelling into one automated process.
+
+However, extracting insights - interpreting the results - is something which cannot be automated (yet).
+
+![](open_model.jpg)
+
+<div class="csl-bib-body" style="line-height: 2; margin-left: 2em; text-indent:-2em;">
+  <div class="csl-entry">Pfenninger, Stefan, et al. “Opening the Black Box of Energy Modelling: Strategies and Lessons Learned.” <i>Energy Strategy Reviews</i>, vol. 19, Jan. 2018, pp. 63–71. <i>ScienceDirect</i>, <a href="https://doi.org/10.1016/j.esr.2017.12.002">https://doi.org/10.1016/j.esr.2017.12.002</a>.</div>
+</div>
+
+There are many different open-source energy system modelling frameworks. You can pick and choose which framework you think is best. Open Energy Transition like to use PyPSA, and have selected to use the PyPSA-Earth model generator on which to base the PyPSA-Zambia model.
+
+PyPSA Zambia consists of open data, an open-source PyPSA model, and an open-source computational workflow software called Snakemake.
+
+## PyPSA - Python for Power Systems Analysis
+
+An open-source energy system modelling framework, written in Python.
+
+Enables the creation of energy system models from individual components.  More about PyPSA later...
+
+## Snakemake
+
+Software for construction, management, running and scheduling of computational workflow.
+
+Think of this as a more powerful alternative to writing a long list of instructions. Think of a recipe:
+
+```
+Take a raw onion. Chop the onion. Make chopped onion.
+Take chopped onion. Fry the onion to make fried onion.
+Take fried onion, add chopped tomato and cook to make a sauce.
+Take a saucepan, water and pasta. Cook the pasta in the boiling water in the saucepan. Cooked pasta.
+Take cooked pasta. Drain in a colander. Drained cooked pasta.
+Take a plate, drained cooked pasta and sauce. Place pasta and sauce on the plate.  Serve the meal.
+```
+
+In snakemake, we define each step of the workflow as a rule. 
+
+A rule has a name, one or more inputs and one or more outputs and runs code to transform the inputs into the outputs. 
+
+The links between the rules are created by the dependencies between input files and output files.
+
+```
+rule chop_onions:
+  inputs: 
+    raw_onion.txt
+    knife.txt
+  outputs: chopped_onion.txt
+  run: chop_onions.py
+
+rule fry_onions:
+  inputs: 
+    chopped_onion.txt
+    frying_pan.txt
+  outputs: fried_onions.txt
+  run: fry_onions.txt
+```
+
+What is useful is that as you add rules, the structure of the workflow emerges. You can add or substitute different rules, and the workflow will still work, as long as all the inputs and outputs match.
+
+Snakemake also understands the relationship between the rules, so it will run the rules in the correct order. It knows that the rule `fry_onions` needs `chopped_onion.txt` as an input. So it first runs the `chop_onions` rule, which produces `chopped_onion.txt` as an output.
+
+That's all you need to know about Snakemake for now, but hopefully you can see that it's a useful tool for preparing the data inputs for an energy system model. We use Snakemake to manage the complexity of transforming all the different data sources from renewable potential, through to economic costs and demand projections.  We also use Snakemake to prepare the PyPSA network and run the PyPSA model.  More on this later...
+
+![Workflow for PyPSA Zambia dispatch](rulegraph.png)
+
+# Summary
+
+In this session we covered:
+
+- Using exploratory and normative scenarios approaches to structure a modelling analysis
+- Categorising models and knowing when to use which sort of model
+- Reflecting on some of the trade-offs and simplifications necessary when translating a real-life energy system into an energy system model
+- The core building blocks of PyPSA-Zambia - PyPSA and Snakemake
