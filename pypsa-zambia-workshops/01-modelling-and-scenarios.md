@@ -168,7 +168,7 @@ Think of this as a more powerful alternative to writing a long list of instructi
 Take a raw onion. Chop the onion. Make chopped onion.
 Take chopped onion. Fry the onion to make fried onion.
 Take fried onion, add chopped tomato and cook to make a sauce.
-Take water. Boil in a large saucepan. Cooked pasta.
+Take a saucepan, water and pasta. Cook the pasta in the boiling water in the saucepan. Cooked pasta.
 Take cooked pasta. Drain in a colander. Drained cooked pasta.
 Take a plate, drained cooked pasta and sauce. Place pasta and sauce on the plate.  Serve the meal.
 ```
