@@ -136,7 +136,7 @@ Is it possible to forecast the energy sector?  If so, under what conditions?
 
 Why and when would you use a scenario instead of a forecast?
 
-# Components of an open energy system modelling study
+# Parts of an open energy system modelling study
 
 Now lets focus on the technical, quantitative part of the energy system modelling process. At Open Energy Transition, we believe that open modelling is the right way to do modelling. We like to use open data where possible, only use open source models and we build worklows which combine data and modelling into one automated process.
 
