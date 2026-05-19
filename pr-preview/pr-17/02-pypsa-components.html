@@ -518,13 +518,13 @@
 <h2>From structured data to optimisation<a class="headerlink" href="#from-structured-data-to-optimisation" title="Link to this heading">#</a></h2>
 <p><strong>The design principle of PyPSA is that each component is associated with a set of variables and constraints that will be added to the optimisation model based on the input data stored for the components.</strong></p>
 <p>For an <em>hourly</em> electricity market simulation, PyPSA will solve an optimisation problem that looks like this</p>
-<div class="amsmath math notranslate nohighlight" id="equation-aa6cf3b6-7ad7-4541-b9c1-ccd19ca37487">
-<span class="eqno">(1)<a class="headerlink" href="#equation-aa6cf3b6-7ad7-4541-b9c1-ccd19ca37487" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a6a3cf87-92d4-4690-bd82-8bc9294caca6">
+<span class="eqno">(1)<a class="headerlink" href="#equation-a6a3cf87-92d4-4690-bd82-8bc9294caca6" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \min_{g_{i,s,t}; f_{\ell,t}; g_{i,r,t,\text{charge}}; g_{i,r,t,\text{discharge}}; e_{i,r,t}} \sum_s o_{s} g_{i,s,t}
 \end{equation}\]</div>
 <p>such that</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2ebedf5d-c18a-4aae-8c0e-497c2abe79d8">
-<span class="eqno">(2)<a class="headerlink" href="#equation-2ebedf5d-c18a-4aae-8c0e-497c2abe79d8" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-7b974c06-2680-4d9d-a642-79393edd153c">
+<span class="eqno">(2)<a class="headerlink" href="#equation-7b974c06-2680-4d9d-a642-79393edd153c" title="Permalink to this equation">#</a></span>\[\begin{align}
 0 &amp; \leq g_{i,s,t} \leq \hat{g}_{i,s,t} G_{i,s}  &amp; \text{generation limits : generator} \\
 -F_\ell &amp;\leq f_{\ell,t} \leq F_\ell &amp; \text{transmission limits : line}  \\
 d_{i,t} &amp;= \sum_s g_{i,s,t} + \sum_r g_{i,r,t,\text{discharge}} - \sum_r g_{i,r,t,\text{charge}} - \sum_\ell K_{i\ell} f_{\ell,t} &amp; \text{KCL : bus} \\
@@ -687,7 +687,7 @@ d_{i,t} &amp;= \sum_s g_{i,s,t} + \sum_r g_{i,r,t,\text{discharge}} - \sum_r g_{
 <p>Components can be added to the network <code class="docutils literal notranslate"><span class="pre">n</span></code> using the <code class="docutils literal notranslate"><span class="pre">n.add()</span></code> function. It takes the component name as a first argument, the name of the component as a second argument and possibly further parameters as keyword arguments. Let’s use this function, to add buses for each country to our network:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Bus&quot;</span><span class="p">,</span> <span class="s2">&quot;Copperbelt&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=-</span><span class="mf">15.42</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mf">28.2</span><span class="p">,</span> <span class="n">v_nom</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Bus&quot;</span><span class="p">,</span> <span class="s2">&quot;Copperbelt&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=-</span><span class="mf">15.42</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mf">28.2</span><span class="p">,</span> <span class="n">v_nom</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span> <span class="c1"># v_nom is nominal valtage [kV]</span>
 <span class="n">n</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Bus&quot;</span><span class="p">,</span> <span class="s2">&quot;Lusaka&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=-</span><span class="mf">13.0</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mf">28.0</span><span class="p">,</span> <span class="n">v_nom</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -792,7 +792,7 @@ d_{i,t} &amp;= \sum_s g_{i,s,t} + \sum_r g_{i,r,t,\text{discharge}} - \sum_r g_{
     <span class="s2">&quot;Lusaka-Copperbelt&quot;</span><span class="p">,</span>
     <span class="n">bus0</span><span class="o">=</span><span class="s2">&quot;Lusaka&quot;</span><span class="p">,</span>
     <span class="n">bus1</span><span class="o">=</span><span class="s2">&quot;Copperbelt&quot;</span><span class="p">,</span>
-    <span class="n">s_nom</span><span class="o">=</span><span class="mi">1_500</span><span class="p">,</span>
+    <span class="n">s_nom</span><span class="o">=</span><span class="mi">1_500</span><span class="p">,</span> <span class="c1"># transmission capacity [MW]</span>
     <span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
     <span class="n">r</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
 <span class="p">)</span>
@@ -1287,7 +1287,7 @@ INFO:pypsa.plot:Components omitted as they are missing or not selected: Generato
 &lt;/script&gt;
 &lt;/html&gt;" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div></div></div>
 </div>
-<p>Information about carriers must be added to distinguish between different energy sources. To make visualisaiton nicer, we can also specify nice names and plotting colors.</p>
+<p>Information about carriers must be added to distinguish between different energy sources. To make visualization nicer, we can also specify nice names and plotting colors.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
@@ -1739,6 +1739,7 @@ INFO:pypsa.optimization.optimize:The shadow-prices of the constraints Generator-
 </section>
 <section id="modify-network">
 <h2>Modify network<a class="headerlink" href="#modify-network" title="Link to this heading">#</a></h2>
+<p>Add a power transmission line with a specific transmission capacity <code class="docutils literal notranslate"><span class="pre">s_nom</span></code> [MW]</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">lines</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;Lusaka-Copperbelt&quot;</span><span class="p">,</span> <span class="s2">&quot;s_nom&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">750</span>
@@ -2369,7 +2370,7 @@ INFO:pypsa.optimization.optimize:The shadow-prices of the constraints Generator-
 <p>Comprehensive documentation is available for PyPSA</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
-<span class="sd-summary-text">Example for modelling interconnection betweeb South Africa and Mozambique</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<span class="sd-summary-text">Example for modelling interconnection between South Africa and Mozambique</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
 </div>
 </details><section id="key-dependencies">
 <h3>Key Dependencies<a class="headerlink" href="#key-dependencies" title="Link to this heading">#</a></h3>
