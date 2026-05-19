@@ -9,6 +9,7 @@ chapters:
 - file: 01-modelling-and-scenarios.md
 - file: 02-pypsa-components.ipynb
 - file: 05-workshop-python.ipynb
+- file: 06-capacity-expansion-scenarios.ipynb
 - file: 08-closing.md
 
 
