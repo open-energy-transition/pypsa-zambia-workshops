@@ -520,13 +520,13 @@
 <h2>From structured data to optimisation<a class="headerlink" href="#from-structured-data-to-optimisation" title="Link to this heading">#</a></h2>
 <p><strong>The design principle of PyPSA is that each component is associated with a set of variables and constraints that will be added to the optimisation model based on the input data stored for the components.</strong></p>
 <p>For an <em>hourly</em> electricity market simulation, PyPSA will solve an optimisation problem that looks like this</p>
-<div class="amsmath math notranslate nohighlight" id="equation-820615ae-fb0d-4e77-a260-c937cc85ad22">
-<span class="eqno">(1)<a class="headerlink" href="#equation-820615ae-fb0d-4e77-a260-c937cc85ad22" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-64240ad7-22e1-4b04-9ad8-2a1b50eac70e">
+<span class="eqno">(1)<a class="headerlink" href="#equation-64240ad7-22e1-4b04-9ad8-2a1b50eac70e" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \min_{g_{i,s,t}; f_{\ell,t}; g_{i,r,t,\text{charge}}; g_{i,r,t,\text{discharge}}; e_{i,r,t}} \sum_s o_{s} g_{i,s,t}
 \end{equation}\]</div>
 <p>such that</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b3f7781f-0cd4-4ea7-ab68-49ca497924d0">
-<span class="eqno">(2)<a class="headerlink" href="#equation-b3f7781f-0cd4-4ea7-ab68-49ca497924d0" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-2b6fa3d7-06c9-4c5c-8540-991a9380f47f">
+<span class="eqno">(2)<a class="headerlink" href="#equation-2b6fa3d7-06c9-4c5c-8540-991a9380f47f" title="Permalink to this equation">#</a></span>\[\begin{align}
 0 &amp; \leq g_{i,s,t} \leq \hat{g}_{i,s,t} G_{i,s}  &amp; \text{generation limits : generator} \\
 -F_\ell &amp;\leq f_{\ell,t} \leq F_\ell &amp; \text{transmission limits : line}  \\
 d_{i,t} &amp;= \sum_s g_{i,s,t} + \sum_r g_{i,r,t,\text{discharge}} - \sum_r g_{i,r,t,\text{charge}} - \sum_\ell K_{i\ell} f_{\ell,t} &amp; \text{KCL : bus} \\

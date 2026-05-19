@@ -411,11 +411,19 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-operators">Comparison Operators</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boolean-operators">Boolean Operators</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditionals">Conditionals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indentation">Indentation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practices">Best Practices</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loops">Loops</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lists">Lists</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries">Dictionaries</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pure-and-impure-functions">Pure and Impure Functions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#file-paths">File Paths</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#absolute-vs-relative-paths">Absolute vs Relative Paths</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
@@ -694,16 +702,16 @@ possible values it can take and the operations that can be performed on it.</p>
 <p>This is helpful for when you want to <em>print</em> statements that include variables or statements.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Reuter West Power Plant&quot;</span>
-<span class="n">capacity</span> <span class="o">=</span> <span class="mf">564.123456</span>
-<span class="n">technology</span> <span class="o">=</span> <span class="s2">&quot;CHP&quot;</span>
-<span class="n">message</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;In Berlin, there is a </span><span class="si">{</span><span class="n">technology</span><span class="si">}</span><span class="s2"> power plant </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">. It has a nominal capacity of </span><span class="si">{</span><span class="n">capacity</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> MW.&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Kariba North Bank Power Plant&quot;</span>
+<span class="n">capacity</span> <span class="o">=</span> <span class="mf">1730.74</span>
+<span class="n">technology</span> <span class="o">=</span> <span class="s2">&quot;Hydro&quot;</span>
+<span class="n">message</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;On the Kariba, there is a </span><span class="si">{</span><span class="n">technology</span><span class="si">}</span><span class="s2"> power plant called </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">. It has a nominal capacity of </span><span class="si">{</span><span class="n">capacity</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> GWh.&quot;</span>
 <span class="n">message</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;In Berlin, there is a CHP power plant Reuter West Power Plant. It has a nominal capacity of 564.12 MW.&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;On the Kariba, there is a Hydro power plant called Kariba North Bank Power Plant. It has a nominal capacity of 1730.74 GWh.&#39;
 </pre></div>
 </div>
 </div>
@@ -767,7 +775,8 @@ possible values it can take and the operations that can be performed on it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># rounding</span>
-<span class="nb">round</span><span class="p">(</span><span class="mi">9</span> <span class="o">/</span> <span class="mi">10</span><span class="p">)</span>
+<span class="nb">round</span><span class="p">(</span><span class="mi">9</span> <span class="o">/</span> <span class="mi">10</span><span class="p">)</span> 
+<span class="c1"># round(9 / 10, 1) # rounds to 1 decimal place</span>
 </pre></div>
 </div>
 </div>
@@ -957,7 +966,18 @@ certain conditions.</p>
 </div>
 </div>
 </div>
+</section>
+<section id="indentation">
+<h2>Indentation<a class="headerlink" href="#indentation" title="Link to this heading">#</a></h2>
 <p>In Python, <strong>indentation</strong> is mandatory and blocks of code are closed by the indentation level.</p>
+<section id="best-practices">
+<h3>Best Practices<a class="headerlink" href="#best-practices" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Use Spaces, not Tabs</strong>: Spaces are the preferred method for indentation. While tabs can technically work, they may display differently depending on the editor, leading to visual inconsistencies</p></li>
+<li><p><strong>Never Mix Tabs and Spaces</strong>: In Python 3, mixing tabs and spaces in the same code block is disallowed and will result in a TabError.</p></li>
+<li><p><strong>Configure Your Editor</strong>: Most modern IDEs and editors (like PyCharm or Visual Studio Code) can be set to automatically insert 4 spaces when you press the Tab key.</p></li>
+<li><p><strong>Use Auto-Formatters</strong>: To maintain these standards without manual effort, you can use tools like Black or Ruff, which automatically format your code</p></li>
+</ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
@@ -988,6 +1008,7 @@ Huge number!
 </div>
 </div>
 </div>
+</section>
 </section>
 <section id="loops">
 <h2>Loops<a class="headerlink" href="#loops" title="Link to this heading">#</a></h2>
@@ -1200,9 +1221,9 @@ last 3 [12, 13, 14]
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Reuter West&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;capacity&quot;</span><span class="p">:</span> <span class="mi">564</span><span class="p">,</span>
-    <span class="s2">&quot;fuel&quot;</span><span class="p">:</span> <span class="s2">&quot;hard coal&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Kafue Gorge Power Plant&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;capacity&quot;</span><span class="p">:</span> <span class="mf">47830.50</span><span class="p">,</span>
+    <span class="s2">&quot;fuel&quot;</span><span class="p">:</span> <span class="s2">&quot;Hydro&quot;</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -1210,13 +1231,13 @@ last 3 [12, 13, 14]
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">e</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Reuter West&quot;</span><span class="p">,</span> <span class="n">capacity</span><span class="o">=</span><span class="mi">564</span><span class="p">,</span> <span class="n">fuel</span><span class="o">=</span><span class="s2">&quot;hard coal&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">e</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Kafue Gorge Power Plant&quot;</span><span class="p">,</span> <span class="n">capacity</span><span class="o">=</span><span class="mf">47830.50</span><span class="p">,</span> <span class="n">fuel</span><span class="o">=</span><span class="s2">&quot;Hydro&quot;</span><span class="p">)</span>
 <span class="n">e</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;name&#39;: &#39;Reuter West&#39;, &#39;capacity&#39;: 564, &#39;fuel&#39;: &#39;hard coal&#39;}
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;name&#39;: &#39;Kafue Gorge Power Plant&#39;, &#39;capacity&#39;: 47830.5, &#39;fuel&#39;: &#39;Hydro&#39;}
 </pre></div>
 </div>
 </div>
@@ -1229,7 +1250,7 @@ last 3 [12, 13, 14]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>564
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>47830.5
 </pre></div>
 </div>
 </div>
@@ -1237,12 +1258,12 @@ last 3 [12, 13, 14]
 <p>You can also test for the presence of items in a list:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;feul&quot;</span> <span class="ow">in</span> <span class="n">d</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;fuel&quot;</span> <span class="ow">in</span> <span class="n">d</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
 </pre></div>
 </div>
 </div>
@@ -1279,16 +1300,16 @@ last 3 [12, 13, 14]
 <p>New entries can be added to a dictionary by assigning a value to a new key:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span><span class="p">[</span><span class="s2">&quot;technology&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;CHP&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span><span class="p">[</span><span class="s2">&quot;technology&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Stored Hydro&quot;</span>
 <span class="n">d</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;name&#39;: &#39;Reuter West&#39;,
- &#39;capacity&#39;: 564,
- &#39;fuel&#39;: &#39;hard coal&#39;,
- &#39;technology&#39;: &#39;CHP&#39;}
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;name&#39;: &#39;Kafue Gorge Power Plant&#39;,
+ &#39;capacity&#39;: 47830.5,
+ &#39;fuel&#39;: &#39;Hydro&#39;,
+ &#39;technology&#39;: &#39;Stored Hydro&#39;}
 </pre></div>
 </div>
 </div>
@@ -1302,10 +1323,10 @@ last 3 [12, 13, 14]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>name Reuter West
-capacity 564
-fuel hard coal
-technology CHP
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>name Kafue Gorge Power Plant
+capacity 47830.5
+fuel Hydro
+technology Stored Hydro
 </pre></div>
 </div>
 </div>
@@ -1367,15 +1388,15 @@ technology CHP
 </div>
 </div>
 </div>
-<p>So, if we want to greet “Bob”, we can call the function like this:</p>
+<p>So, if we want to greet “Mr Mutamba”, we can call the function like this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">say_hello_to</span><span class="p">(</span><span class="s2">&quot;Gustav&quot;</span><span class="p">,</span> <span class="s2">&quot;Hi&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">say_hello_to</span><span class="p">(</span><span class="s2">&quot;Mr Mutamba&quot;</span><span class="p">,</span> <span class="s2">&quot;Hi&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Hi Gustav&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Hi Mr Mutamba&#39;
 </pre></div>
 </div>
 </div>
@@ -1383,11 +1404,11 @@ technology CHP
 <p>Functions can distinguish between different types of arguments, for instance, <strong>positional</strong> and <strong>keyword</strong> arguments. Positional arguments are assigned based on their order and compulsory, whereas keyword arguments are assigned based on their name (like a dictionary) and are optional (they can have default values). Here’s an example function that uses both types of arguments to greet a person in different languages:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">say_hello</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">german</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">say_hello</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">bemba</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Say hello in multiple languages.&quot;&quot;&quot;</span>
 
-    <span class="k">if</span> <span class="n">german</span><span class="p">:</span>
-        <span class="n">greeting</span> <span class="o">=</span> <span class="s2">&quot;Guten Tag &quot;</span>
+    <span class="k">if</span> <span class="n">bemba</span><span class="p">:</span>
+        <span class="n">greeting</span> <span class="o">=</span> <span class="s2">&quot;Muli shani &quot;</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">greeting</span> <span class="o">=</span> <span class="s2">&quot;Hello &quot;</span>
     <span class="k">return</span> <span class="n">greeting</span> <span class="o">+</span> <span class="n">name</span>
@@ -1397,12 +1418,12 @@ technology CHP
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">say_hello</span><span class="p">(</span><span class="s2">&quot;Gustav&quot;</span><span class="p">,</span> <span class="n">german</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">say_hello</span><span class="p">(</span><span class="s2">&quot;Ba Mr Mutamba&quot;</span><span class="p">,</span> <span class="n">bemba</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Guten Tag Gustav&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Muli shani Ba Mr Mutamba&#39;
 </pre></div>
 </div>
 </div>
@@ -1423,7 +1444,7 @@ technology CHP
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Max&quot;</span><span class="p">,</span> <span class="s2">&quot;Martha&quot;</span><span class="p">,</span> <span class="s2">&quot;Marie&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Jethro&quot;</span><span class="p">,</span> <span class="s2">&quot;Crywell&quot;</span><span class="p">,</span> <span class="s2">&quot;Manyika&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1442,7 +1463,7 @@ technology CHP
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Max&#39;, &#39;Martha&#39;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Jethro&#39;, &#39;Crywell&#39;]
 </pre></div>
 </div>
 </div>
@@ -1461,7 +1482,7 @@ technology CHP
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Max&#39;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Jethro&#39;]
 </pre></div>
 </div>
 </div>
@@ -1479,7 +1500,7 @@ technology CHP
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Max&quot;</span><span class="p">,</span> <span class="s2">&quot;Martha&quot;</span><span class="p">,</span> <span class="s2">&quot;Marie&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Jethro&quot;</span><span class="p">,</span> <span class="s2">&quot;Crywell&quot;</span><span class="p">,</span> <span class="s2">&quot;Manyika&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1498,7 +1519,7 @@ technology CHP
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Max&#39;, &#39;Martha&#39;, &#39;Marie&#39;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Jethro&#39;, &#39;Crywell&#39;, &#39;Manyika&#39;]
 </pre></div>
 </div>
 </div>
@@ -1510,12 +1531,78 @@ technology CHP
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Max&#39;, &#39;Martha&#39;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Jethro&#39;, &#39;Crywell&#39;]
 </pre></div>
 </div>
 </div>
 </div>
 <p>In general, pure functions are safer and more reliable, since they do not lead to unexpected value changes.</p>
+</section>
+</section>
+<section id="file-paths">
+<h2>File Paths<a class="headerlink" href="#file-paths" title="Link to this heading">#</a></h2>
+<p>In your daily work you will work with file paths a lot. It is important to understand how to work with file locations for the purpose of reading or writing outputs of your work.</p>
+<p>A file path tells Python where a file or folder is located, this is different depending on the operating system you are using.
+For example:</p>
+<p><strong>Linux / Mac</strong>
+“/home/mypc/data/report.csv”</p>
+<p><strong>Windows</strong>
+“C:/Users/mypc/Documents/report.csv”</p>
+<p><strong>Relative path</strong>
+“data/report.csv”</p>
+<p>The best place to start in understanding file paths is to know where you currently are, that is your current working directory. This is because Python runs relative paths from the current working directory.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print current working directory</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">current_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Current Working Directory:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">current_dir</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Current Working Directory:
+/home/runner/work/pypsa-zambia-workshops/pypsa-zambia-workshops/pypsa-zambia-workshops
+</pre></div>
+</div>
+</div>
+</div>
+<section id="absolute-vs-relative-paths">
+<h3>Absolute vs Relative Paths<a class="headerlink" href="#absolute-vs-relative-paths" title="Link to this heading">#</a></h3>
+<p>It is important to be able to differentiate the two;</p>
+<ul class="simple">
+<li><p>Absolute path starts from the root of the computer</p></li>
+<li><p>Relative path starts from the current working directory</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ABSOLUTE PATH</span>
+<span class="n">absolute_path</span> <span class="o">=</span> <span class="s2">&quot;/home/mypc/project/data/file.csv&quot;</span>
+
+<span class="c1"># RELATIVE PATH</span>
+<span class="n">relative_path</span> <span class="o">=</span> <span class="s2">&quot;data/file.csv&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Absolute Path:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">absolute_path</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Relative Path:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">relative_path</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Absolute Path:
+/home/mypc/project/data/file.csv
+
+Relative Path:
+data/file.csv
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="exercises">
@@ -1524,7 +1611,8 @@ technology CHP
 You can find the solutions in the solutions section of the course website.</p>
 <p><strong>Task 1:</strong> What is 5 to the power of 5 minus 5?</p>
 <p><strong>Task 2:</strong> Create variables for the <code class="docutils literal notranslate"><span class="pre">efficiency</span></code> of 45% and the <code class="docutils literal notranslate"><span class="pre">input_energy</span></code> of 1000 MWh. Compute and print the <code class="docutils literal notranslate"><span class="pre">output_energy</span></code> using these variables.</p>
-<p><strong>Task 3:</strong> Split the following string into a list by splitting on the space character:</p>
+<p><strong>Task 3:</strong> Split the following string into a list by splitting on the space character:
+“Python is very cool man!”</p>
 <p><strong>Task 4:</strong> Create a list with the names of every planet in the solar system (in order).</p>
 <ul class="simple">
 <li><p>Have Python tell you the name of the third planet.</p></li>
@@ -1532,23 +1620,13 @@ You can find the solutions in the solutions section of the course website.</p>
 <li><p>Have Python tell you whether “Pluto” is in the list of planets.</p></li>
 <li><p>Iterate through your planets and print the planet name only if it has an “s” at the end.</p></li>
 </ul>
-<p><strong>Task 5:</strong> Create a dictionary that contains the main facts about the <a class="reference external" href="https://powerplants.vattenfall.com/reuter-west/">Reuter West power plant</a>.</p>
-<ul class="simple">
-<li><p>Have Python tell you the main fuel type used in the power plant.</p></li>
-<li><p>Add the power plant’s approximate latitude and longitude to the dictionary.</p></li>
-</ul>
-<p><strong>Task 6:</strong> Write a function that converts units of energy from ‘ktoe’ to ‘GWh’</p>
-<blockquote>
-<div><p><a class="reference external" href="https://www.iea.org/data-and-statistics/data-tools/unit-converter">https://www.iea.org/data-and-statistics/data-tools/unit-converter</a></p>
-</div></blockquote>
-<p><strong>Task 7:</strong> Write a more general unit conversion function that converts between all units of energy listed under the link below. The function should take arguments: for the original value, the original unit and the target unit. Implement the function in a way that the default target unit is “Wh”. Verify that function by converting 200 ‘toe’ to ‘Wh’.</p>
-<blockquote>
-<div><p><a class="reference external" href="https://www.iea.org/data-and-statistics/data-tools/unit-converter">https://www.iea.org/data-and-statistics/data-tools/unit-converter</a></p>
-</div></blockquote>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>You can also just pick three units to convert between if you don’t feel like going through all combinations.</p>
-</div>
+<p><strong>Task 5</strong></p>
+<ol class="arabic simple">
+<li><p>Create a folder called ‘practice’</p></li>
+<li><p>Inside it, create a file called ‘hello.txt’</p></li>
+<li><p>Write your name into the file</p></li>
+<li><p>Read the file and print the contents</p></li>
+</ol>
 </section>
 </section>
 
@@ -1561,16 +1639,16 @@ You can find the solutions in the solutions section of the course website.</p>
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: ""
+            mode: "python"
         },
         kernelOptions: {
-            name: "",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = ''</script>
+    <script>kernelName = 'python3'</script>
 
                 </article>
               
@@ -1627,11 +1705,19 @@ You can find the solutions in the solutions section of the course website.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-operators">Comparison Operators</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boolean-operators">Boolean Operators</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditionals">Conditionals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indentation">Indentation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practices">Best Practices</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loops">Loops</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lists">Lists</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries">Dictionaries</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pure-and-impure-functions">Pure and Impure Functions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#file-paths">File Paths</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#absolute-vs-relative-paths">Absolute vs Relative Paths</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
