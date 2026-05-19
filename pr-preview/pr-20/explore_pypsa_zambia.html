@@ -1,0 +1,1606 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Exploring PyPSA-Zambia &#8212; PyPSA-Zambia Workshops</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'explore_pypsa_zambia';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/oet_logo.svg" class="logo__image only-light" alt="PyPSA-Zambia Workshops - Home"/>
+    <img src="_static/oet_logo.svg" class="logo__image only-dark pst-js-only" alt="PyPSA-Zambia Workshops - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome: PyPSA-Zambia Workshops
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="00-overview.html">Overview of the workshop and individual learning outcomes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-modelling-and-scenarios.html">Introduction to Modelling and Scenarios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05-workshop-python.html">Python</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="08-closing.html">Summary of the day</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/open-energy-transition/pypsa-zambia-workshops/blob/zambia/pypsa-zambia-workshops/explore_pypsa_zambia.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/open-energy-transition/pypsa-zambia-workshops" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/open-energy-transition/pypsa-zambia-workshops/issues/new?title=Issue%20on%20page%20%2Fexplore_pypsa_zambia.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/explore_pypsa_zambia.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Exploring PyPSA-Zambia</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Exploring PyPSA-Zambia</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#this-notebook-guides-you-through-the-pypsa-zambia-energy-system-model-an-open-source-power-system-model-of-zambia-built-with-pypsa-and-the-pypsa-earth-workflow">This notebook guides you through the <strong>PyPSA-Zambia</strong> energy system model — an open-source power system model of Zambia built with PyPSA and the PyPSA-Earth workflow.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paths">Paths</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-packages">Import Packages</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-the-network">Load the Network</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#network-topology">1.1 Network Topology</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generation-installed-capacities">1.2 Generation Installed Capacities</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transmission-installed-capacities">1.3 Transmission Installed Capacities</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#per-plant-dispatch">1.4 Per-Plant Dispatch</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hydro-inflow-per-plant">1.5 Hydro Inflow per Plant</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#electricity-generation">1.6 Electricity Generation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#electricity-generated-by-power-plants">1.6.1 Electricity Generated By Power Plants</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#electricity-generated-by-reservoir-hydro-power-plants">1.6.2 Electricity Generated By Reservoir Hydro Power Plants</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#power-flows-in-transmission-lines">1.7 Power Flows in Transmission Lines</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#power-flows-in-interconnectors">1.8 Power Flows in Interconnectors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#electricity-demand">1.9 Electricity Demand</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#system-marginal-cost">1.9 System Marginal Cost</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-investment-planning">Part 2: Investment Planning</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimized-capacities">Optimized Capacities</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#renewable-resource-potential">2.1 Renewable Resource Potential</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generator-optimised-capacities">2.2 Generator Optimised Capacities</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#line-optimised-capacities">2.3 Line Optimised Capacities</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cost-per-technology-capex-opex">2.4 Cost per Technology (CAPEX + OPEX)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#total-system-cost">2.5 Total System Cost</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#emissions-per-technology">2.6 Emissions per Technology</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-distribution-of-power-plants-and-lines">2.7 Spatial Distribution of Power Plants and Lines</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#energy-balance">2.9 Energy Balance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal-price">Marginal Price</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="exploring-pypsa-zambia">
+<h1>Exploring PyPSA-Zambia<a class="headerlink" href="#exploring-pypsa-zambia" title="Link to this heading">#</a></h1>
+<section id="this-notebook-guides-you-through-the-pypsa-zambia-energy-system-model-an-open-source-power-system-model-of-zambia-built-with-pypsa-and-the-pypsa-earth-workflow">
+<h2>This notebook guides you through the <strong>PyPSA-Zambia</strong> energy system model — an open-source power system model of Zambia built with <a class="reference external" href="https://pypsa.org/">PyPSA</a> and the <a class="reference external" href="https://pypsa-earth.readthedocs.io/">PyPSA-Earth</a> workflow.<a class="headerlink" href="#this-notebook-guides-you-through-the-pypsa-zambia-energy-system-model-an-open-source-power-system-model-of-zambia-built-with-pypsa-and-the-pypsa-earth-workflow" title="Link to this heading">#</a></h2>
+</section>
+<section id="learning-objectives">
+<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<p>By the end of this notebook you will be able to:</p>
+<ol class="arabic simple">
+<li><p>Load and inspect a PyPSA network from a <code class="docutils literal notranslate"><span class="pre">.nc</span></code> file.</p></li>
+<li><p>Visualise the <strong>network topology</strong> (buses, lines, links) on a map.</p></li>
+<li><p>Extract and plot <strong>installed generation and transmission capacities</strong> by technology.</p></li>
+<li><p>Plot <strong>per-plant dispatch</strong> time series and identify which plants set the system price.</p></li>
+<li><p>Analyse <strong>hydro inflow</strong> .</p></li>
+<li><p>Compute <strong>transmission line loading</strong> and identify congested corridors.</p></li>
+<li><p>Check <strong>cross-border power flows</strong> on international interconnectors.</p></li>
+<li><p>Interpret <strong>capacity-expansion results</strong>: which technologies are built, at what cost, and why.</p></li>
+<li><p>Calculate <strong>system-level CO₂ emissions</strong> per technology.</p></li>
+<li><p>Construct an <strong>energy balance</strong> and verify that supply equals demand.</p></li>
+</ol>
+</section>
+<section id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Link to this heading">#</a></h2>
+<section id="paths">
+<h3>Paths<a class="headerlink" href="#paths" title="Link to this heading">#</a></h3>
+<p>Set the path to your local <code class="docutils literal notranslate"><span class="pre">pypsa-zambia</span></code> results folder below. If you are running this notebook from within the <code class="docutils literal notranslate"><span class="pre">pypsa-zambia</span></code> repository, the default relative path should work.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scenario_name</span> <span class="o">=</span> <span class="s2">&quot;cap_exp_zambia_2025&quot;</span>
+
+<span class="n">scenario_subpath</span> <span class="o">=</span> <span class="n">scenario_name</span> <span class="k">if</span> <span class="n">scenario_name</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span>
+<span class="n">PARENT</span> <span class="o">=</span> <span class="s2">&quot;../&quot;</span>
+<span class="n">solar_path</span>  <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">PARENT</span><span class="si">}</span><span class="s2">resources/</span><span class="si">{</span><span class="n">scenario_name</span><span class="si">}</span><span class="s2">/renewable_profiles/profile_solar.nc&quot;</span>
+<span class="n">onwind_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">PARENT</span><span class="si">}</span><span class="s2">resources/</span><span class="si">{</span><span class="n">scenario_name</span><span class="si">}</span><span class="s2">/renewable_profiles/profile_onwind.nc&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="import-packages">
+<h3>Import Packages<a class="headerlink" href="#import-packages" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pypsa</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.colors</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mcolors</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">cartopy.crs</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ccrs</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">cartopy</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">geopandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gpd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pypsa.plot</span><span class="w"> </span><span class="kn">import</span> <span class="n">add_legend_circles</span><span class="p">,</span> <span class="n">add_legend_lines</span><span class="p">,</span> <span class="n">add_legend_patches</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">yaml</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.ticker</span><span class="w"> </span><span class="kn">import</span> <span class="n">FuncFormatter</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.patches</span><span class="w"> </span><span class="kn">import</span> <span class="n">Patch</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">pypsa</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">miniconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">pypsa</span><span class="o">-</span><span class="n">zambia</span><span class="o">-</span><span class="n">workshops</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.13</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">pypsa</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">21</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="n">__copyright__</span> <span class="o">=</span> <span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span>     <span class="s2">&quot;Copyright 2015-2025 PyPSA Developers, see https://docs.pypsa.org/latest/contributing/contributors.html, &quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span>     <span class="s2">&quot;MIT License&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">NoReturn</span>
+<span class="ne">---&gt; </span><span class="mi">21</span> <span class="kn">from</span><span class="w"> </span><span class="nn">pypsa</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span>     <span class="n">clustering</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span>     <span class="n">common</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span>     <span class="n">components</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">25</span>     <span class="n">costs</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">26</span>     <span class="n">descriptors</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">27</span>     <span class="n">examples</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">28</span>     <span class="n">geo</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">29</span>     <span class="n">optimization</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">30</span>     <span class="n">plot</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">31</span>     <span class="n">statistics</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">32</span> <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">33</span> <span class="kn">from</span><span class="w"> </span><span class="nn">pypsa._options</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">34</span>     <span class="n">option_context</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">35</span>     <span class="n">options</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">36</span> <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">37</span> <span class="kn">from</span><span class="w"> </span><span class="nn">pypsa.collection</span><span class="w"> </span><span class="kn">import</span> <span class="n">NetworkCollection</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">miniconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">pypsa</span><span class="o">-</span><span class="n">zambia</span><span class="o">-</span><span class="n">workshops</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.13</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">pypsa</span><span class="o">/</span><span class="n">examples</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">19</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="kn">from</span><span class="w"> </span><span class="nn">platformdirs</span><span class="w"> </span><span class="kn">import</span> <span class="n">user_cache_dir</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="kn">from</span><span class="w"> </span><span class="nn">pypsa._options</span><span class="w"> </span><span class="kn">import</span> <span class="n">options</span>
+<span class="ne">---&gt; </span><span class="mi">19</span> <span class="kn">from</span><span class="w"> </span><span class="nn">pypsa.networks</span><span class="w"> </span><span class="kn">import</span> <span class="n">Network</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="kn">from</span><span class="w"> </span><span class="nn">pypsa.version</span><span class="w"> </span><span class="kn">import</span> <span class="n">__version_base__</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">miniconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">pypsa</span><span class="o">-</span><span class="n">zambia</span><span class="o">-</span><span class="n">workshops</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.13</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">pypsa</span><span class="o">/</span><span class="n">networks</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">29</span>
+<span class="g g-Whitespace">     </span><span class="mi">25</span>     <span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="g g-Whitespace">     </span><span class="mi">27</span> <span class="kn">import</span><span class="w"> </span><span class="nn">functools</span>
+<span class="ne">---&gt; </span><span class="mi">29</span> <span class="kn">import</span><span class="w"> </span><span class="nn">linopy</span>
+<span class="g g-Whitespace">     </span><span class="mi">30</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="g g-Whitespace">     </span><span class="mi">31</span> <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">miniconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">pypsa</span><span class="o">-</span><span class="n">zambia</span><span class="o">-</span><span class="n">workshops</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.13</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">linopy</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">21</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="kn">from</span><span class="w"> </span><span class="nn">linopy.expressions</span><span class="w"> </span><span class="kn">import</span> <span class="n">LinearExpression</span><span class="p">,</span> <span class="n">QuadraticExpression</span><span class="p">,</span> <span class="n">merge</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="kn">from</span><span class="w"> </span><span class="nn">linopy.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">read_netcdf</span>
+<span class="ne">---&gt; </span><span class="mi">21</span> <span class="kn">from</span><span class="w"> </span><span class="nn">linopy.model</span><span class="w"> </span><span class="kn">import</span> <span class="n">Model</span><span class="p">,</span> <span class="n">Variable</span><span class="p">,</span> <span class="n">Variables</span><span class="p">,</span> <span class="n">available_solvers</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="kn">from</span><span class="w"> </span><span class="nn">linopy.objective</span><span class="w"> </span><span class="kn">import</span> <span class="n">Objective</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span> <span class="kn">from</span><span class="w"> </span><span class="nn">linopy.remote</span><span class="w"> </span><span class="kn">import</span> <span class="n">OetcHandler</span><span class="p">,</span> <span class="n">RemoteHandler</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">miniconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">pypsa</span><span class="o">-</span><span class="n">zambia</span><span class="o">-</span><span class="n">workshops</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.13</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">linopy</span><span class="o">/</span><span class="n">model</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">63</span>
+<span class="g g-Whitespace">     </span><span class="mi">61</span> <span class="kn">from</span><span class="w"> </span><span class="nn">linopy.matrices</span><span class="w"> </span><span class="kn">import</span> <span class="n">MatrixAccessor</span>
+<span class="g g-Whitespace">     </span><span class="mi">62</span> <span class="kn">from</span><span class="w"> </span><span class="nn">linopy.objective</span><span class="w"> </span><span class="kn">import</span> <span class="n">Objective</span>
+<span class="ne">---&gt; </span><span class="mi">63</span> <span class="kn">from</span><span class="w"> </span><span class="nn">linopy.remote</span><span class="w"> </span><span class="kn">import</span> <span class="n">OetcHandler</span><span class="p">,</span> <span class="n">RemoteHandler</span>
+<span class="g g-Whitespace">     </span><span class="mi">64</span> <span class="kn">from</span><span class="w"> </span><span class="nn">linopy.solver_capabilities</span><span class="w"> </span><span class="kn">import</span> <span class="n">SolverFeature</span><span class="p">,</span> <span class="n">solver_supports</span>
+<span class="g g-Whitespace">     </span><span class="mi">65</span> <span class="kn">from</span><span class="w"> </span><span class="nn">linopy.solvers</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">66</span>     <span class="n">IO_APIS</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">67</span>     <span class="n">available_solvers</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">68</span> <span class="p">)</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">miniconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">pypsa</span><span class="o">-</span><span class="n">zambia</span><span class="o">-</span><span class="n">workshops</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.13</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">linopy</span><span class="o">/</span><span class="n">remote</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">11</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span><span class="sd"> Remote execution handlers for linopy models.</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span><span class="sd"> </span>
+<span class="sd">   (...)      8 - OetcHandler: Cloud-based execution via OET Cloud service</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="ne">---&gt; </span><span class="mi">11</span> <span class="kn">from</span><span class="w"> </span><span class="nn">linopy.remote.oetc</span><span class="w"> </span><span class="kn">import</span> <span class="n">OetcCredentials</span><span class="p">,</span> <span class="n">OetcHandler</span><span class="p">,</span> <span class="n">OetcSettings</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="kn">from</span><span class="w"> </span><span class="nn">linopy.remote.ssh</span><span class="w"> </span><span class="kn">import</span> <span class="n">RemoteHandler</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span>     <span class="s2">&quot;RemoteHandler&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span>     <span class="s2">&quot;OetcHandler&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span>     <span class="s2">&quot;OetcSettings&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span>     <span class="s2">&quot;OetcCredentials&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="p">]</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">miniconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">pypsa</span><span class="o">-</span><span class="n">zambia</span><span class="o">-</span><span class="n">workshops</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.13</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">linopy</span><span class="o">/</span><span class="n">remote</span><span class="o">/</span><span class="n">oetc</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">13</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="kn">from</span><span class="w"> </span><span class="nn">enum</span><span class="w"> </span><span class="kn">import</span> <span class="n">Enum</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<span class="ne">---&gt; </span><span class="mi">13</span> <span class="kn">from</span><span class="w"> </span><span class="nn">google.cloud</span><span class="w"> </span><span class="kn">import</span> <span class="n">storage</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="kn">from</span><span class="w"> </span><span class="nn">google.oauth2</span><span class="w"> </span><span class="kn">import</span> <span class="n">service_account</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="kn">from</span><span class="w"> </span><span class="nn">requests</span><span class="w"> </span><span class="kn">import</span> <span class="n">RequestException</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">miniconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">pypsa</span><span class="o">-</span><span class="n">zambia</span><span class="o">-</span><span class="n">workshops</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.13</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">google</span><span class="o">/</span><span class="n">cloud</span><span class="o">/</span><span class="n">storage</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">35</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Copyright 2014 Google LLC</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1">#</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>     <span class="mi">12</span> <span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="c1"># limitations under the License.</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Shortcut methods for getting set up with Google Cloud Storage.</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span><span class="sd"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span><span class="sd"> You&#39;ll typically use these to get started with the API:</span>
+<span class="sd">   (...)     31   machine).</span>
+<span class="g g-Whitespace">     </span><span class="mi">32</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="ne">---&gt; </span><span class="mi">35</span> <span class="kn">from</span><span class="w"> </span><span class="nn">pkg_resources</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_distribution</span>
+<span class="g g-Whitespace">     </span><span class="mi">37</span> <span class="n">__version__</span> <span class="o">=</span> <span class="n">get_distribution</span><span class="p">(</span><span class="s2">&quot;google-cloud-storage&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">version</span>
+<span class="g g-Whitespace">     </span><span class="mi">39</span> <span class="kn">from</span><span class="w"> </span><span class="nn">google.cloud.storage.batch</span><span class="w"> </span><span class="kn">import</span> <span class="n">Batch</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;pkg_resources&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>set a clean plot style</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;figure.dpi&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">120</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;figure.figsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+
+<span class="n">CARRIER_COLORS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;hydro&quot;</span><span class="p">:</span>         <span class="s2">&quot;#3182bd&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ror&quot;</span><span class="p">:</span>           <span class="s2">&quot;#6baed6&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;solar&quot;</span><span class="p">:</span>         <span class="s2">&quot;#fd8d3c&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;onwind&quot;</span><span class="p">:</span>        <span class="s2">&quot;#74c476&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;biomass&quot;</span><span class="p">:</span>       <span class="s2">&quot;#756bb1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;coal&quot;</span><span class="p">:</span>          <span class="s2">&quot;#636363&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;oil&quot;</span><span class="p">:</span>           <span class="s2">&quot;#d62728&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;load shedding&quot;</span><span class="p">:</span> <span class="s2">&quot;#e6550d&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;export&quot;</span><span class="p">:</span>        <span class="s2">&quot;#9ecae1&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="load-the-network">
+<h3>Load the Network<a class="headerlink" href="#load-the-network" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">network_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+    <span class="s2">&quot;../&quot;</span><span class="p">,</span> <span class="s2">&quot;results&quot;</span><span class="p">,</span> <span class="n">scenario_subpath</span><span class="p">,</span> <span class="s2">&quot;networks&quot;</span><span class="p">,</span> <span class="s2">&quot;elec_s_10_ec_lcopt_3h.nc&quot;</span>
+<span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">pypsa</span><span class="o">.</span><span class="n">Network</span><span class="p">(</span><span class="n">network_path</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="network-topology">
+<h2>1.1 Network Topology<a class="headerlink" href="#network-topology" title="Link to this heading">#</a></h2>
+<p>The Zambian grid is modelled as a set of <strong>buses</strong> (substations) connected by <strong>lines</strong> (AC transmission) and <strong>links</strong> (DC or cross-border interconnectors). Each bus aggregates local demand and any generators or storage units attached to it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span>
+    <span class="mi">1</span><span class="p">,</span>
+    <span class="mi">1</span><span class="p">,</span>
+    <span class="n">subplot_kw</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;projection&quot;</span><span class="p">:</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">EqualEarth</span><span class="p">()},</span>
+<span class="p">)</span>
+
+<span class="n">load_distribution</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">loads_t</span><span class="o">.</span><span class="n">p_set</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">n</span><span class="o">.</span><span class="n">snapshots</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">n</span><span class="o">.</span><span class="n">loads</span><span class="o">.</span><span class="n">bus</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">n</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">bus_sizes</span><span class="o">=</span><span class="n">load_distribution</span> <span class="o">/</span> <span class="mi">20000</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Load distribution&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="generation-installed-capacities">
+<h2>1.2 Generation Installed Capacities<a class="headerlink" href="#generation-installed-capacities" title="Link to this heading">#</a></h2>
+<p>Before examining how plants operate, we need to understand <em>what</em> is installed. Installed capacity is measured in <strong>MW</strong> and stored in the <code class="docutils literal notranslate"><span class="pre">p_nom</span></code> column of <code class="docutils literal notranslate"><span class="pre">n.generators</span></code> (for non-storage technologies) and <code class="docutils literal notranslate"><span class="pre">n.storage_units</span></code> (for reservoir hydro).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># generators (excludes load shedding and virtual export generator)</span>
+<span class="n">gen_cap</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">n</span><span class="o">.</span><span class="n">generators</span>
+    <span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;carrier not in [&#39;load shedding&#39;, &#39;export&#39;]&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;carrier&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">p_nom</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="p">)</span>
+
+<span class="c1"># reservoir hydro lives in storage_units</span>
+<span class="n">sto_cap</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">storage_units</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;carrier&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">p_nom</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+<span class="n">installed</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">gen_cap</span><span class="p">,</span> <span class="n">sto_cap</span><span class="p">])</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="n">CARRIER_COLORS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="s2">&quot;#aaa&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">installed</span><span class="o">.</span><span class="n">index</span><span class="p">]</span>
+<span class="n">installed</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Installed Capacity (MW)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Installed Generation Capacity by Technology&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">installed</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Total: </span><span class="si">{</span><span class="n">installed</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2"> MW&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="transmission-installed-capacities">
+<h2>1.3 Transmission Installed Capacities<a class="headerlink" href="#transmission-installed-capacities" title="Link to this heading">#</a></h2>
+<p>Transmission capacity determines how much power can flow between different parts of the country. Lines are characterised by their <strong>thermal rating</strong> (<code class="docutils literal notranslate"><span class="pre">s_nom</span></code>, in MVA), while links use a directional power limit (<code class="docutils literal notranslate"><span class="pre">p_nom</span></code>, in MW).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">lines</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">lines</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">lines</span><span class="o">.</span><span class="n">s_nom</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">links</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="per-plant-dispatch">
+<h2>1.4 Per-Plant Dispatch<a class="headerlink" href="#per-plant-dispatch" title="Link to this heading">#</a></h2>
+<p>The dispatch model outputs the power output of every generator at every timestep in <code class="docutils literal notranslate"><span class="pre">n.generators_t.p</span></code>. A <strong>stacked area chart</strong> of generation grouped by carrier reveals the <em>merit order</em>: cheapest plants run first (hydro, solar, wind), while expensive thermal plants (oil, coal) cover residual demand.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_dispatch</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="s2">&quot;2013-10-09&quot;</span><span class="p">):</span>
+    <span class="n">p_by_carrier</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">n</span><span class="o">.</span><span class="n">generators_t</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">n</span><span class="o">.</span><span class="n">generators</span><span class="o">.</span><span class="n">carrier</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+        <span class="o">.</span><span class="n">div</span><span class="p">(</span><span class="mf">1e3</span><span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">n</span><span class="o">.</span><span class="n">storage_units</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+        <span class="n">sto</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">n</span><span class="o">.</span><span class="n">storage_units_t</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">T</span>
+            <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">n</span><span class="o">.</span><span class="n">storage_units</span><span class="o">.</span><span class="n">carrier</span><span class="p">)</span>
+            <span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+            <span class="o">.</span><span class="n">T</span>
+            <span class="o">.</span><span class="n">div</span><span class="p">(</span><span class="mf">1e3</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">p_by_carrier</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">p_by_carrier</span><span class="p">,</span> <span class="n">sto</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="n">p_by_carrier</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">n</span><span class="o">.</span><span class="n">carriers</span><span class="o">.</span><span class="n">color</span><span class="p">)</span>
+
+    <span class="n">p_by_carrier</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">p_by_carrier</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">time</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">area</span><span class="p">(</span>
+        <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+        <span class="n">linewidth</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+        <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">charge</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">p_by_carrier</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">p_by_carrier</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">how</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">time</span><span class="p">]</span>
+    <span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">charge</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+        <span class="n">charge</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">area</span><span class="p">(</span>
+            <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+            <span class="n">linewidth</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+            <span class="n">color</span><span class="o">=</span><span class="n">charge</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">n</span><span class="o">.</span><span class="n">carriers</span><span class="o">.</span><span class="n">color</span><span class="p">),</span>
+        <span class="p">)</span>
+
+    <span class="n">n</span><span class="o">.</span><span class="n">loads_t</span><span class="o">.</span><span class="n">p_set</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">time</span><span class="p">]</span><span class="o">.</span><span class="n">div</span><span class="p">(</span><span class="mf">1e3</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="p">(</span><span class="mf">1.05</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;GW&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span>
+<span class="n">plot_dispatch</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="hydro-inflow-per-plant">
+<h2>1.5 Hydro Inflow per Plant<a class="headerlink" href="#hydro-inflow-per-plant" title="Link to this heading">#</a></h2>
+<p>For reservoir hydro, the available water (inflow) constrains how much energy can be generated. Inflow is stored in <code class="docutils literal notranslate"><span class="pre">n.storage_units_t.inflow</span></code> (in MW equivalent). Zambia’s largest plant, <strong>Kariba</strong>, is shared with Zimbabwe and is heavily affected by seasonal and multi-year rainfall variability.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">storage_units_t</span><span class="o">.</span><span class="n">inflow</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Storage unit inflow&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Storage unit inflow over time&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="electricity-generation">
+<h2>1.6 Electricity Generation<a class="headerlink" href="#electricity-generation" title="Link to this heading">#</a></h2>
+<section id="electricity-generated-by-power-plants">
+<h3>1.6.1 Electricity Generated By Power Plants<a class="headerlink" href="#electricity-generated-by-power-plants" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">valid_generators</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">generators</span><span class="o">.</span><span class="n">query</span><span class="p">(</span>
+    <span class="s2">&quot;carrier != &#39;load shedding&#39; and carrier != &#39;export&#39;&quot;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">index</span>
+
+<span class="n">gen_energy_by_carrier_gwh</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">n</span><span class="o">.</span><span class="n">generators_t</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">mul</span><span class="p">(</span><span class="n">n</span><span class="o">.</span><span class="n">snapshot_weightings</span><span class="o">.</span><span class="n">generators</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">n</span><span class="o">.</span><span class="n">generators</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">valid_generators</span><span class="p">,</span> <span class="s2">&quot;carrier&quot;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="o">/</span> <span class="mf">1e6</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">gen_energy_by_carrier_gwh</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">gen_energy_by_carrier_gwh</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2"> TWh&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="electricity-generated-by-reservoir-hydro-power-plants">
+<h3>1.6.2 Electricity Generated By Reservoir Hydro Power Plants<a class="headerlink" href="#electricity-generated-by-reservoir-hydro-power-plants" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hydro_generation_twh</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">n</span><span class="o">.</span><span class="n">storage_units_t</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">mul</span><span class="p">(</span><span class="n">n</span><span class="o">.</span><span class="n">snapshot_weightings</span><span class="o">.</span><span class="n">generators</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="mf">1e6</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">hydro_generation_twh</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2"> TWh&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Total Electricity Generated</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s2">&quot; Total Energy Generated: </span><span class="si">{</span><span class="nb">float</span><span class="p">(</span><span class="n">hydro_generation_twh</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">float</span><span class="p">(</span><span class="n">gen_energy_by_carrier_gwh</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span><span class="si">}</span><span class="s2"> TWh&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="power-flows-in-transmission-lines">
+<h2>1.7 Power Flows in Transmission Lines<a class="headerlink" href="#power-flows-in-transmission-lines" title="Link to this heading">#</a></h2>
+<p>The <strong>loading factor</strong> of a line is the fraction of its rated capacity that is actually used:<br />
+$<span class="math notranslate nohighlight">\(\text{loading} = \frac{|P_0|}{s_{\text{nom}}}\)</span>$</p>
+<p>Lines with loading close to 100 % are <strong>congested</strong> — they limit the transfer of cheap generation to where it is needed, raising the system cost.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># mean absolute loading per line</span>
+<span class="n">mean_loading</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">n</span><span class="o">.</span><span class="n">lines_t</span><span class="o">.</span><span class="n">p0</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">div</span><span class="p">(</span><span class="n">n</span><span class="o">.</span><span class="n">lines</span><span class="o">.</span><span class="n">s_nom</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">mul</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">mean_loading</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;steelblue&quot;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">70</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;orange&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;70 % threshold&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;100 % (rated)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Mean Loading (%)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Average Line Loading — Dispatch&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="power-flows-in-interconnectors">
+<h2>1.8 Power Flows in Interconnectors<a class="headerlink" href="#power-flows-in-interconnectors" title="Link to this heading">#</a></h2>
+<p>Zambia is connected to several neighbouring countries. Positive flow (from <code class="docutils literal notranslate"><span class="pre">bus0</span></code> to <code class="docutils literal notranslate"><span class="pre">bus1</span></code>) means <strong>export</strong>; negative means <strong>import</strong>. These flows affect both system security and regional energy trade revenues.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flows_gwh</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">links_t</span><span class="o">.</span><span class="n">p0</span><span class="o">.</span><span class="n">mul</span><span class="p">(</span><span class="n">n</span><span class="o">.</span><span class="n">snapshot_weightings</span><span class="o">.</span><span class="n">objective</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="mf">1e3</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">imports</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">exports</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="k">for</span> <span class="n">link</span> <span class="ow">in</span> <span class="n">n</span><span class="o">.</span><span class="n">links</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
+    <span class="n">bus0</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">links</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">link</span><span class="p">,</span> <span class="s2">&quot;bus0&quot;</span><span class="p">]</span>
+    <span class="n">bus1</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">links</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">link</span><span class="p">,</span> <span class="s2">&quot;bus1&quot;</span><span class="p">]</span>
+
+    <span class="n">c0</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">buses</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">bus0</span><span class="p">,</span> <span class="s2">&quot;country&quot;</span><span class="p">]</span>
+    <span class="n">c1</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">buses</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">bus1</span><span class="p">,</span> <span class="s2">&quot;country&quot;</span><span class="p">]</span>
+
+    <span class="c1"># only border links touching Zambia</span>
+    <span class="k">if</span> <span class="n">c0</span> <span class="o">==</span> <span class="s2">&quot;ZM&quot;</span><span class="p">:</span>
+        <span class="n">flow</span> <span class="o">=</span> <span class="n">flows_gwh</span><span class="p">[</span><span class="n">link</span><span class="p">]</span>
+        <span class="n">exports</span> <span class="o">+=</span> <span class="nb">max</span><span class="p">(</span><span class="n">flow</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">imports</span> <span class="o">+=</span> <span class="nb">max</span><span class="p">(</span><span class="o">-</span><span class="n">flow</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+    <span class="k">elif</span> <span class="n">c1</span> <span class="o">==</span> <span class="s2">&quot;ZM&quot;</span><span class="p">:</span>
+        <span class="n">flow</span> <span class="o">=</span> <span class="n">flows_gwh</span><span class="p">[</span><span class="n">link</span><span class="p">]</span>
+        <span class="n">imports</span> <span class="o">+=</span> <span class="nb">max</span><span class="p">(</span><span class="n">flow</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">exports</span> <span class="o">+=</span> <span class="nb">max</span><span class="p">(</span><span class="o">-</span><span class="n">flow</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Imports (GWh):&quot;</span><span class="p">,</span> <span class="n">imports</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exports (GWh):&quot;</span><span class="p">,</span> <span class="n">exports</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="electricity-demand">
+<h2>1.9 Electricity Demand<a class="headerlink" href="#electricity-demand" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">demand</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">n</span><span class="o">.</span><span class="n">loads_t</span><span class="o">.</span><span class="n">p_set</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">n</span><span class="o">.</span><span class="n">snapshot_weightings</span><span class="o">.</span><span class="n">objective</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="mf">1e6</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">demand</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2"> TWh&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="system-marginal-cost">
+<h2>1.9 System Marginal Cost<a class="headerlink" href="#system-marginal-cost" title="Link to this heading">#</a></h2>
+<p>After solving, PyPSA records the <strong>nodal marginal price</strong> (<code class="docutils literal notranslate"><span class="pre">n.buses_t.marginal_price</span></code>) at every bus and timestep. This is the dual variable of the power-balance constraint — the cost of supplying one additional MWh at that node and time, also called the <strong>locational marginal price (LMP)</strong>.</p>
+<div class="math notranslate nohighlight">
+\[\lambda_{b,t} \; [\text{€/MWh}] \quad \Leftrightarrow \quad \frac{\lambda_{b,t}}{1000} \; [\text{€/kWh}]\]</div>
+<p>Key insights from marginal prices:</p>
+<ul class="simple">
+<li><p><strong>Low prices</strong> occur when cheap hydro or renewables are setting the margin.</p></li>
+<li><p><strong>Price spikes</strong> occur when expensive oil peakers are the marginal unit (usually during dry-season low water).</p></li>
+<li><p><strong>Price differences between buses</strong> reveal congestion on the transmission network.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="part-2-investment-planning">
+<h1>Part 2: Investment Planning<a class="headerlink" href="#part-2-investment-planning" title="Link to this heading">#</a></h1>
+<p>The <strong>capacity-expansion model</strong> adds a planning dimension: instead of fixing all capacities, it is free to <em>invest</em> in new generation and transmission to minimise the total system cost over the planning horizon. We use the 2025 scenario here.</p>
+<section id="optimized-capacities">
+<h2>Optimized Capacities<a class="headerlink" href="#optimized-capacities" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">statistics</span><span class="o">.</span><span class="n">optimal_capacity</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">statistics</span><span class="o">.</span><span class="n">expanded_capacity</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Plot</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># --- Generators (exclude load shedding) ---</span>
+<span class="n">generator_capacity_by_carrier</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">n</span><span class="o">.</span><span class="n">generators</span><span class="p">[</span><span class="o">~</span><span class="n">n</span><span class="o">.</span><span class="n">generators</span><span class="o">.</span><span class="n">carrier</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&quot;load&quot;</span><span class="p">,</span> <span class="n">case</span><span class="o">=</span><span class="kc">False</span><span class="p">)]</span>
+    <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;carrier&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">p_nom_opt</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">div</span><span class="p">(</span><span class="mf">1e3</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="c1"># --- Storage units (e.g. hydro reservoirs) ---</span>
+<span class="n">storage_capacity_by_carrier</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">n</span><span class="o">.</span><span class="n">storage_units</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;carrier&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">p_nom_opt</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">div</span><span class="p">(</span><span class="mf">1e3</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="c1"># --- Combine, deduplicate, filter zeros ---</span>
+<span class="n">capacity_by_carrier</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">generator_capacity_by_carrier</span><span class="p">,</span> <span class="n">storage_capacity_by_carrier</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">capacity_by_carrier</span> <span class="o">=</span> <span class="n">capacity_by_carrier</span><span class="p">[</span><span class="n">capacity_by_carrier</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># --- Colors ---</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">n</span><span class="o">.</span><span class="n">carriers</span><span class="p">[</span><span class="n">n</span><span class="o">.</span><span class="n">carriers</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">capacity_by_carrier</span><span class="o">.</span><span class="n">index</span><span class="p">)]</span>
+    <span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">capacity_by_carrier</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">v</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> GW, </span><span class="si">{</span><span class="mi">100</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">capacity_by_carrier</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">%)&quot;</span>
+    <span class="k">for</span> <span class="n">c</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">capacity_by_carrier</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">capacity_by_carrier</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">wedges</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span>
+    <span class="n">capacity_by_carrier</span><span class="p">,</span>
+    <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">startangle</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span>
+    <span class="n">colors</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">wedges</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;center left&quot;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Optimised Capacity by Carrier (GW)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="renewable-resource-potential">
+<h2>2.1 Renewable Resource Potential<a class="headerlink" href="#renewable-resource-potential" title="Link to this heading">#</a></h2>
+<p>Before investing, the model needs to know <em>how much</em> renewable energy is available at each location. This is captured by <strong>capacity factor profiles</strong> (<code class="docutils literal notranslate"><span class="pre">p_max_pu</span></code>) — a value between 0 and 1 representing the fraction of rated capacity available at each timestep.</p>
+<p>Plot Renewable resource potential maps</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">solar</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">solar_path</span><span class="p">)</span>
+<span class="n">wind</span>  <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">onwind_path</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_voronoi</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">carrier</span><span class="p">,</span> <span class="n">regions_file</span><span class="p">,</span> <span class="n">cmap</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">carrier</span> <span class="ow">in</span> <span class="n">n</span><span class="o">.</span><span class="n">generators</span><span class="o">.</span><span class="n">carrier</span><span class="o">.</span><span class="n">values</span><span class="p">:</span>
+        <span class="n">cap</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">generators</span><span class="p">[</span><span class="n">n</span><span class="o">.</span><span class="n">generators</span><span class="o">.</span><span class="n">carrier</span> <span class="o">==</span> <span class="n">carrier</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;bus&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">p_nom_max</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="k">elif</span> <span class="n">carrier</span> <span class="ow">in</span> <span class="n">n</span><span class="o">.</span><span class="n">storage_units</span><span class="o">.</span><span class="n">carrier</span><span class="o">.</span><span class="n">values</span><span class="p">:</span>
+        <span class="n">cap</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">storage_units</span><span class="p">[</span><span class="n">n</span><span class="o">.</span><span class="n">storage_units</span><span class="o">.</span><span class="n">carrier</span> <span class="o">==</span> <span class="n">carrier</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;bus&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">p_nom</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Carrier &#39;</span><span class="si">{</span><span class="n">carrier</span><span class="si">}</span><span class="s2">&#39; not found in generators or storage units.&quot;</span><span class="p">)</span>
+
+    <span class="n">br</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">regions_file</span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span>
+    <span class="n">br_area</span> <span class="o">=</span> <span class="n">br</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="s2">&quot;ESRI:54009&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">area</span> <span class="o">*</span> <span class="mf">1e-6</span>
+    <span class="n">br</span><span class="p">[</span><span class="s2">&quot;density&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">br</span><span class="o">.</span><span class="n">index</span><span class="p">)</span> <span class="o">/</span> <span class="n">br_area</span>
+
+    <span class="n">bounds</span> <span class="o">=</span> <span class="n">br</span><span class="o">.</span><span class="n">total_bounds</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="n">subplot_kw</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;projection&quot;</span><span class="p">:</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">()})</span>
+    <span class="n">br</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+        <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+        <span class="n">column</span><span class="o">=</span><span class="s2">&quot;density&quot;</span><span class="p">,</span>
+        <span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span>
+        <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+        <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span>
+        <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span>
+        <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">legend_kwds</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;MW/km²&quot;</span><span class="p">,</span> <span class="s2">&quot;shrink&quot;</span><span class="p">:</span> <span class="mf">0.6</span><span class="p">},</span>
+        <span class="n">missing_kwds</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;lightgrey&quot;</span><span class="p">},</span>
+    <span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">cartopy</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">BORDERS</span><span class="o">.</span><span class="n">with_scale</span><span class="p">(</span><span class="s2">&quot;10m&quot;</span><span class="p">),</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_extent</span><span class="p">([</span><span class="n">bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">+</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">+</span><span class="mf">0.5</span><span class="p">],</span> <span class="n">crs</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">())</span>
+    <span class="k">if</span> <span class="n">title</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">filename</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_biomass_circles</span><span class="p">(</span><span class="n">biomass_csv</span><span class="p">,</span> <span class="n">gadm_file</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Biomass potential by province (MW)&quot;</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Plot biomass potential as proportional circles at province centroids.&quot;&quot;&quot;</span>
+    <span class="n">fao</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">biomass_csv</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s2">&quot;province&quot;</span><span class="p">)</span>
+    <span class="n">gadm</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">gadm_file</span><span class="p">)</span>
+
+    <span class="c1"># Province centroids in lon/lat</span>
+    <span class="n">centroids</span> <span class="o">=</span> <span class="n">gadm</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;NAME_1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="s2">&quot;EPSG:4326&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">centroid</span>
+    <span class="n">fao</span><span class="p">[</span><span class="s2">&quot;lon&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">centroids</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">fao</span><span class="o">.</span><span class="n">index</span><span class="p">)</span><span class="o">.</span><span class="n">x</span>
+    <span class="n">fao</span><span class="p">[</span><span class="s2">&quot;lat&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">centroids</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">fao</span><span class="o">.</span><span class="n">index</span><span class="p">)</span><span class="o">.</span><span class="n">y</span>
+
+    <span class="n">bounds</span> <span class="o">=</span> <span class="n">gadm</span><span class="o">.</span><span class="n">total_bounds</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="n">subplot_kw</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;projection&quot;</span><span class="p">:</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">()})</span>
+
+    <span class="c1"># Province background</span>
+    <span class="n">gadm</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;whitesmoke&quot;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;grey&quot;</span><span class="p">,</span>
+              <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">())</span>
+
+    <span class="c1"># Circles scaled by biomass_mw</span>
+    <span class="n">scale</span> <span class="o">=</span> <span class="mi">10</span>  <span class="c1"># km² per MW — increase to shrink circles</span>
+    <span class="n">scatter</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+        <span class="n">fao</span><span class="p">[</span><span class="s2">&quot;lon&quot;</span><span class="p">],</span> <span class="n">fao</span><span class="p">[</span><span class="s2">&quot;lat&quot;</span><span class="p">],</span>
+        <span class="n">s</span><span class="o">=</span><span class="n">fao</span><span class="p">[</span><span class="s2">&quot;biomass_mw&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="n">scale</span><span class="p">,</span>
+        <span class="n">color</span><span class="o">=</span><span class="s2">&quot;#4caf50&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s2">&quot;darkgreen&quot;</span><span class="p">,</span>
+        <span class="n">linewidths</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Province name + MW labels</span>
+    <span class="k">for</span> <span class="n">province</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">fao</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">notna</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;lon&quot;</span><span class="p">]):</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;lon&quot;</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;lat&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.4</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">province</span><span class="si">}</span><span class="se">\n</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;biomass_mw&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2"> MW&quot;</span><span class="p">,</span>
+                    <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;top&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mf">7.5</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+
+    <span class="c1"># Size legend</span>
+    <span class="k">for</span> <span class="n">mw</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">]:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">([],</span> <span class="p">[],</span> <span class="n">s</span><span class="o">=</span><span class="n">mw</span> <span class="o">/</span> <span class="n">scale</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;#4caf50&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
+                   <span class="n">edgecolors</span><span class="o">=</span><span class="s2">&quot;darkgreen&quot;</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">mw</span><span class="si">}</span><span class="s2"> MW&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Potential&quot;</span><span class="p">,</span> <span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;lower right&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">cartopy</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">BORDERS</span><span class="o">.</span><span class="n">with_scale</span><span class="p">(</span><span class="s2">&quot;10m&quot;</span><span class="p">),</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_extent</span><span class="p">([</span><span class="n">bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">+</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">+</span><span class="mf">0.5</span><span class="p">],</span> <span class="n">crs</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">())</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">filename</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+
+<span class="n">clusters</span> <span class="o">=</span> <span class="s2">&quot;10&quot;</span>
+<span class="n">regions_onshore</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">PARENT</span><span class="si">}</span><span class="s2">resources/</span><span class="si">{</span><span class="n">scenario_name</span><span class="si">}</span><span class="s2">/bus_regions/regions_onshore_elec_s_</span><span class="si">{</span><span class="n">clusters</span><span class="si">}</span><span class="s2">.geojson&quot;</span>
+<span class="n">gadm_file</span>       <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">PARENT</span><span class="si">}</span><span class="s2">resources/</span><span class="si">{</span><span class="n">scenario_name</span><span class="si">}</span><span class="s2">/shapes/gadm_shapes.geojson&quot;</span>
+<span class="n">biomass_csv</span>     <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">PARENT</span><span class="si">}</span><span class="s2">data/biomass_data.csv&quot;</span>
+
+<span class="n">plot_voronoi</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="s2">&quot;solar&quot;</span><span class="p">,</span>  <span class="n">regions_onshore</span><span class="p">,</span> <span class="s2">&quot;YlOrRd&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Solar potential density (MW/km²)&quot;</span><span class="p">)</span>
+<span class="n">plot_voronoi</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="s2">&quot;onwind&quot;</span><span class="p">,</span> <span class="n">regions_onshore</span><span class="p">,</span> <span class="s2">&quot;Blues&quot;</span><span class="p">,</span>  <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Onshore wind potential density (MW/km²)&quot;</span><span class="p">)</span>
+<span class="n">plot_voronoi</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="s2">&quot;hydro&quot;</span><span class="p">,</span>  <span class="n">regions_onshore</span><span class="p">,</span> <span class="s2">&quot;GnBu&quot;</span><span class="p">,</span>   <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Hydro installed capacity density (MW/km²)&quot;</span><span class="p">)</span>
+<span class="n">plot_biomass_circles</span><span class="p">(</span><span class="n">biomass_csv</span><span class="p">,</span> <span class="n">gadm_file</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="generator-optimised-capacities">
+<h2>2.2 Generator Optimised Capacities<a class="headerlink" href="#generator-optimised-capacities" title="Link to this heading">#</a></h2>
+<p>After solving the optimisation, <code class="docutils literal notranslate"><span class="pre">p_nom_opt</span></code> holds the <strong>optimal installed capacity</strong> for each generator. For non-extendable plants this equals <code class="docutils literal notranslate"><span class="pre">p_nom</span></code> (the fixed capacity).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">generators</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;carrier&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">p_nom_opt</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">statistics</span><span class="o">.</span><span class="n">expanded_capacity</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="line-optimised-capacities">
+<h2>2.3 Line Optimised Capacities<a class="headerlink" href="#line-optimised-capacities" title="Link to this heading">#</a></h2>
+<p>Transmission lines can also be expanded in a capacity-expansion model.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diff</span><span class="o">=</span><span class="n">n</span><span class="o">.</span><span class="n">lines</span><span class="o">.</span><span class="n">s_nom_opt</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">-</span> <span class="n">n</span><span class="o">.</span><span class="n">lines</span><span class="o">.</span><span class="n">s_nom</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">diff</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s1"> MVA&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="cost-per-technology-capex-opex">
+<h2>2.4 Cost per Technology (CAPEX + OPEX)<a class="headerlink" href="#cost-per-technology-capex-opex" title="Link to this heading">#</a></h2>
+<p>The total annualised cost of a technology has two components:</p>
+<ul class="simple">
+<li><p><strong>CAPEX</strong> (<code class="docutils literal notranslate"><span class="pre">capital_cost</span></code>): the annualised investment cost in €/MW/year. Stored per generator in <code class="docutils literal notranslate"><span class="pre">n.generators.capital_cost</span></code>.</p></li>
+<li><p><strong>OPEX</strong> (<code class="docutils literal notranslate"><span class="pre">marginal_cost</span></code>): the variable cost of generating one MWh in €/MWh. Stored in <code class="docutils literal notranslate"><span class="pre">n.generators.marginal_cost</span></code>.</p></li>
+</ul>
+<p>Total cost per technology = CAPEX × capacity + OPEX × energy generated.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">statistics</span><span class="o">.</span><span class="n">expanded_capex</span><span class="p">()</span><span class="o">/</span><span class="mf">1e6</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="total-system-cost">
+<h2>2.5 Total System Cost<a class="headerlink" href="#total-system-cost" title="Link to this heading">#</a></h2>
+<p>The <strong>objective value</strong> is the total annualised system cost minimised by the solver. We can break it down into the contributions from each generator to understand where costs come from.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tsc</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">n</span><span class="o">.</span><span class="n">statistics</span><span class="o">.</span><span class="n">expanded_capex</span><span class="p">(),</span> <span class="n">n</span><span class="o">.</span><span class="n">statistics</span><span class="o">.</span><span class="n">opex</span><span class="p">()],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">div</span><span class="p">(</span><span class="mf">1e6</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">tsc</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">tsc</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2"> mEUR/MW/year&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="emissions-per-technology">
+<h2>2.6 Emissions per Technology<a class="headerlink" href="#emissions-per-technology" title="Link to this heading">#</a></h2>
+<p>Each carrier has a CO₂ intensity stored in <code class="docutils literal notranslate"><span class="pre">n.carriers.co2_emissions</span></code> (tonnes of CO₂ per MWh of fuel input, not output). Total emissions are:</p>
+<div class="math notranslate nohighlight">
+\[E_{\text{carrier}} = \sum_t P_{g,t} \cdot w_t \cdot \frac{\text{co2\_emissions}_{\text{carrier}}}{\eta_g}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\eta_g\)</span> is the generator efficiency and <span class="math notranslate nohighlight">\(w_t\)</span> are snapshot weightings.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">emissions</span> <span class="o">=</span> <span class="p">(</span>
+ <span class="n">n</span><span class="o">.</span><span class="n">generators_t</span><span class="o">.</span><span class="n">p</span>
+<span class="o">/</span> <span class="n">n</span><span class="o">.</span><span class="n">generators</span><span class="o">.</span><span class="n">efficiency</span>
+<span class="o">*</span> <span class="n">n</span><span class="o">.</span><span class="n">generators</span><span class="o">.</span><span class="n">carrier</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">n</span><span class="o">.</span><span class="n">carriers</span><span class="o">.</span><span class="n">co2_emissions</span><span class="p">)</span>
+<span class="p">)</span> <span class="c1"># t/h</span>
+
+<span class="n">total_emissions_mt</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span><span class="o">.</span><span class="n">snapshot_weightings</span><span class="o">.</span><span class="n">generators</span> <span class="o">@</span> <span class="n">emissions</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="mf">1e6</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">total_emissions_mt</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> Mt CO₂/year&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="spatial-distribution-of-power-plants-and-lines">
+<h2>2.7 Spatial Distribution of Power Plants and Lines<a class="headerlink" href="#spatial-distribution-of-power-plants-and-lines" title="Link to this heading">#</a></h2>
+<p>PyPSA buses carry geographic coordinates, so we can plot where generators are located and how they connect via the transmission network. Bus size reflects installed (or optimised) capacity.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># --- Load shapes ---</span>
+<span class="n">gadm_shapes</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;../resources/</span><span class="si">{</span><span class="n">scenario_name</span><span class="si">}</span><span class="s2">/shapes/gadm_shapes.geojson&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;GADM_ID&quot;</span><span class="p">)</span>
+<span class="n">regions_onshore</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;../resources/</span><span class="si">{</span><span class="n">scenario_name</span><span class="si">}</span><span class="s2">/bus_regions/regions_onshore_elec_s.geojson&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span>
+
+<span class="c1"># --- Optimised capacities by bus + carrier ---</span>
+<span class="n">skip</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;load shedding&quot;</span><span class="p">,</span> <span class="s2">&quot;export&quot;</span><span class="p">,</span> <span class="s2">&quot;import&quot;</span><span class="p">]</span>
+<span class="n">gen</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">n</span><span class="o">.</span><span class="n">generators</span><span class="p">[</span><span class="o">~</span><span class="n">n</span><span class="o">.</span><span class="n">generators</span><span class="o">.</span><span class="n">carrier</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">skip</span><span class="p">)]</span>
+    <span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;bus&quot;</span><span class="p">,</span> <span class="s2">&quot;carrier&quot;</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">p_nom_opt</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="p">)</span>
+<span class="n">sto</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">storage_units</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;bus&quot;</span><span class="p">,</span> <span class="s2">&quot;carrier&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">p_nom_opt</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">buses</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">gen</span><span class="p">,</span> <span class="n">sto</span><span class="p">])</span>
+<span class="n">buses</span> <span class="o">=</span> <span class="n">buses</span><span class="p">[</span><span class="n">buses</span> <span class="o">&gt;</span> <span class="mf">0.1</span><span class="p">]</span>  <span class="c1"># drop noise</span>
+
+<span class="c1"># --- Scales ---</span>
+<span class="n">bus_scale</span> <span class="o">=</span> <span class="mi">6000</span>      <span class="c1"># MW per unit circle area — increase to shrink map circles</span>
+<span class="n">line_scale</span> <span class="o">=</span> <span class="mi">1500</span>     <span class="c1"># MW per unit line width</span>
+<span class="n">bus_sizes</span>  <span class="o">=</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]</span>   <span class="c1"># legend reference sizes (MW) — reduce to shrink legend circles</span>
+<span class="n">line_sizes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">500</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">2000</span><span class="p">]</span>
+
+<span class="c1"># --- Filter links to within-Zambia only ---</span>
+<span class="n">zm_buses</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">n</span><span class="o">.</span><span class="n">buses</span><span class="p">[</span><span class="n">n</span><span class="o">.</span><span class="n">buses</span><span class="o">.</span><span class="n">country</span> <span class="o">==</span> <span class="s2">&quot;ZM&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">valid_links</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">links</span><span class="p">[</span>
+    <span class="n">n</span><span class="o">.</span><span class="n">links</span><span class="o">.</span><span class="n">bus0</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">zm_buses</span><span class="p">)</span> <span class="o">&amp;</span>
+    <span class="n">n</span><span class="o">.</span><span class="n">links</span><span class="o">.</span><span class="n">bus1</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">zm_buses</span><span class="p">)</span> <span class="o">&amp;</span>
+    <span class="p">(</span><span class="n">n</span><span class="o">.</span><span class="n">links</span><span class="o">.</span><span class="n">p_nom_opt</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+<span class="p">]</span>
+<span class="n">links_backup</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">links</span>
+<span class="n">n</span><span class="o">.</span><span class="n">links</span> <span class="o">=</span> <span class="n">valid_links</span>
+
+<span class="n">plot_boundaries</span> <span class="o">=</span> <span class="n">regions_onshore</span><span class="o">.</span><span class="n">total_bounds</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]]</span>
+
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span> <span class="n">subplot_kw</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;projection&quot;</span><span class="p">:</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">EqualEarth</span><span class="p">()})</span>
+
+<span class="c1"># --- Background regions ---</span>
+<span class="n">regions_onshore</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+    <span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;whitesmoke&quot;</span><span class="p">,</span>
+    <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span>
+    <span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span>
+    <span class="n">linewidth</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">aspect</span><span class="o">=</span><span class="s2">&quot;equal&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="k">with</span> <span class="n">plt</span><span class="o">.</span><span class="n">rc_context</span><span class="p">({</span><span class="s2">&quot;patch.linewidth&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">}):</span>
+    <span class="n">n</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+        <span class="n">bus_sizes</span><span class="o">=</span><span class="n">buses</span> <span class="o">/</span> <span class="n">bus_scale</span><span class="p">,</span>
+        <span class="n">bus_alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span>
+        <span class="n">line_widths</span><span class="o">=</span><span class="n">n</span><span class="o">.</span><span class="n">lines</span><span class="o">.</span><span class="n">s_nom_opt</span> <span class="o">/</span> <span class="n">line_scale</span><span class="p">,</span>
+        <span class="n">link_widths</span><span class="o">=</span><span class="n">n</span><span class="o">.</span><span class="n">links</span><span class="o">.</span><span class="n">p_nom_opt</span> <span class="o">/</span> <span class="n">line_scale</span><span class="p">,</span>
+        <span class="n">line_colors</span><span class="o">=</span><span class="s2">&quot;teal&quot;</span><span class="p">,</span>
+        <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+        <span class="n">color_geomap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">boundaries</span><span class="o">=</span><span class="n">plot_boundaries</span><span class="p">,</span>
+    <span class="p">)</span>
+
+<span class="n">n</span><span class="o">.</span><span class="n">links</span> <span class="o">=</span> <span class="n">links_backup</span>
+
+<span class="c1"># --- Legends ---</span>
+<span class="n">legend_kw</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;loc&quot;</span><span class="p">:</span> <span class="s2">&quot;upper left&quot;</span><span class="p">,</span> <span class="s2">&quot;frameon&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
+
+<span class="n">add_legend_lines</span><span class="p">(</span>
+    <span class="n">ax</span><span class="p">,</span>
+    <span class="p">[</span><span class="n">s</span> <span class="o">/</span> <span class="n">line_scale</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">line_sizes</span><span class="p">],</span>
+    <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">s</span><span class="o">/</span><span class="mi">1000</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2"> GW&quot;</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">line_sizes</span><span class="p">],</span>
+    <span class="n">legend_kw</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;bbox_to_anchor&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mf">1.02</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="o">**</span><span class="n">legend_kw</span><span class="p">},</span>
+<span class="p">)</span>
+<span class="n">add_legend_circles</span><span class="p">(</span>
+    <span class="n">ax</span><span class="p">,</span>
+    <span class="p">[</span><span class="n">s</span> <span class="o">/</span> <span class="n">bus_scale</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">bus_sizes</span><span class="p">],</span>
+    <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">s</span><span class="si">}</span><span class="s2"> MW&quot;</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">bus_sizes</span><span class="p">],</span>
+    <span class="n">legend_kw</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;bbox_to_anchor&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mf">1.02</span><span class="p">,</span> <span class="mf">0.78</span><span class="p">),</span> <span class="s2">&quot;labelspacing&quot;</span><span class="p">:</span> <span class="mf">1.5</span><span class="p">,</span> <span class="o">**</span><span class="n">legend_kw</span><span class="p">},</span>
+<span class="p">)</span>
+
+<span class="c1"># Carrier colour patches — only carriers with capacity above threshold</span>
+<span class="n">min_mw</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">colors_leg</span><span class="p">,</span> <span class="n">labels_leg</span><span class="p">,</span> <span class="n">seen</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[],</span> <span class="nb">set</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">n</span><span class="o">.</span><span class="n">carriers</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">skip</span><span class="p">:</span>
+        <span class="k">continue</span>
+    <span class="n">nice</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">carriers</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">c</span><span class="p">,</span> <span class="s2">&quot;nice_name&quot;</span><span class="p">]</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">carriers</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">c</span><span class="p">,</span> <span class="s2">&quot;color&quot;</span><span class="p">]</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="n">buses</span><span class="o">.</span><span class="n">xs</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="s2">&quot;carrier&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="k">if</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">buses</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="s2">&quot;carrier&quot;</span><span class="p">)</span> <span class="k">else</span> <span class="mi">0</span>
+    <span class="k">if</span> <span class="n">nice</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">seen</span> <span class="ow">and</span> <span class="n">total</span> <span class="o">&gt;</span> <span class="n">min_mw</span><span class="p">:</span>
+        <span class="n">seen</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">nice</span><span class="p">)</span>
+        <span class="n">colors_leg</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
+        <span class="n">labels_leg</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">nice</span><span class="si">}</span><span class="s2">  (</span><span class="si">{</span><span class="n">total</span><span class="o">/</span><span class="mi">1000</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> GW)&quot;</span><span class="p">)</span>
+
+<span class="n">add_legend_patches</span><span class="p">(</span>
+    <span class="n">ax</span><span class="p">,</span>
+    <span class="n">colors_leg</span><span class="p">,</span>
+    <span class="n">labels_leg</span><span class="p">,</span>
+    <span class="n">legend_kw</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;bbox_to_anchor&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mf">1.02</span><span class="p">,</span> <span class="mf">0.45</span><span class="p">),</span> <span class="o">**</span><span class="n">legend_kw</span><span class="p">,</span> <span class="s2">&quot;loc&quot;</span><span class="p">:</span> <span class="s2">&quot;upper left&quot;</span><span class="p">},</span>
+<span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Optimised installed capacity by carrier&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="energy-balance">
+<h2>2.9 Energy Balance<a class="headerlink" href="#energy-balance" title="Link to this heading">#</a></h2>
+<p>A fundamental check: <strong>total supply must equal total demand</strong> (plus losses, exports, and curtailment). The energy balance is:</p>
+<div class="math notranslate nohighlight">
+\[\text{Generation} + \text{Imports} = \text{Load} + \text{Exports} + \text{Curtailment} + \text{Load Shedding}\]</div>
+<p>Any discrepancy indicates a modelling inconsistency.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># --- Load config for colors and nice names ---</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../config.default.yaml&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">cfg</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+<span class="c1"># --- Energy balance grouped by carrier, converted to TWh ---</span>
+<span class="n">energy_balance</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">n</span><span class="o">.</span><span class="n">statistics</span><span class="o">.</span><span class="n">energy_balance</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;carrier&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">div</span><span class="p">(</span><span class="mf">1e6</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">T</span>
+    <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;-&quot;</span><span class="p">:</span> <span class="s2">&quot;Load&quot;</span><span class="p">})</span>
+<span class="p">)</span>
+<span class="n">energy_balance</span> <span class="o">=</span> <span class="n">energy_balance</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">(</span><span class="n">energy_balance</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)]</span>
+
+<span class="c1"># --- Color lookup using nice_names as keys (energy_balance uses nice names) ---</span>
+<span class="n">tech_colors</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">cfg</span><span class="p">[</span><span class="s2">&quot;plotting&quot;</span><span class="p">][</span><span class="s2">&quot;tech_colors&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+<span class="n">nice_names_map</span> <span class="o">=</span> <span class="p">{</span><span class="n">v</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span> <span class="n">v</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">cfg</span><span class="p">[</span><span class="s2">&quot;plotting&quot;</span><span class="p">][</span><span class="s2">&quot;nice_names&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">()}</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">color_for</span><span class="p">(</span><span class="n">col</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">tech_colors</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">col</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span> <span class="s2">&quot;#9e9e9e&quot;</span><span class="p">)</span>
+
+<span class="c1"># --- Order: top 10 by absolute value, rest → &quot;Other&quot; ---</span>
+<span class="n">top_n</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">energy_balance</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">ordered</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">top_cols</span> <span class="o">=</span> <span class="n">ordered</span><span class="o">.</span><span class="n">index</span><span class="p">[:</span><span class="n">top_n</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">other_cols</span> <span class="o">=</span> <span class="n">ordered</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">top_n</span><span class="p">:]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+<span class="n">df_plot</span> <span class="o">=</span> <span class="n">energy_balance</span><span class="p">[</span><span class="n">top_cols</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="k">if</span> <span class="n">other_cols</span><span class="p">:</span>
+    <span class="n">df_plot</span><span class="p">[</span><span class="s2">&quot;Other&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">energy_balance</span><span class="p">[</span><span class="n">other_cols</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Positives largest→smallest, negatives smallest→largest</span>
+<span class="n">pos</span> <span class="o">=</span> <span class="n">df_plot</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">df_plot</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">neg</span> <span class="o">=</span> <span class="n">df_plot</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">df_plot</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df_plot</span> <span class="o">=</span> <span class="n">df_plot</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">pos</span><span class="o">.</span><span class="n">index</span><span class="p">)</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">neg</span><span class="o">.</span><span class="n">index</span><span class="p">)]</span>
+
+<span class="n">color_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">color_for</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="k">if</span> <span class="n">c</span> <span class="o">!=</span> <span class="s2">&quot;Other&quot;</span> <span class="k">else</span> <span class="s2">&quot;#cfcfcf&quot;</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">df_plot</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
+
+<span class="c1"># --- Plot ---</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">))</span>
+<span class="n">df_plot</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span>
+    <span class="n">stacked</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color_list</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">0.6</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Energy Balance in TWh&quot;</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;TWh&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">([</span><span class="s2">&quot;&quot;</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">FuncFormatter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">pos</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;#444&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+
+<span class="c1"># --- Legend ---</span>
+<span class="n">handles</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">Patch</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="n">color_list</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">c</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">df_plot</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="p">]</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span>
+    <span class="n">handles</span><span class="o">=</span><span class="n">handles</span><span class="p">,</span>
+    <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper center&quot;</span><span class="p">,</span>
+    <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.22</span><span class="p">),</span>
+    <span class="n">ncol</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+    <span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># --- Annotate totals ---</span>
+<span class="n">vals</span> <span class="o">=</span> <span class="n">df_plot</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">cum_pos</span> <span class="o">=</span> <span class="n">vals</span><span class="p">[</span><span class="n">vals</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">cum_neg</span> <span class="o">=</span> <span class="n">vals</span><span class="p">[</span><span class="n">vals</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">cum_pos</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;  +</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">cum_pos</span><span class="p">))</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">cum_neg</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">cum_neg</span><span class="p">))</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">  &quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">bottom</span><span class="o">=</span><span class="mf">0.28</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="marginal-price">
+<h2>Marginal Price<a class="headerlink" href="#marginal-price" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">buses_t</span><span class="o">.</span><span class="n">marginal_price</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also retrieve data on the electricity prices:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">buses_t</span><span class="o">.</span><span class="n">marginal_price</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Electricity Price [€/MWh]&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And present it as a price duration curve:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pdc</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">buses_t</span><span class="o">.</span><span class="n">marginal_price</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">pdc</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pdc</span><span class="o">.</span><span class="n">index</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">pdc</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+
+<span class="n">pdc</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;Percentage of time [%]&quot;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;Electricity Price [€/MWh]&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Exploring PyPSA-Zambia</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#this-notebook-guides-you-through-the-pypsa-zambia-energy-system-model-an-open-source-power-system-model-of-zambia-built-with-pypsa-and-the-pypsa-earth-workflow">This notebook guides you through the <strong>PyPSA-Zambia</strong> energy system model — an open-source power system model of Zambia built with PyPSA and the PyPSA-Earth workflow.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paths">Paths</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-packages">Import Packages</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-the-network">Load the Network</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#network-topology">1.1 Network Topology</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generation-installed-capacities">1.2 Generation Installed Capacities</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transmission-installed-capacities">1.3 Transmission Installed Capacities</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#per-plant-dispatch">1.4 Per-Plant Dispatch</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hydro-inflow-per-plant">1.5 Hydro Inflow per Plant</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#electricity-generation">1.6 Electricity Generation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#electricity-generated-by-power-plants">1.6.1 Electricity Generated By Power Plants</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#electricity-generated-by-reservoir-hydro-power-plants">1.6.2 Electricity Generated By Reservoir Hydro Power Plants</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#power-flows-in-transmission-lines">1.7 Power Flows in Transmission Lines</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#power-flows-in-interconnectors">1.8 Power Flows in Interconnectors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#electricity-demand">1.9 Electricity Demand</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#system-marginal-cost">1.9 System Marginal Cost</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-investment-planning">Part 2: Investment Planning</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimized-capacities">Optimized Capacities</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#renewable-resource-potential">2.1 Renewable Resource Potential</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generator-optimised-capacities">2.2 Generator Optimised Capacities</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#line-optimised-capacities">2.3 Line Optimised Capacities</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cost-per-technology-capex-opex">2.4 Cost per Technology (CAPEX + OPEX)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#total-system-cost">2.5 Total System Cost</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#emissions-per-technology">2.6 Emissions per Technology</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-distribution-of-power-plants-and-lines">2.7 Spatial Distribution of Power Plants and Lines</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#energy-balance">2.9 Energy Balance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal-price">Marginal Price</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Open Energy Transition
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
