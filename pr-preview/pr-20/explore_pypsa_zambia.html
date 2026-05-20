@@ -512,28 +512,15 @@ If you are on <a class="reference external" href="https://colab.research.google.
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title 📂 Step 2 — Download workshop data from shared Google Drive (Colab only)</span>
 <span class="c1">#</span>
-<span class="c1"># The instructor shares a Google Drive folder containing:</span>
-<span class="c1">#   pypsa-zambia/</span>
-<span class="c1">#     results/cap_exp_zambia_2025/networks/elec_s_10_ec_lcopt_3h.nc</span>
-<span class="c1">#     resources/cap_exp_zambia_2025/bus_regions/regions_onshore_elec_s_10.geojson</span>
-<span class="c1">#     resources/cap_exp_zambia_2025/shapes/gadm_shapes.geojson</span>
-<span class="c1">#     resources/cap_exp_zambia_2025/renewable_profiles/profile_solar.nc</span>
-<span class="c1">#     resources/cap_exp_zambia_2025/renewable_profiles/profile_onwind.nc</span>
-<span class="c1">#     data/biomass_data.csv</span>
-<span class="c1">#     config.default.yaml</span>
-<span class="c1">#</span>
-<span class="c1"># ⚠️  Paste the shared folder ID below (last part of the Drive URL).</span>
-<span class="c1">#     e.g. https://drive.google.com/drive/folders/1AbCdEfGh... → &quot;1AbCdEfGh...&quot;</span>
+<span class="c1"># Files are downloaded from the shared pypsa-zambia-workshop folder on Google Drive.</span>
+<span class="c1"># You do not need to change anything — just run this cell.</span>
 
-<span class="n">WORKSHOP_FOLDER_ID</span> <span class="o">=</span> <span class="s2">&quot;PASTE_FOLDER_ID_HERE&quot;</span>   <span class="c1"># ← replace this</span>
+<span class="n">WORKSHOP_FOLDER_ID</span> <span class="o">=</span> <span class="s2">&quot;1-MjDsOc5YzUd9pjgZU5rjyrd2xd-xciz&quot;</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">sys</span><span class="o">,</span><span class="w"> </span><span class="nn">os</span>
 <span class="n">IN_COLAB</span> <span class="o">=</span> <span class="s2">&quot;google.colab&quot;</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span>
 
 <span class="k">if</span> <span class="n">IN_COLAB</span><span class="p">:</span>
-    <span class="k">if</span> <span class="n">WORKSHOP_FOLDER_ID</span> <span class="o">==</span> <span class="s2">&quot;PASTE_FOLDER_ID_HERE&quot;</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;❌ Please replace WORKSHOP_FOLDER_ID with the actual folder ID shared by your instructor.&quot;</span><span class="p">)</span>
-
     <span class="kn">import</span><span class="w"> </span><span class="nn">gdown</span>
     <span class="n">DATA_DIR</span> <span class="o">=</span> <span class="s2">&quot;/content/pypsa-zambia&quot;</span>
     <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">DATA_DIR</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
