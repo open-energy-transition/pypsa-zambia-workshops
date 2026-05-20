@@ -1,0 +1,23 @@
+name: pypsa-zambia-min
+channels:
+- conda-forge
+- bioconda
+dependencies:
+- python
+- pip
+
+  # main packages
+- pandas>=2
+- pypsa
+
+  # interactive python
+- ipython
+- jupyterlab
+
+  # plotting
+- matplotlib>=3.6
+
+  # publishing
+- jupyter-book<2.0.0
+- ghp-import
+- pre-commit
