@@ -181,6 +181,8 @@
 
 <li class="toctree-l1"><a class="reference internal" href="06-capacity-expansion-scenarios.html">PyPSA: Modelling Capacity Expansion Scenarios</a></li>
 <li class="toctree-l1"><a class="reference internal" href="08-closing.html">Summary of the day</a></li>
+<li class="toctree-l1"><a class="reference internal" href="explore_pypsa_zambia.html">Exploring PyPSA-Zambia</a></li>
+
 </ul>
 
     </div>
@@ -520,13 +522,13 @@
 <h2>From structured data to optimisation<a class="headerlink" href="#from-structured-data-to-optimisation" title="Link to this heading">#</a></h2>
 <p><strong>The design principle of PyPSA is that each component is associated with a set of variables and constraints that will be added to the optimisation model based on the input data stored for the components.</strong></p>
 <p>For an <em>hourly</em> electricity market simulation, PyPSA will solve an optimisation problem that looks like this</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f4e95800-dca5-4d9c-ac46-3142c75faf40">
-<span class="eqno">(1)<a class="headerlink" href="#equation-f4e95800-dca5-4d9c-ac46-3142c75faf40" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-11f6ba2a-f840-4c69-a3e2-8fe21e72319f">
+<span class="eqno">(1)<a class="headerlink" href="#equation-11f6ba2a-f840-4c69-a3e2-8fe21e72319f" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \min_{g_{i,s,t}; f_{\ell,t}; g_{i,r,t,\text{charge}}; g_{i,r,t,\text{discharge}}; e_{i,r,t}} \sum_s o_{s} g_{i,s,t}
 \end{equation}\]</div>
 <p>such that</p>
-<div class="amsmath math notranslate nohighlight" id="equation-dab1e6da-2fcf-4466-8020-a22ba4363150">
-<span class="eqno">(2)<a class="headerlink" href="#equation-dab1e6da-2fcf-4466-8020-a22ba4363150" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-34ecc45a-ce86-4944-90c8-b1d6ff53ec49">
+<span class="eqno">(2)<a class="headerlink" href="#equation-34ecc45a-ce86-4944-90c8-b1d6ff53ec49" title="Permalink to this equation">#</a></span>\[\begin{align}
 0 &amp; \leq g_{i,s,t} \leq \hat{g}_{i,s,t} G_{i,s}  &amp; \text{generation limits : generator} \\
 -F_\ell &amp;\leq f_{\ell,t} \leq F_\ell &amp; \text{transmission limits : line}  \\
 d_{i,t} &amp;= \sum_s g_{i,s,t} + \sum_r g_{i,r,t,\text{discharge}} - \sum_r g_{i,r,t,\text{charge}} - \sum_\ell K_{i\ell} f_{\ell,t} &amp; \text{KCL : bus} \\
