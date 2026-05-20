@@ -11,6 +11,7 @@ chapters:
 - file: 05-workshop-python.ipynb
 - file: 06-capacity-expansion-scenarios.ipynb
 - file: 08-closing.md
+- file: explore_pypsa_zambia.ipynb
 
 
 # - file: oet-extension/00-reference.md
