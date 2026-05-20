@@ -488,12 +488,88 @@ in the <em>objective function</em> and <em>new constraints for their expansion l
 <p class="admonition-title">Note</p>
 <p>For a full reference to the optimisation problem description, see <a class="reference external" href="https://docs.pypsa.org/latest/user-guide/optimization/overview/">https://docs.pypsa.org/latest/user-guide/optimization/overview/</a></p>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If you have not yet set up Python on your computer, you can execute this tutorial in your browser via <a class="reference external" href="https://colab.research.google.com/">Google Colab</a>. Download the <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> file using the download button on the top right corner and import it in <a class="reference external" href="https://colab.research.google.com/">Google Colab</a>.</p>
-<p>Then install the following packages by executing the following command in a Jupyter cell at the top of the notebook.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>!pip<span class="w"> </span>install<span class="w"> </span>pypsa<span class="w"> </span>pandas<span class="w"> </span>matplotlib<span class="w"> </span>plotly<span class="s2">&quot;&lt;6&quot;</span>
+<p>Install nessecary packages</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">pip</span> install pandas pypsa
 </pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pandas in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (3.0.3)
+Requirement already satisfied: pypsa in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (1.2.1)
+Requirement already satisfied: numpy&gt;=1.26.0 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from pandas) (2.4.6)
+Requirement already satisfied: python-dateutil&gt;=2.8.2 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from pandas) (2.9.0.post0)
+Requirement already satisfied: scipy in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from pypsa) (1.17.1)
+Requirement already satisfied: xarray&lt;2026.4 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from pypsa) (2026.2.0)
+Requirement already satisfied: netcdf4 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from pypsa) (1.7.2)
+Requirement already satisfied: linopy&gt;=0.6.1 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from pypsa) (0.6.6)
+Requirement already satisfied: matplotlib in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from pypsa) (3.10.9)
+Requirement already satisfied: plotly in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from pypsa) (6.6.0)
+Requirement already satisfied: pydeck&gt;=0.6 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from pypsa) (0.9.2)
+Requirement already satisfied: seaborn in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from pypsa) (0.13.2)
+Requirement already satisfied: geopandas&gt;=0.9 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from pypsa) (1.1.3)
+Requirement already satisfied: shapely in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from pypsa) (2.1.1)
+Requirement already satisfied: networkx&gt;=2 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from pypsa) (3.6.1)
+Requirement already satisfied: deprecation in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from pypsa) (2.1.0)
+Requirement already satisfied: validators in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from pypsa) (0.35.0)
+Requirement already satisfied: highspy in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from pypsa) (1.14.0)
+Requirement already satisfied: levenshtein&gt;=0.27.1 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from pypsa) (0.27.3)
+Requirement already satisfied: platformdirs in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from pypsa) (4.9.6)
+Requirement already satisfied: packaging&gt;=24.1 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from xarray&lt;2026.4-&gt;pypsa) (25.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: rapidfuzz&lt;4.0.0,&gt;=3.9.0 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from levenshtein&gt;=0.27.1-&gt;pypsa) (3.14.5)
+Requirement already satisfied: bottleneck in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from linopy&gt;=0.6.1-&gt;pypsa) (1.6.0)
+Requirement already satisfied: toolz in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from linopy&gt;=0.6.1-&gt;pypsa) (1.1.0)
+Requirement already satisfied: numexpr in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from linopy&gt;=0.6.1-&gt;pypsa) (2.14.1)
+Requirement already satisfied: dask&gt;=0.18.0 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from linopy&gt;=0.6.1-&gt;pypsa) (2026.3.0)
+Requirement already satisfied: polars&gt;=1.31.1 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from linopy&gt;=0.6.1-&gt;pypsa) (1.40.1)
+Requirement already satisfied: tqdm in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from linopy&gt;=0.6.1-&gt;pypsa) (4.67.3)
+Requirement already satisfied: google-cloud-storage in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from linopy&gt;=0.6.1-&gt;pypsa) (1.31.2)
+Requirement already satisfied: requests in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from linopy&gt;=0.6.1-&gt;pypsa) (2.34.1)
+Requirement already satisfied: click&gt;=8.1 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from dask&gt;=0.18.0-&gt;linopy&gt;=0.6.1-&gt;pypsa) (8.3.3)
+Requirement already satisfied: cloudpickle&gt;=3.0.0 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from dask&gt;=0.18.0-&gt;linopy&gt;=0.6.1-&gt;pypsa) (3.1.2)
+Requirement already satisfied: fsspec&gt;=2021.09.0 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from dask&gt;=0.18.0-&gt;linopy&gt;=0.6.1-&gt;pypsa) (2026.4.0)
+Requirement already satisfied: partd&gt;=1.4.0 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from dask&gt;=0.18.0-&gt;linopy&gt;=0.6.1-&gt;pypsa) (1.4.2)
+Requirement already satisfied: pyyaml&gt;=5.3.1 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from dask&gt;=0.18.0-&gt;linopy&gt;=0.6.1-&gt;pypsa) (6.0.3)
+Requirement already satisfied: locket in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from partd&gt;=1.4.0-&gt;dask&gt;=0.18.0-&gt;linopy&gt;=0.6.1-&gt;pypsa) (1.0.0)
+Requirement already satisfied: polars-runtime-32==1.40.1 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from polars&gt;=1.31.1-&gt;linopy&gt;=0.6.1-&gt;pypsa) (1.40.1)
+Requirement already satisfied: jinja2&gt;=2.10.1 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from pydeck&gt;=0.6-&gt;pypsa) (3.1.6)
+Requirement already satisfied: MarkupSafe&gt;=2.0 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from jinja2&gt;=2.10.1-&gt;pydeck&gt;=0.6-&gt;pypsa) (3.0.3)
+Requirement already satisfied: six&gt;=1.5 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from python-dateutil&gt;=2.8.2-&gt;pandas) (1.17.0)
+Requirement already satisfied: google-auth&lt;2.0dev,&gt;=1.11.0 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from google-cloud-storage-&gt;linopy&gt;=0.6.1-&gt;pypsa) (1.25.0)
+Requirement already satisfied: google-cloud-core&lt;2.0dev,&gt;=1.4.1 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from google-cloud-storage-&gt;linopy&gt;=0.6.1-&gt;pypsa) (1.7.2)
+Requirement already satisfied: google-resumable-media&lt;2.0dev,&gt;=1.0.0 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from google-cloud-storage-&gt;linopy&gt;=0.6.1-&gt;pypsa) (1.3.3)
+Requirement already satisfied: cachetools&lt;5.0,&gt;=2.0.0 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from google-auth&lt;2.0dev,&gt;=1.11.0-&gt;google-cloud-storage-&gt;linopy&gt;=0.6.1-&gt;pypsa) (4.2.4)
+Requirement already satisfied: pyasn1-modules&gt;=0.2.1 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from google-auth&lt;2.0dev,&gt;=1.11.0-&gt;google-cloud-storage-&gt;linopy&gt;=0.6.1-&gt;pypsa) (0.4.2)
+Requirement already satisfied: setuptools&gt;=40.3.0 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from google-auth&lt;2.0dev,&gt;=1.11.0-&gt;google-cloud-storage-&gt;linopy&gt;=0.6.1-&gt;pypsa) (82.0.1)
+Requirement already satisfied: rsa&lt;5,&gt;=3.1.4 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from google-auth&lt;2.0dev,&gt;=1.11.0-&gt;google-cloud-storage-&gt;linopy&gt;=0.6.1-&gt;pypsa) (4.9.1)
+Requirement already satisfied: google-api-core&lt;2.0.0dev,&gt;=1.21.0 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from google-cloud-core&lt;2.0dev,&gt;=1.4.1-&gt;google-cloud-storage-&gt;linopy&gt;=0.6.1-&gt;pypsa) (1.27.0)
+Requirement already satisfied: googleapis-common-protos&lt;2.0dev,&gt;=1.6.0 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from google-api-core&lt;2.0.0dev,&gt;=1.21.0-&gt;google-cloud-core&lt;2.0dev,&gt;=1.4.1-&gt;google-cloud-storage-&gt;linopy&gt;=0.6.1-&gt;pypsa) (1.75.0)
+Requirement already satisfied: protobuf&gt;=3.12.0 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from google-api-core&lt;2.0.0dev,&gt;=1.21.0-&gt;google-cloud-core&lt;2.0dev,&gt;=1.4.1-&gt;google-cloud-storage-&gt;linopy&gt;=0.6.1-&gt;pypsa) (5.29.3)
+Requirement already satisfied: pytz in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from google-api-core&lt;2.0.0dev,&gt;=1.21.0-&gt;google-cloud-core&lt;2.0dev,&gt;=1.4.1-&gt;google-cloud-storage-&gt;linopy&gt;=0.6.1-&gt;pypsa) (2026.2)
+Requirement already satisfied: google-crc32c&lt;2.0dev,&gt;=1.0 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from google-resumable-media&lt;2.0dev,&gt;=1.0.0-&gt;google-cloud-storage-&gt;linopy&gt;=0.6.1-&gt;pypsa) (1.8.0)
+Requirement already satisfied: charset_normalizer&lt;4,&gt;=2 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from requests-&gt;linopy&gt;=0.6.1-&gt;pypsa) (3.4.7)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from requests-&gt;linopy&gt;=0.6.1-&gt;pypsa) (3.13)
+Requirement already satisfied: urllib3&lt;3,&gt;=1.26 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from requests-&gt;linopy&gt;=0.6.1-&gt;pypsa) (2.5.0)
+Requirement already satisfied: certifi&gt;=2023.5.7 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from requests-&gt;linopy&gt;=0.6.1-&gt;pypsa) (2026.4.22)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pyasn1&gt;=0.1.3 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from rsa&lt;5,&gt;=3.1.4-&gt;google-auth&lt;2.0dev,&gt;=1.11.0-&gt;google-cloud-storage-&gt;linopy&gt;=0.6.1-&gt;pypsa) (0.6.3)
+Requirement already satisfied: contourpy&gt;=1.0.1 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from matplotlib-&gt;pypsa) (1.3.3)
+Requirement already satisfied: cycler&gt;=0.10 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from matplotlib-&gt;pypsa) (0.12.1)
+Requirement already satisfied: fonttools&gt;=4.22.0 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from matplotlib-&gt;pypsa) (4.62.1)
+Requirement already satisfied: kiwisolver&gt;=1.3.1 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from matplotlib-&gt;pypsa) (1.5.0)
+Requirement already satisfied: pillow&gt;=8 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from matplotlib-&gt;pypsa) (12.0.0)
+Requirement already satisfied: pyparsing&gt;=3 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from matplotlib-&gt;pypsa) (3.3.2)
+Requirement already satisfied: cftime in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from netcdf4-&gt;pypsa) (1.6.5)
+Requirement already satisfied: narwhals&gt;=1.15.1 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from plotly-&gt;pypsa) (2.21.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Note: you may need to restart the kernel to use updated packages.
+</pre></div>
+</div>
 </div>
 </div>
 <p>First, we need a few packages for this tutorial:</p>
@@ -507,7 +583,7 @@ in the <em>objective function</em> and <em>new constraints for their expansion l
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">pypsa</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
@@ -760,14 +836,98 @@ a(r, n) = \frac{r}{1-(1+r)^{-n}}
 <p>We are also going to need some time series for hydro, solar and load. For that, we are using some outputs of a current default dispatch run of PyPSA-Zambia model for year 2023.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts_year</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;scenarios_inputs.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">local_csv_path</span> <span class="o">=</span> <span class="s2">&quot;scenarios_inputs.csv&quot;</span>
+
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">local_csv_path</span><span class="p">):</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">&quot;https://raw.githubusercontent.com/&quot;</span>
+        <span class="s2">&quot;open-energy-transition/pypsa-zambia-workshops/&quot;</span>
+        <span class="s2">&quot;zambia/pypsa-zambia-workshops/scenarios_inputs.csv&quot;</span>
+    <span class="p">)</span>
+    <span class="n">ts_full</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">ts_full</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">local_csv_path</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">ts_full</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>time</th>
+      <th>load</th>
+      <th>load_2030</th>
+      <th>solar</th>
+      <th>hydro</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2023-01-01 00:00:00</td>
+      <td>1262.772707</td>
+      <td>1641.604520</td>
+      <td>0.000000</td>
+      <td>247.852300</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2023-01-01 03:00:00</td>
+      <td>1264.437106</td>
+      <td>1643.768238</td>
+      <td>0.001475</td>
+      <td>323.276012</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2023-01-01 06:00:00</td>
+      <td>1339.341534</td>
+      <td>1741.143994</td>
+      <td>0.116654</td>
+      <td>246.626506</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2023-01-01 09:00:00</td>
+      <td>1437.178810</td>
+      <td>1868.332453</td>
+      <td>0.323262</td>
+      <td>257.865338</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2023-01-01 12:00:00</td>
+      <td>1428.652936</td>
+      <td>1857.248817</td>
+      <td>0.331891</td>
+      <td>434.256283</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">ts_year</span><span class="p">[:</span><span class="mi">12</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">ts_full</span><span class="p">[:</span><span class="mi">12</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>

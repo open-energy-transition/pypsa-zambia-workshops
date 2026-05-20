@@ -35,7 +35,7 @@ import pandas as pd
 
 [31m---------------------------------------------------------------------------[39m
 [31mModuleNotFoundError[39m                       Traceback (most recent call last)
-[36mCell[39m[36m [39m[32mIn[1][39m[32m, line 1[39m
+[36mCell[39m[36m [39m[32mIn[2][39m[32m, line 1[39m
 [32m----> [39m[32m1[39m [38;5;28;01mimport[39;00m pypsa
 [32m      2[39m [38;5;28;01mimport[39;00m pandas [38;5;28;01mas[39;00m pd
 

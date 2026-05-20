@@ -36,7 +36,7 @@ import pypsa
 
 [31m---------------------------------------------------------------------------[39m
 [31mModuleNotFoundError[39m                       Traceback (most recent call last)
-[36mCell[39m[36m [39m[32mIn[1][39m[32m, line 2[39m
+[36mCell[39m[36m [39m[32mIn[2][39m[32m, line 2[39m
 [32m      1[39m [38;5;66;03m#import pandas as pd[39;00m
 [32m----> [39m[32m2[39m [38;5;28;01mimport[39;00m pypsa
 [32m      3[39m [38;5;66;03m#pypsa.options.params.optimize.include_objective_constant = True[39;00m
