@@ -510,28 +510,50 @@ If you are on <a class="reference external" href="https://colab.research.google.
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title 📂 Step 2 — Mount Google Drive and access workshop data (Colab only)</span>
-<span class="c1">#</span>
-<span class="c1"># Before running this cell:</span>
-<span class="c1">#   1. Open the shared folder link shared by your instructor</span>
-<span class="c1">#   2. Click the small folder-dropdown arrow → &quot;Add shortcut to Drive&quot; → &quot;My Drive&quot;</span>
-<span class="c1">#   3. Then run this cell — it will mount your Drive and point to the data automatically.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># @title 📂 Step 2 — Mount Google Drive and locate workshop data (Colab only)</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">sys</span><span class="o">,</span><span class="w"> </span><span class="nn">os</span>
 <span class="n">IN_COLAB</span> <span class="o">=</span> <span class="s2">&quot;google.colab&quot;</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span>
 
 <span class="k">if</span> <span class="n">IN_COLAB</span><span class="p">:</span>
     <span class="kn">from</span><span class="w"> </span><span class="nn">google.colab</span><span class="w"> </span><span class="kn">import</span> <span class="n">drive</span>
-    <span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s2">&quot;/content/drive&quot;</span><span class="p">)</span>
+    <span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s2">&quot;/content/drive&quot;</span><span class="p">,</span> <span class="n">force_remount</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
-    <span class="c1"># Path to the workshop folder after adding it as a shortcut in your Drive</span>
-    <span class="n">WORKSHOP_DATA</span> <span class="o">=</span> <span class="s2">&quot;/content/drive/MyDrive/pypsa-zambia-workshop&quot;</span>
+    <span class="c1"># Search common Drive locations for the workshop folder</span>
+    <span class="n">candidates</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;/content/drive/MyDrive/pypsa-zambia-workshop&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;/content/drive/My Drive/pypsa-zambia-workshop&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;/content/drive/Shareddrives/pypsa-zambia-workshop&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
 
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">WORKSHOP_DATA</span><span class="p">):</span>
+    <span class="c1"># Also scan MyDrive root for any folder containing &#39;pypsa&#39;</span>
+    <span class="n">mydrive</span> <span class="o">=</span> <span class="s2">&quot;/content/drive/MyDrive&quot;</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">mydrive</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">mydrive</span><span class="p">):</span>
+            <span class="k">if</span> <span class="s2">&quot;pypsa&quot;</span> <span class="ow">in</span> <span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">or</span> <span class="s2">&quot;zambia&quot;</span> <span class="ow">in</span> <span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+                <span class="n">candidates</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">mydrive</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
+
+    <span class="n">WORKSHOP_DATA</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">candidates</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+            <span class="n">WORKSHOP_DATA</span> <span class="o">=</span> <span class="n">path</span>
+            <span class="k">break</span>
+
+    <span class="k">if</span> <span class="n">WORKSHOP_DATA</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># Show what IS in MyDrive to help the user</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Contents of MyDrive:&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">mydrive</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">mydrive</span><span class="p">):</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span>
-            <span class="s2">&quot;❌ Folder &#39;pypsa-zambia-workshop&#39; not found in your Drive.</span><span class="se">\n</span><span class="s2">&quot;</span>
-            <span class="s2">&quot;   → Open the shared link, click &#39;Add shortcut to Drive&#39; → &#39;My Drive&#39;, then re-run.&quot;</span>
+            <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">❌ Could not find the workshop folder in your Drive.</span><span class="se">\n\n</span><span class="s2">&quot;</span>
+            <span class="s2">&quot;Fix:</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="s2">&quot;  1. Open this link: https://drive.google.com/drive/folders/1-MjDsOc5YzUd9pjgZU5rjyrd2xd-xciz</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="s2">&quot;  2. Click the dropdown arrow next to the folder name</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="s2">&quot;  3. Select &#39;Add shortcut to Drive&#39; → &#39;My Drive&#39;</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="s2">&quot;  4. Re-run this cell.&quot;</span>
         <span class="p">)</span>
+
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✅ Workshop data found at: </span><span class="si">{</span><span class="n">WORKSHOP_DATA</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="n">WORKSHOP_DATA</span> <span class="o">=</span> <span class="kc">None</span>   <span class="c1"># not used locally</span>
