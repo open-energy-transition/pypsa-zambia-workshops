@@ -9,6 +9,7 @@ chapters:
 - file: 01-modelling-and-scenarios.md
 - file: 05-workshop-python.ipynb
 - file: 08-closing.md
+- file: 08-explore_pypsa_zambia.ipynb
 
 
 # - file: oet-extension/00-reference.md
