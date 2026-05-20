@@ -181,6 +181,8 @@
 
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">PyPSA: Modelling Capacity Expansion Scenarios</a></li>
 <li class="toctree-l1"><a class="reference internal" href="08-closing.html">Summary of the day</a></li>
+<li class="toctree-l1"><a class="reference internal" href="explore_pypsa_zambia.html">Exploring PyPSA-Zambia</a></li>
+
 </ul>
 
     </div>
@@ -517,9 +519,7 @@ Requirement already satisfied: highspy in /home/runner/miniconda3/envs/pypsa-zam
 Requirement already satisfied: levenshtein&gt;=0.27.1 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from pypsa) (0.27.3)
 Requirement already satisfied: platformdirs in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from pypsa) (4.9.6)
 Requirement already satisfied: packaging&gt;=24.1 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from xarray&lt;2026.4-&gt;pypsa) (25.0)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: rapidfuzz&lt;4.0.0,&gt;=3.9.0 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from levenshtein&gt;=0.27.1-&gt;pypsa) (3.14.5)
+Requirement already satisfied: rapidfuzz&lt;4.0.0,&gt;=3.9.0 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from levenshtein&gt;=0.27.1-&gt;pypsa) (3.14.5)
 Requirement already satisfied: bottleneck in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from linopy&gt;=0.6.1-&gt;pypsa) (1.6.0)
 Requirement already satisfied: toolz in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from linopy&gt;=0.6.1-&gt;pypsa) (1.1.0)
 Requirement already satisfied: numexpr in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from linopy&gt;=0.6.1-&gt;pypsa) (2.14.1)
@@ -538,7 +538,9 @@ Requirement already satisfied: polars-runtime-32==1.40.1 in /home/runner/minicon
 Requirement already satisfied: jinja2&gt;=2.10.1 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from pydeck&gt;=0.6-&gt;pypsa) (3.1.6)
 Requirement already satisfied: MarkupSafe&gt;=2.0 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from jinja2&gt;=2.10.1-&gt;pydeck&gt;=0.6-&gt;pypsa) (3.0.3)
 Requirement already satisfied: six&gt;=1.5 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from python-dateutil&gt;=2.8.2-&gt;pandas) (1.17.0)
-Requirement already satisfied: google-auth&lt;2.0dev,&gt;=1.11.0 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from google-cloud-storage-&gt;linopy&gt;=0.6.1-&gt;pypsa) (1.25.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: google-auth&lt;2.0dev,&gt;=1.11.0 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from google-cloud-storage-&gt;linopy&gt;=0.6.1-&gt;pypsa) (1.25.0)
 Requirement already satisfied: google-cloud-core&lt;2.0dev,&gt;=1.4.1 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from google-cloud-storage-&gt;linopy&gt;=0.6.1-&gt;pypsa) (1.7.2)
 Requirement already satisfied: google-resumable-media&lt;2.0dev,&gt;=1.0.0 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from google-cloud-storage-&gt;linopy&gt;=0.6.1-&gt;pypsa) (1.3.3)
 Requirement already satisfied: cachetools&lt;5.0,&gt;=2.0.0 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from google-auth&lt;2.0dev,&gt;=1.11.0-&gt;google-cloud-storage-&gt;linopy&gt;=0.6.1-&gt;pypsa) (4.2.4)
@@ -554,9 +556,7 @@ Requirement already satisfied: charset_normalizer&lt;4,&gt;=2 in /home/runner/mi
 Requirement already satisfied: idna&lt;4,&gt;=2.5 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from requests-&gt;linopy&gt;=0.6.1-&gt;pypsa) (3.13)
 Requirement already satisfied: urllib3&lt;3,&gt;=1.26 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from requests-&gt;linopy&gt;=0.6.1-&gt;pypsa) (2.5.0)
 Requirement already satisfied: certifi&gt;=2023.5.7 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from requests-&gt;linopy&gt;=0.6.1-&gt;pypsa) (2026.4.22)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pyasn1&gt;=0.1.3 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from rsa&lt;5,&gt;=3.1.4-&gt;google-auth&lt;2.0dev,&gt;=1.11.0-&gt;google-cloud-storage-&gt;linopy&gt;=0.6.1-&gt;pypsa) (0.6.3)
+Requirement already satisfied: pyasn1&gt;=0.1.3 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from rsa&lt;5,&gt;=3.1.4-&gt;google-auth&lt;2.0dev,&gt;=1.11.0-&gt;google-cloud-storage-&gt;linopy&gt;=0.6.1-&gt;pypsa) (0.6.3)
 Requirement already satisfied: contourpy&gt;=1.0.1 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from matplotlib-&gt;pypsa) (1.3.3)
 Requirement already satisfied: cycler&gt;=0.10 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from matplotlib-&gt;pypsa) (0.12.1)
 Requirement already satisfied: fonttools&gt;=4.22.0 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from matplotlib-&gt;pypsa) (4.62.1)
@@ -564,7 +564,9 @@ Requirement already satisfied: kiwisolver&gt;=1.3.1 in /home/runner/miniconda3/e
 Requirement already satisfied: pillow&gt;=8 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from matplotlib-&gt;pypsa) (12.0.0)
 Requirement already satisfied: pyparsing&gt;=3 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from matplotlib-&gt;pypsa) (3.3.2)
 Requirement already satisfied: cftime in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from netcdf4-&gt;pypsa) (1.6.5)
-Requirement already satisfied: narwhals&gt;=1.15.1 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from plotly-&gt;pypsa) (2.21.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: narwhals&gt;=1.15.1 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from plotly-&gt;pypsa) (2.21.0)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Note: you may need to restart the kernel to use updated packages.
