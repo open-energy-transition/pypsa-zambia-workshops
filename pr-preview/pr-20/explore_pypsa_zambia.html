@@ -744,18 +744,6 @@ If you are on <a class="reference external" href="https://colab.research.google.
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/albert/miniconda3/envs/pypsa-earth/lib/python3.11/site-packages/cartopy/mpl/feature_artist.py:143: UserWarning: facecolor will have no effect as it has been defined as &quot;never&quot;.
-  warnings.warn(&#39;facecolor will have no effect as it has been &#39;
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&lt;matplotlib.collections.PatchCollection at 0x76b91a1b91d0&gt;,
- &lt;matplotlib.collections.LineCollection at 0x76b919ed8750&gt;,
- &lt;matplotlib.collections.LineCollection at 0x76b919f296d0&gt;)
-</pre></div>
-</div>
-<img alt="_images/c1704e171ed38c1c5bb2247546a715df61b3c8db0db473a34c76805400ce641f.png" src="_images/c1704e171ed38c1c5bb2247546a715df61b3c8db0db473a34c76805400ce641f.png" />
-</div>
 </div>
 </section>
 <section id="generation-installed-capacities">
@@ -789,21 +777,6 @@ If you are on <a class="reference external" href="https://colab.research.google.
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/1ea1ba8954076809fa87422cb25c93492d684fc134195a4a0e21ad40b78be0a1.png" src="_images/1ea1ba8954076809fa87422cb25c93492d684fc134195a4a0e21ad40b78be0a1.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>carrier
-hydro      3033.0
-coal        330.0
-oil         229.6
-ror         138.8
-solar       122.0
-biomass      40.0
-onwind        0.0
-
-Total: 3893 MW
-</pre></div>
-</div>
-</div>
 </div>
 </section>
 <section id="transmission-installed-capacities">
@@ -815,17 +788,6 @@ Total: 3893 MW
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;num_parallel&#39;, &#39;v_nom&#39;, &#39;bus0&#39;, &#39;bus1&#39;, &#39;length&#39;, &#39;dc&#39;, &#39;geometry&#39;,
-       &#39;carrier&#39;, &#39;type&#39;, &#39;s_max_pu&#39;, &#39;s_nom&#39;, &#39;underwater_fraction&#39;,
-       &#39;capital_cost&#39;, &#39;i_nom&#39;, &#39;s_nom_extendable&#39;, &#39;s_nom_min&#39;, &#39;x&#39;, &#39;r&#39;, &#39;b&#39;,
-       &#39;x_pu_eff&#39;, &#39;r_pu_eff&#39;, &#39;s_nom_opt&#39;, &#39;g&#39;, &#39;s_nom_mod&#39;, &#39;s_nom_max&#39;,
-       &#39;build_year&#39;, &#39;lifetime&#39;, &#39;terrain_factor&#39;, &#39;v_ang_min&#39;, &#39;v_ang_max&#39;,
-       &#39;sub_network&#39;, &#39;x_pu&#39;, &#39;r_pu&#39;, &#39;g_pu&#39;, &#39;b_pu&#39;],
-      dtype=&#39;object&#39;)
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -833,216 +795,10 @@ Total: 3893 MW
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>num_parallel</th>
-      <th>v_nom</th>
-      <th>bus0</th>
-      <th>bus1</th>
-      <th>length</th>
-      <th>dc</th>
-      <th>geometry</th>
-      <th>carrier</th>
-      <th>type</th>
-      <th>s_max_pu</th>
-      <th>...</th>
-      <th>build_year</th>
-      <th>lifetime</th>
-      <th>terrain_factor</th>
-      <th>v_ang_min</th>
-      <th>v_ang_max</th>
-      <th>sub_network</th>
-      <th>x_pu</th>
-      <th>r_pu</th>
-      <th>g_pu</th>
-      <th>b_pu</th>
-    </tr>
-    <tr>
-      <th>Line</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>1.117500</td>
-      <td>330.0</td>
-      <td>ZM0 0</td>
-      <td>ZM0 5</td>
-      <td>311.042343</td>
-      <td>False</td>
-      <td>MULTILINESTRING ((31.159214099999954 -10.23079...</td>
-      <td>AC</td>
-      <td>ACSR Bison 330.0</td>
-      <td>0.7</td>
-      <td>...</td>
-      <td>0</td>
-      <td>inf</td>
-      <td>1.0</td>
-      <td>-inf</td>
-      <td>inf</td>
-      <td></td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>2.000000</td>
-      <td>330.0</td>
-      <td>ZM0 0</td>
-      <td>ZM0 6</td>
-      <td>412.741019</td>
-      <td>False</td>
-      <td>MULTILINESTRING ((28.5722 -14.5945, 28.5728081...</td>
-      <td>AC</td>
-      <td>ACSR Bison 330.0</td>
-      <td>0.7</td>
-      <td>...</td>
-      <td>0</td>
-      <td>inf</td>
-      <td>1.0</td>
-      <td>-inf</td>
-      <td>inf</td>
-      <td></td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>3.313333</td>
-      <td>330.0</td>
-      <td>ZM0 1</td>
-      <td>ZM0 6</td>
-      <td>109.621418</td>
-      <td>False</td>
-      <td>MULTILINESTRING ((28.514038399999972 -15.47108...</td>
-      <td>AC</td>
-      <td>ACSR Bison 330.0</td>
-      <td>0.7</td>
-      <td>...</td>
-      <td>0</td>
-      <td>inf</td>
-      <td>1.0</td>
-      <td>-inf</td>
-      <td>inf</td>
-      <td></td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>4.000000</td>
-      <td>330.0</td>
-      <td>ZM0 1</td>
-      <td>ZM0 7</td>
-      <td>181.272002</td>
-      <td>False</td>
-      <td>MULTILINESTRING ((28.1514 -15.7438, 28.1624177...</td>
-      <td>AC</td>
-      <td>ACSR Bison 330.0</td>
-      <td>0.7</td>
-      <td>...</td>
-      <td>0</td>
-      <td>inf</td>
-      <td>1.0</td>
-      <td>-inf</td>
-      <td>inf</td>
-      <td></td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>2.000000</td>
-      <td>330.0</td>
-      <td>ZM0 1</td>
-      <td>ZM0 8</td>
-      <td>189.779939</td>
-      <td>False</td>
-      <td>MULTILINESTRING ((27.0165 -15.0659, 27.0174300...</td>
-      <td>AC</td>
-      <td>ACSR Bison 330.0</td>
-      <td>0.7</td>
-      <td>...</td>
-      <td>0</td>
-      <td>inf</td>
-      <td>1.0</td>
-      <td>-inf</td>
-      <td>inf</td>
-      <td></td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-    </tr>
-  </tbody>
-</table>
-<p>5 rows × 35 columns</p>
-</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">lines</span><span class="o">.</span><span class="n">s_nom</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Line
-0     510.989629
-1     914.522826
-2    1515.059482
-3    1829.045653
-4     914.522826
-5     457.261413
-6    1829.045653
-7     914.522826
-8     457.261413
-Name: s_nom, dtype: float64
 </pre></div>
 </div>
 </div>
@@ -1053,365 +809,6 @@ Name: s_nom, dtype: float64
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>bus0</th>
-      <th>bus1</th>
-      <th>carrier</th>
-      <th>p_nom</th>
-      <th>p_min_pu</th>
-      <th>marginal_cost</th>
-      <th>p_nom_opt</th>
-      <th>type</th>
-      <th>efficiency</th>
-      <th>build_year</th>
-      <th>...</th>
-      <th>start_up_cost</th>
-      <th>shut_down_cost</th>
-      <th>min_up_time</th>
-      <th>min_down_time</th>
-      <th>up_time_before</th>
-      <th>down_time_before</th>
-      <th>ramp_limit_up</th>
-      <th>ramp_limit_down</th>
-      <th>ramp_limit_start_up</th>
-      <th>ramp_limit_shut_down</th>
-    </tr>
-    <tr>
-      <th>Link</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Kariba-330kV</th>
-      <td>ZM0 1</td>
-      <td>ZW</td>
-      <td>AC</td>
-      <td>1400.0</td>
-      <td>-1.0</td>
-      <td>0.009920</td>
-      <td>1400.0</td>
-      <td></td>
-      <td>1.0</td>
-      <td>0</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>CEC-Copperbelt-220kV</th>
-      <td>ZM0 2</td>
-      <td>CD</td>
-      <td>AC</td>
-      <td>600.0</td>
-      <td>-1.0</td>
-      <td>0.010793</td>
-      <td>600.0</td>
-      <td></td>
-      <td>1.0</td>
-      <td>0</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>Sesheke-220kV</th>
-      <td>ZM0 4</td>
-      <td>nan</td>
-      <td>AC</td>
-      <td>300.0</td>
-      <td>-1.0</td>
-      <td>0.009380</td>
-      <td>300.0</td>
-      <td></td>
-      <td>1.0</td>
-      <td>0</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>Kazungula-66kV</th>
-      <td>ZM0 4</td>
-      <td>BW</td>
-      <td>AC</td>
-      <td>70.0</td>
-      <td>-1.0</td>
-      <td>0.009412</td>
-      <td>70.0</td>
-      <td></td>
-      <td>1.0</td>
-      <td>0</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>Matimba-Insukamini-400kV</th>
-      <td>ZW</td>
-      <td>ZA</td>
-      <td>AC</td>
-      <td>500.0</td>
-      <td>-1.0</td>
-      <td>0.010034</td>
-      <td>500.0</td>
-      <td></td>
-      <td>1.0</td>
-      <td>0</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>Songo-Bindura-330kV</th>
-      <td>ZW</td>
-      <td>MZ</td>
-      <td>AC</td>
-      <td>500.0</td>
-      <td>-1.0</td>
-      <td>0.009139</td>
-      <td>500.0</td>
-      <td></td>
-      <td>1.0</td>
-      <td>0</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>CahoraBassa-HVDC-533kV</th>
-      <td>MZ</td>
-      <td>ZA</td>
-      <td>AC</td>
-      <td>2000.0</td>
-      <td>-1.0</td>
-      <td>0.010517</td>
-      <td>2000.0</td>
-      <td></td>
-      <td>1.0</td>
-      <td>0</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>Eskom-BPC-220kV</th>
-      <td>ZA</td>
-      <td>BW</td>
-      <td>AC</td>
-      <td>650.0</td>
-      <td>-1.0</td>
-      <td>0.010609</td>
-      <td>650.0</td>
-      <td></td>
-      <td>1.0</td>
-      <td>0</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>Caprivi-HVDC-350kV</th>
-      <td>ZA</td>
-      <td>nan</td>
-      <td>AC</td>
-      <td>300.0</td>
-      <td>-1.0</td>
-      <td>0.010784</td>
-      <td>300.0</td>
-      <td></td>
-      <td>1.0</td>
-      <td>0</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>Eskom-SEC-400kV</th>
-      <td>ZA</td>
-      <td>SZ</td>
-      <td>AC</td>
-      <td>350.0</td>
-      <td>-1.0</td>
-      <td>0.009102</td>
-      <td>350.0</td>
-      <td></td>
-      <td>1.0</td>
-      <td>0</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>Eskom-LEC-132kV</th>
-      <td>ZA</td>
-      <td>LS</td>
-      <td>AC</td>
-      <td>72.0</td>
-      <td>-1.0</td>
-      <td>0.009693</td>
-      <td>72.0</td>
-      <td></td>
-      <td>1.0</td>
-      <td>0</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>Francistown-220kV</th>
-      <td>BW</td>
-      <td>ZW</td>
-      <td>AC</td>
-      <td>200.0</td>
-      <td>-1.0</td>
-      <td>0.010260</td>
-      <td>200.0</td>
-      <td></td>
-      <td>1.0</td>
-      <td>0</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1.0</td>
-      <td>1.0</td>
-    </tr>
-  </tbody>
-</table>
-<p>12 rows × 33 columns</p>
-</div></div></div>
 </div>
 </section>
 <section id="per-plant-dispatch">
@@ -1518,16 +915,6 @@ Name: s_nom, dtype: float64
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_20123/156974389.py:49: FutureWarning: DataFrame.groupby with axis=1 is deprecated. Do `frame.T.groupby(...)` without axis instead.
-  n.generators_t.p.groupby(n.generators.carrier, axis=1)
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&lt;Figure size 720x360 with 1 Axes&gt;, &lt;Axes: xlabel=&#39;snapshot&#39;, ylabel=&#39;GW&#39;&gt;)
-</pre></div>
-</div>
-<img alt="_images/6de61af83faa554d2bbd55642eb2a718223bfd82433b25962374ab9590ae4448.png" src="_images/6de61af83faa554d2bbd55642eb2a718223bfd82433b25962374ab9590ae4448.png" />
-</div>
 </div>
 </section>
 <section id="hydro-inflow-per-plant">
@@ -1541,9 +928,6 @@ Name: s_nom, dtype: float64
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/dd199c66d8c032c8ac167aa6cb596b50fee855e12178014cba2ae3e50e3cea93.png" src="_images/dd199c66d8c032c8ac167aa6cb596b50fee855e12178014cba2ae3e50e3cea93.png" />
 </div>
 </div>
 </section>
@@ -1569,31 +953,10 @@ Name: s_nom, dtype: float64
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>carrier
-biomass    0.000000
-coal       2.890800
-oil        0.296410
-onwind     0.064794
-ror        0.838836
-solar      0.294066
-dtype: float64
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_20123/1922211975.py:7: FutureWarning: DataFrame.groupby with axis=1 is deprecated. Do `frame.T.groupby(...)` without axis instead.
-  .groupby(n.generators.loc[valid_generators, &quot;carrier&quot;], axis=1)
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">gen_energy_by_carrier_gwh</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2"> TWh&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.38 TWh
 </pre></div>
 </div>
 </div>
@@ -1610,11 +973,6 @@ dtype: float64
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12.46 TWh
-</pre></div>
-</div>
-</div>
 </div>
 <p>Total Electricity Generated</p>
 <div class="cell docutils container">
@@ -1622,11 +980,6 @@ dtype: float64
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span>
     <span class="sa">f</span><span class="s2">&quot; Total Energy Generated: </span><span class="si">{</span><span class="nb">float</span><span class="p">(</span><span class="n">hydro_generation_twh</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">float</span><span class="p">(</span><span class="n">gen_energy_by_carrier_gwh</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span><span class="si">}</span><span class="s2"> TWh&quot;</span>
 <span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Total Energy Generated: 16.84 TWh
 </pre></div>
 </div>
 </div>
@@ -1661,9 +1014,6 @@ $<span class="math notranslate nohighlight">\(\text{loading} = \frac{|P_0|}{s_{\
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/ccd16540cbe1353c4592f8310902a5d7f5ba8816931f2e6fa628a0d0d5dfbbae.png" src="_images/ccd16540cbe1353c4592f8310902a5d7f5ba8816931f2e6fa628a0d0d5dfbbae.png" />
 </div>
 </div>
 </section>
@@ -1705,12 +1055,6 @@ $<span class="math notranslate nohighlight">\(\text{loading} = \frac{|P_0|}{s_{\
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Imports (GWh): 3221.468354386835
-Exports (GWh): 3628.468354383226
-</pre></div>
-</div>
-</div>
 </div>
 </section>
 <section id="electricity-demand">
@@ -1727,11 +1071,6 @@ Exports (GWh): 3628.468354383226
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">demand</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2"> TWh&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16.47 TWh
 </pre></div>
 </div>
 </div>
@@ -1762,44 +1101,10 @@ Exports (GWh): 3628.468354383226
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>component    carrier        
-Link         Ac                 6942.00000
-Line         Ac                 9802.43974
-Generator    Biomass              40.00000
-             Coal                330.00000
-             Load shedding      2733.84041
-             Oil                 229.60000
-             Onshore Wind        175.18534
-             Run of River        138.80000
-             Solar               405.54252
-             export              281.50685
-StorageUnit  Reservoir &amp; Dam    3033.00000
-dtype: float64
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">statistics</span><span class="o">.</span><span class="n">expanded_capacity</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>component    carrier        
-Link         Ac                   0.00000
-Line         Ac                 460.20802
-Generator    Biomass              0.00000
-             Coal                 0.00000
-             Load shedding        0.00000
-             Oil                  0.00000
-             Onshore Wind       175.18534
-             Run of River         0.00000
-             Solar              283.54252
-             export               0.00000
-StorageUnit  Reservoir &amp; Dam      0.00000
-dtype: float64
 </pre></div>
 </div>
 </div>
@@ -1862,110 +1167,6 @@ dtype: float64
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">411</span><span class="p">],</span> <span class="n">line</span> <span class="mi">36</span>
-<span class="g g-Whitespace">     </span><span class="mi">30</span> <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span>
-<span class="g g-Whitespace">     </span><span class="mi">31</span>     <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">v</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> GW, </span><span class="si">{</span><span class="mi">100</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">capacity_by_carrier</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">%)&quot;</span>
-<span class="nn">     32     for c, v</span> in <span class="ni">zip</span><span class="nt">(capacity_by_carrier.index, capacity_by_carrier.values)</span>
-<span class="g g-Whitespace">     </span><span class="mi">33</span> <span class="p">]</span>
-<span class="g g-Whitespace">     </span><span class="mi">35</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
-<span class="ne">---&gt; </span><span class="mi">36</span> <span class="n">wedges</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">37</span>     <span class="n">capacity_by_carrier</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">38</span>     <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">39</span>     <span class="n">startangle</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">40</span>     <span class="n">colors</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">41</span> <span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">42</span> <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">wedges</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;center left&quot;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
-<span class="g g-Whitespace">     </span><span class="mi">43</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Optimised Capacity by Carrier (GW)&quot;</span><span class="p">)</span>
-
-<span class="nn">File ~/miniconda3/envs/pypsa-earth/lib/python3.11/site-packages/matplotlib/_api/deprecation.py:453,</span> in <span class="ni">make_keyword_only.&lt;locals&gt;.wrapper</span><span class="nt">(*args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">447</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">name_idx</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">448</span>     <span class="n">warn_deprecated</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">449</span>         <span class="n">since</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">&quot;Passing the </span><span class="si">%(name)s</span><span class="s2"> </span><span class="si">%(obj_type)s</span><span class="s2"> &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">450</span>         <span class="s2">&quot;positionally is deprecated since Matplotlib </span><span class="si">%(since)s</span><span class="s2">; the &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">451</span>         <span class="s2">&quot;parameter will become keyword-only in </span><span class="si">%(removal)s</span><span class="s2">.&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">452</span>         <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">obj_type</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;parameter of </span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">()&quot;</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">453</span> <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="nn">File ~/miniconda3/envs/pypsa-earth/lib/python3.11/site-packages/matplotlib/__init__.py:1524,</span> in <span class="ni">_preprocess_data.&lt;locals&gt;.inner</span><span class="nt">(ax, data, *args, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1521</span> <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1522</span> <span class="k">def</span><span class="w"> </span><span class="nf">inner</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1523</span>     <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1524</span>         <span class="k">return</span> <span class="n">func</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1525</span>             <span class="n">ax</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1526</span>             <span class="o">*</span><span class="nb">map</span><span class="p">(</span><span class="n">cbook</span><span class="o">.</span><span class="n">sanitize_sequence</span><span class="p">,</span> <span class="n">args</span><span class="p">),</span>
-<span class="nn">   1527             **{k: cbook.sanitize_sequence(v) for k, v</span> in <span class="ni">kwargs.items</span><span class="nt">()})</span>
-<span class="g g-Whitespace">   </span><span class="mi">1529</span>     <span class="n">bound</span> <span class="o">=</span> <span class="n">new_sig</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1530</span>     <span class="n">auto_label</span> <span class="o">=</span> <span class="p">(</span><span class="n">bound</span><span class="o">.</span><span class="n">arguments</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">label_namer</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1531</span>                   <span class="ow">or</span> <span class="n">bound</span><span class="o">.</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">label_namer</span><span class="p">))</span>
-
-<span class="nn">File ~/miniconda3/envs/pypsa-earth/lib/python3.11/site-packages/matplotlib/axes/_axes.py:3412,</span> in <span class="ni">Axes.pie</span><span class="nt">(self, x, explode, labels, colors, autopct, pctdistance, shadow, labeldistance, startangle, radius, counterclock, wedgeprops, textprops, center, frame, rotatelabels, normalize, hatch)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3409</span> <span class="n">x</span> <span class="o">+=</span> <span class="n">expl</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">thetam</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3410</span> <span class="n">y</span> <span class="o">+=</span> <span class="n">expl</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">thetam</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">3412</span> <span class="n">w</span> <span class="o">=</span> <span class="n">mpatches</span><span class="o">.</span><span class="n">Wedge</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="n">radius</span><span class="p">,</span> <span class="mf">360.</span> <span class="o">*</span> <span class="nb">min</span><span class="p">(</span><span class="n">theta1</span><span class="p">,</span> <span class="n">theta2</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">3413</span>                    <span class="mf">360.</span> <span class="o">*</span> <span class="nb">max</span><span class="p">(</span><span class="n">theta1</span><span class="p">,</span> <span class="n">theta2</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">3414</span>                    <span class="n">facecolor</span><span class="o">=</span><span class="n">get_next_color</span><span class="p">(),</span>
-<span class="g g-Whitespace">   </span><span class="mi">3415</span>                    <span class="n">hatch</span><span class="o">=</span><span class="nb">next</span><span class="p">(</span><span class="n">hatch_cycle</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">3416</span>                    <span class="n">clip_on</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">3417</span>                    <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3418</span> <span class="n">w</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="o">**</span><span class="n">wedgeprops</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3419</span> <span class="n">slices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
-
-<span class="nn">File ~/miniconda3/envs/pypsa-earth/lib/python3.11/site-packages/matplotlib/patches.py:1247,</span> in <span class="ni">Wedge.__init__</span><span class="nt">(self, center, r, theta1, theta2, width, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1235</span> <span class="nd">@_docstring</span><span class="o">.</span><span class="n">interpd</span>
-<span class="g g-Whitespace">   </span><span class="mi">1236</span> <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">center</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">theta1</span><span class="p">,</span> <span class="n">theta2</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1237</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1238</span><span class="sd">     A wedge centered at *x*, *y* center with radius *r* that</span>
-<span class="g g-Whitespace">   </span><span class="mi">1239</span><span class="sd">     sweeps *theta1* to *theta2* (in degrees).  If *width* is given,</span>
-<span class="sd">   (...)   1245     %(Patch:kwdoc)s</span>
-<span class="g g-Whitespace">   </span><span class="mi">1246</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">1247</span>     <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1248</span>     <span class="bp">self</span><span class="o">.</span><span class="n">center</span> <span class="o">=</span> <span class="n">center</span>
-<span class="g g-Whitespace">   </span><span class="mi">1249</span>     <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">r</span><span class="p">,</span> <span class="n">width</span>
-
-<span class="nn">File ~/miniconda3/envs/pypsa-earth/lib/python3.11/site-packages/matplotlib/patches.py:85,</span> in <span class="ni">Patch.__init__</span><span class="nt">(self, edgecolor, facecolor, color, linewidth, linestyle, antialiased, hatch, fill, capstyle, joinstyle, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">83</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">84</span>     <span class="bp">self</span><span class="o">.</span><span class="n">set_edgecolor</span><span class="p">(</span><span class="n">edgecolor</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">85</span>     <span class="bp">self</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="n">facecolor</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">87</span> <span class="bp">self</span><span class="o">.</span><span class="n">_linewidth</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="g g-Whitespace">     </span><span class="mi">88</span> <span class="bp">self</span><span class="o">.</span><span class="n">_unscaled_dash_pattern</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>  <span class="c1"># offset, dash</span>
-
-<span class="nn">File ~/miniconda3/envs/pypsa-earth/lib/python3.11/site-packages/matplotlib/patches.py:404,</span> in <span class="ni">Patch.set_facecolor</span><span class="nt">(self, color)</span>
-<span class="g g-Whitespace">    </span><span class="mi">396</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">397</span><span class="sd"> Set the patch face color.</span>
-<span class="g g-Whitespace">    </span><span class="mi">398</span><span class="sd"> </span>
-<span class="sd">   (...)    401 color : :mpltype:`color` or None</span>
-<span class="g g-Whitespace">    </span><span class="mi">402</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">403</span> <span class="bp">self</span><span class="o">.</span><span class="n">_original_facecolor</span> <span class="o">=</span> <span class="n">color</span>
-<span class="ne">--&gt; </span><span class="mi">404</span> <span class="bp">self</span><span class="o">.</span><span class="n">_set_facecolor</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
-
-<span class="nn">File ~/miniconda3/envs/pypsa-earth/lib/python3.11/site-packages/matplotlib/patches.py:392,</span> in <span class="ni">Patch._set_facecolor</span><span class="nt">(self, color)</span>
-<span class="g g-Whitespace">    </span><span class="mi">390</span>     <span class="n">color</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;patch.facecolor&#39;</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">391</span> <span class="n">alpha</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_alpha</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fill</span> <span class="k">else</span> <span class="mi">0</span>
-<span class="ne">--&gt; </span><span class="mi">392</span> <span class="bp">self</span><span class="o">.</span><span class="n">_facecolor</span> <span class="o">=</span> <span class="n">colors</span><span class="o">.</span><span class="n">to_rgba</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">alpha</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">393</span> <span class="bp">self</span><span class="o">.</span><span class="n">stale</span> <span class="o">=</span> <span class="kc">True</span>
-
-<span class="nn">File ~/miniconda3/envs/pypsa-earth/lib/python3.11/site-packages/matplotlib/colors.py:317,</span> in <span class="ni">to_rgba</span><span class="nt">(c, alpha)</span>
-<span class="g g-Whitespace">    </span><span class="mi">315</span>     <span class="n">rgba</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="g g-Whitespace">    </span><span class="mi">316</span> <span class="k">if</span> <span class="n">rgba</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># Suppress exception chaining of cache lookup failure.</span>
-<span class="ne">--&gt; </span><span class="mi">317</span>     <span class="n">rgba</span> <span class="o">=</span> <span class="n">_to_rgba_no_colorcycle</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">alpha</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">318</span>     <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">319</span>         <span class="n">_colors_full_map</span><span class="o">.</span><span class="n">cache</span><span class="p">[</span><span class="n">c</span><span class="p">,</span> <span class="n">alpha</span><span class="p">]</span> <span class="o">=</span> <span class="n">rgba</span>
-
-<span class="nn">File ~/miniconda3/envs/pypsa-earth/lib/python3.11/site-packages/matplotlib/colors.py:401,</span> in <span class="ni">_to_rgba_no_colorcycle</span><span class="nt">(c, alpha)</span>
-<span class="g g-Whitespace">    </span><span class="mi">399</span> <span class="c1"># tuple color.</span>
-<span class="g g-Whitespace">    </span><span class="mi">400</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">iterable</span><span class="p">(</span><span class="n">c</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">401</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Invalid RGBA argument: </span><span class="si">{</span><span class="n">orig_c</span><span class="si">!r}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">402</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]:</span>
-<span class="g g-Whitespace">    </span><span class="mi">403</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;RGBA sequence should have length 3 or 4&quot;</span><span class="p">)</span>
-
-<span class="ne">ValueError</span>: Invalid RGBA argument: nan
-</pre></div>
-</div>
-<img alt="_images/9a37ee30af1aa6fc70dd575bd6f3ba3a97bc568606f4404708de7a4bd26ae24d.png" src="_images/9a37ee30af1aa6fc70dd575bd6f3ba3a97bc568606f4404708de7a4bd26ae24d.png" />
 </div>
 </div>
 </section>
