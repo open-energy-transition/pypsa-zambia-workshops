@@ -1,0 +1,2271 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Key Concepts in PyPSA &#8212; PyPSA-Zambia Workshops</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '02-pypsa-components';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Python" href="05-workshop-python.html" />
+    <link rel="prev" title="Introduction to Modelling and Scenarios" href="01-modelling-and-scenarios.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/oet_logo.svg" class="logo__image only-light" alt="PyPSA-Zambia Workshops - Home"/>
+    <img src="_static/oet_logo.svg" class="logo__image only-dark pst-js-only" alt="PyPSA-Zambia Workshops - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome: PyPSA-Zambia Workshops
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="00-overview.html">Overview of the workshop and individual learning outcomes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-modelling-and-scenarios.html">Introduction to Modelling and Scenarios</a></li>
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Key Concepts in PyPSA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05-workshop-python.html">Python</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="06-capacity-expansion-scenarios.html">PyPSA: Modelling Capacity Expansion Scenarios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08-closing.html">Summary of the day</a></li>
+<li class="toctree-l1"><a class="reference internal" href="explore_pypsa_zambia.html">Exploring PyPSA-Zambia</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/open-energy-transition/pypsa-zambia-workshops/blob/zambia/pypsa-zambia-workshops/02-pypsa-components.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/open-energy-transition/pypsa-zambia-workshops" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/open-energy-transition/pypsa-zambia-workshops/issues/new?title=Issue%20on%20page%20%2F02-pypsa-components.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/02-pypsa-components.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Key Concepts in PyPSA</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#individual-learning-outcomes">Individual learning outcomes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-structure">Basic Structure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-structured-data-to-optimisation">From structured data to optimisation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-example">Simple example</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-generators">Add generators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-loads">Add loads</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modify-network">Modify network</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hydrological-scenarios">Hydrological scenarios</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further reading</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="key-concepts-in-pypsa">
+<h1>Key Concepts in PyPSA<a class="headerlink" href="#key-concepts-in-pypsa" title="Link to this heading">#</a></h1>
+<section id="individual-learning-outcomes">
+<h2>Individual learning outcomes<a class="headerlink" href="#individual-learning-outcomes" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Get overall understanding on the assumptions used in PyPSA</p></li>
+<li><p>Understand the key functional elements of a PyPSA model</p></li>
+</ul>
+<img src="https://docs.pypsa.org/latest/assets/logo/logo-primary-light.svg#only-light" width="300px" />
+<p>PyPSA stands for <strong>Python for Power System Analysis</strong>.</p>
+<p>PyPSA is an open source Python package for simulating and optimising modern energy systems that include features such as</p>
+<ul class="simple">
+<li><p>conventional generators with unit commitment (ramp-up, ramp-down, start-up, shut-down),</p></li>
+<li><p>time-varying wind and solar generation,</p></li>
+<li><p>energy storage with efficiency losses and inflow/spillage for hydroelectricity</p></li>
+<li><p>coupling to other energy sectors (electricity, transport, heat, industry),</p></li>
+<li><p>conversion between energy carriers (e.g. electricity to hydrogen),</p></li>
+<li><p>transmission networks (AC, DC, other fuels)</p></li>
+</ul>
+<p>PyPSA can be used for a variety of problem types (e.g. electricity market modelling, long-term investment planning, transmission network expansion planning), and is designed to scale well with large networks and long time series.</p>
+<p>The <a class="reference external" href="https://docs.pypsa.org/">documentation</a> describes it as follows:</p>
+<blockquote>
+<div><p>PyPSA is an open-source Python framework for optimising and simulating modern power and energy systems that include features such as conventional generators with unit commitment, variable wind and solar generation, hydro-electricity, inter-temporal storage, coupling to other energy sectors, elastic demands, and linearised power flow with loss approximations in DC and AC networks. PyPSA is designed to scale well with large networks and long time series. It is made for researchers, planners and utilities with basic coding aptitude who need a fast, easy-to-use and transparent tool for power and energy system analysis.</p>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Documentation for PyPSA is available at <a class="reference external" href="https://docs.pypsa.org">https://docs.pypsa.org</a> including hand-ons examples.</p>
+</div>
+</section>
+<section id="basic-structure">
+<h2>Basic Structure<a class="headerlink" href="#basic-structure" title="Link to this heading">#</a></h2>
+<p>PyPSA is representing a power flow through the network with Kirchhoff equations, while nodes and edges are simulated as <code class="docutils literal notranslate"><span class="pre">Buses</span></code> and <code class="docutils literal notranslate"><span class="pre">Lines</span></code>, respectivelly.</p>
+<img src="https://docs.pypsa.org/latest/assets/images/buses.png" width="500px" />
+<p>A model of a power system in PyPSA is build connecting different components. An list of available components is shown in the table bellow.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Component</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.pypsa.org/latest/user-guide/design/#network-components">Network</a></p></td>
+<td><p>Container for all components.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.pypsa.org/latest/user-guide/components/buses/">Bus</a></p></td>
+<td><p>Node where components attach.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.pypsa.org/latest/user-guide/components/carriers/">Carrier</a></p></td>
+<td><p>Energy carrier or technology (e.g. electricity, hydrogen, gas, coal, oil, biomass, on-/offshore wind, solar). Can track properties such as specific carbon dioxide emissions or nice names and colors for plots.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.pypsa.org/latest/user-guide/components/loads/">Load</a></p></td>
+<td><p>Energy consumer (e.g. electricity demand).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.pypsa.org/latest/user-guide/components/generators/">Generator</a></p></td>
+<td><p>Generator (e.g. power plant, wind turbine, PV panel).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.pypsa.org/latest/user-guide/components/lines/">Line</a></p></td>
+<td><p>Power distribution and transmission lines (overhead and cables).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.pypsa.org/latest/user-guide/components/links/">Link</a></p></td>
+<td><p>Links connect two buses with controllable energy flow, direction-control and losses. They can be used to model: <ul><li>HVDC links</li><li>HVAC li’nes (neglecting KVL, only net transfer capacities (NTCs))</li><li>conversion between carriers (e.g. electricity to hydrogen in electrolysis)</li></ul></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.pypsa.org/latest/user-guide/components/storage-units/">StorageUnit</a></p></td>
+<td><p>Storage with fixed nominal energy-to-power ratio.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://docs.pypsa.org/latest/user-guide/components/global-constraints/">GlobalConstraint</a></p></td>
+<td><p>Constraints affecting many components at once, such as emission limits.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://docs.pypsa.org/latest/user-guide/components/stores/">Store</a></p></td>
+<td><p>Storage with separately extendable energy capacity.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>PyPSA implies some comventions for units of measurments. Per unit values of voltage and impedance are used internally for network calculations. It is assumed internally that the base power is <strong>1 MW</strong>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Links in the table lead to documentation for each component.</p>
+</div>
+</section>
+<section id="from-structured-data-to-optimisation">
+<h2>From structured data to optimisation<a class="headerlink" href="#from-structured-data-to-optimisation" title="Link to this heading">#</a></h2>
+<p><strong>PyPSA is an optimisation modelling framework.</strong> That means PyPSA-based models are looking for a solution for energy supply which has minimal costs.</p>
+<p>The design principle of PyPSA is that each component is associated with a set of variables and constraints. Variables are values quantifying equipment and processes in a real system, such as installed capacity or hydro potential. Constraints are limitations resulted from hiw physical world is functining, such as varying availability of hydro across seasons.</p>
+<p>To build the model, it’s structure is created by connecting different components. Variables and constraints are be added to the optimisation model based on the input data stored for the components. For an <em>hourly</em> electricity market simulation, PyPSA will solve an optimisation problem which mathematical formulation looks like this</p>
+<div class="amsmath math notranslate nohighlight" id="equation-79d94545-1e91-4f83-bee2-a3ed78ed3067">
+<span class="eqno">(1)<a class="headerlink" href="#equation-79d94545-1e91-4f83-bee2-a3ed78ed3067" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\min_{g_{i,s,t}; f_{\ell,t}; g_{i,r,t,\text{charge}}; g_{i,r,t,\text{discharge}}; e_{i,r,t}} \sum_s o_{s} g_{i,s,t}
+\end{equation}\]</div>
+<p>such that</p>
+<div class="amsmath math notranslate nohighlight" id="equation-3e05201d-7e3a-43b0-ba1b-5f5c5346b409">
+<span class="eqno">(2)<a class="headerlink" href="#equation-3e05201d-7e3a-43b0-ba1b-5f5c5346b409" title="Permalink to this equation">#</a></span>\[\begin{align}
+0 &amp; \leq g_{i,s,t} \leq \hat{g}_{i,s,t} G_{i,s}  &amp; \text{generation limits : generator} \\
+-F_\ell &amp;\leq f_{\ell,t} \leq F_\ell &amp; \text{transmission limits : line}  \\
+d_{i,t} &amp;= \sum_s g_{i,s,t} + \sum_r g_{i,r,t,\text{discharge}} - \sum_r g_{i,r,t,\text{charge}} - \sum_\ell K_{i\ell} f_{\ell,t} &amp; \text{KCL : bus} \\
+ 0 &amp;=\sum_\ell C_{\ell c} x_\ell f_{\ell,t} &amp; \text{KVL : cycles} \\
+0 &amp; \leq g_{i,r,t,\text{discharge}} \leq G_{i,r,\text{discharge}}&amp; \text{discharge limits : storage unit} \\
+    0 &amp; \leq g_{i,r,t,\text{charge}} \leq G_{i,r,\text{charge}} &amp; \text{charge limits : storage unit} \\
+    0 &amp; \leq e_{i,r,t} \leq E_{i,r} &amp; \text{energy limits : storage unit} \\ 
+    e_{i,r,t} &amp;= \eta^0_{i,r,t} e_{i,r,t-1} + \eta^1_{i,r,t}g_{i,r,t,\text{charge}} -  \frac{1}{\eta^2_{i,r,t}} g_{i,r,t,\text{discharge}} &amp; \text{consistency : storage unit} \\
+    e_{i,r,0} &amp; = e_{i,r,|T|-1}  &amp; \text{cyclicity : storage unit}
+\end{align}\]</div>
+<p><strong>Decision variables:</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(g_{i,s,t}\)</span> is the generator dispatch at bus <span class="math notranslate nohighlight">\(i\)</span>, technology <span class="math notranslate nohighlight">\(s\)</span>, time step <span class="math notranslate nohighlight">\(t\)</span>,</p></li>
+<li><p><span class="math notranslate nohighlight">\(f_{\ell,t}\)</span> is the power flow in line <span class="math notranslate nohighlight">\(\ell\)</span>,</p></li>
+<li><p><span class="math notranslate nohighlight">\(g_{i,r,t,\text{dis-/charge}}\)</span> denotes the charge and discharge of storage unit <span class="math notranslate nohighlight">\(r\)</span> at bus <span class="math notranslate nohighlight">\(i\)</span> and time step <span class="math notranslate nohighlight">\(t\)</span>,</p></li>
+<li><p><span class="math notranslate nohighlight">\(e_{i,r,t}\)</span> is the state of charge of storage <span class="math notranslate nohighlight">\(r\)</span> at bus <span class="math notranslate nohighlight">\(i\)</span> and time step <span class="math notranslate nohighlight">\(t\)</span>.</p></li>
+</ul>
+<p><strong>Parameters:</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(o_{i,s}\)</span> is the marginal generation cost of technology <span class="math notranslate nohighlight">\(s\)</span> at bus <span class="math notranslate nohighlight">\(i\)</span>,</p></li>
+<li><p><span class="math notranslate nohighlight">\(x_\ell\)</span> is the reactance of transmission line <span class="math notranslate nohighlight">\(\ell\)</span>,</p></li>
+<li><p><span class="math notranslate nohighlight">\(K_{i\ell}\)</span> is the incidence matrix,</p></li>
+<li><p><span class="math notranslate nohighlight">\(C_{\ell c}\)</span> is the cycle matrix,</p></li>
+<li><p><span class="math notranslate nohighlight">\(G_{i,s}\)</span> is the nominal capacity of the generator of technology <span class="math notranslate nohighlight">\(s\)</span> at bus <span class="math notranslate nohighlight">\(i\)</span>,</p></li>
+<li><p><span class="math notranslate nohighlight">\(F_{\ell}\)</span> is the rating of the transmission line <span class="math notranslate nohighlight">\(\ell\)</span>,</p></li>
+<li><p><span class="math notranslate nohighlight">\(E_{i,r}\)</span> is the energy capacity of storage <span class="math notranslate nohighlight">\(r\)</span> at bus <span class="math notranslate nohighlight">\(i\)</span>,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\eta^{0/1/2}_{i,r,t}\)</span> denote the standing (0), charging (1), and discharging (2) efficiencies.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For a full reference to the optimisation problem description, see <a class="reference external" href="https://docs.pypsa.org/latest/user-guide/optimization/overview/">https://docs.pypsa.org/latest/user-guide/optimization/overview/</a></p>
+</div>
+</section>
+<section id="simple-example">
+<h2>Simple example<a class="headerlink" href="#simple-example" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">pip</span> install pypsa
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pypsa in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (1.3.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: numpy in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from pypsa) (2.5.3)
+Requirement already satisfied: scipy in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from pypsa) (1.18.0)
+Requirement already satisfied: pandas&gt;=3.0 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from pypsa) (3.0.5)
+Requirement already satisfied: pyarrow in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from pypsa) (20.0.0)
+Requirement already satisfied: xarray in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from pypsa) (2026.7.0)
+Requirement already satisfied: netcdf4 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from pypsa) (1.7.2)
+Requirement already satisfied: linopy&gt;=0.9.0 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from pypsa) (0.9.1)
+Requirement already satisfied: matplotlib in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from pypsa) (3.10.9)
+Requirement already satisfied: plotly in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from pypsa) (7.0.0)
+Requirement already satisfied: pydeck&gt;=0.6 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from pypsa) (0.9.3)
+Requirement already satisfied: seaborn in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from pypsa) (0.13.2)
+Requirement already satisfied: geopandas&gt;=0.9 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from pypsa) (1.1.4)
+Requirement already satisfied: shapely in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from pypsa) (2.1.1)
+Requirement already satisfied: networkx&gt;=2 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from pypsa) (3.6.1)
+Requirement already satisfied: deprecation in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from pypsa) (2.1.0)
+Requirement already satisfied: validators in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from pypsa) (0.35.0)
+Requirement already satisfied: highspy in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from pypsa) (1.15.1)
+Requirement already satisfied: rapidfuzz&gt;=3.9.0 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from pypsa) (3.14.6)
+Requirement already satisfied: platformdirs in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from pypsa) (4.11.8)
+Requirement already satisfied: packaging in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from geopandas&gt;=0.9-&gt;pypsa) (25.0)
+Requirement already satisfied: bottleneck in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from linopy&gt;=0.9.0-&gt;pypsa) (1.6.0)
+Requirement already satisfied: toolz in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from linopy&gt;=0.9.0-&gt;pypsa) (1.1.0)
+Requirement already satisfied: numexpr in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from linopy&gt;=0.9.0-&gt;pypsa) (2.14.2)
+Requirement already satisfied: dask&gt;=0.18.0 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from linopy&gt;=0.9.0-&gt;pypsa) (2026.8.0)
+Requirement already satisfied: polars&gt;=1.31.1 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from linopy&gt;=0.9.0-&gt;pypsa) (1.44.2)
+Requirement already satisfied: tqdm in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from linopy&gt;=0.9.0-&gt;pypsa) (4.70.0)
+Requirement already satisfied: click&gt;=8.1 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from dask&gt;=0.18.0-&gt;linopy&gt;=0.9.0-&gt;pypsa) (8.5.0)
+Requirement already satisfied: cloudpickle&gt;=3.0.0 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from dask&gt;=0.18.0-&gt;linopy&gt;=0.9.0-&gt;pypsa) (3.1.2)
+Requirement already satisfied: fsspec&gt;=2021.09.0 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from dask&gt;=0.18.0-&gt;linopy&gt;=0.9.0-&gt;pypsa) (2026.7.0)
+Requirement already satisfied: partd&gt;=1.4.0 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from dask&gt;=0.18.0-&gt;linopy&gt;=0.9.0-&gt;pypsa) (1.4.2)
+Requirement already satisfied: pyyaml&gt;=5.4.1 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from dask&gt;=0.18.0-&gt;linopy&gt;=0.9.0-&gt;pypsa) (6.0.3)
+Requirement already satisfied: python-dateutil&gt;=2.8.2 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from pandas&gt;=3.0-&gt;pypsa) (2.9.0.post0)
+Requirement already satisfied: locket in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from partd&gt;=1.4.0-&gt;dask&gt;=0.18.0-&gt;linopy&gt;=0.9.0-&gt;pypsa) (1.0.0)
+Requirement already satisfied: polars-runtime-32==1.44.2 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from polars&gt;=1.31.1-&gt;linopy&gt;=0.9.0-&gt;pypsa) (1.44.2)
+Requirement already satisfied: jinja2&gt;=2.10.1 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from pydeck&gt;=0.6-&gt;pypsa) (3.1.6)
+Requirement already satisfied: MarkupSafe&gt;=2.0 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from jinja2&gt;=2.10.1-&gt;pydeck&gt;=0.6-&gt;pypsa) (3.0.3)
+Requirement already satisfied: six&gt;=1.5 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from python-dateutil&gt;=2.8.2-&gt;pandas&gt;=3.0-&gt;pypsa) (1.17.0)
+Requirement already satisfied: contourpy&gt;=1.0.1 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from matplotlib-&gt;pypsa) (1.3.3)
+Requirement already satisfied: cycler&gt;=0.10 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from matplotlib-&gt;pypsa) (0.12.1)
+Requirement already satisfied: fonttools&gt;=4.22.0 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from matplotlib-&gt;pypsa) (4.63.0)
+Requirement already satisfied: kiwisolver&gt;=1.3.1 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from matplotlib-&gt;pypsa) (1.5.1)
+Requirement already satisfied: pillow&gt;=8 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from matplotlib-&gt;pypsa) (12.0.0)
+Requirement already satisfied: pyparsing&gt;=3 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from matplotlib-&gt;pypsa) (3.3.2)
+Requirement already satisfied: cftime in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from netcdf4-&gt;pypsa) (1.6.5)
+Requirement already satisfied: certifi in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from netcdf4-&gt;pypsa) (2026.7.22)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: narwhals&gt;=1.15.1 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from plotly-&gt;pypsa) (2.26.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Note: you may need to restart the kernel to use updated packages.
+</pre></div>
+</div>
+</div>
+</div>
+<p>We’ll build a strongly simplified model building using PyPSA components as building blocks</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#import pandas as pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pypsa</span>
+<span class="c1">#pypsa.options.params.optimize.include_objective_constant = True</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>First, we create a new <strong>Network</strong> object which serves as the overall container for all components.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="n">pypsa</span><span class="o">.</span><span class="n">Network</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages/pypsa/network/io.py:2082: FutureWarning: pandas infers the `str` dtype for string data since its version 3.0. PyPSA still converts it back to numpy object dtype on import, but will keep it from PyPSA 2.0 on. Set `pypsa.options.api.legacy_string_dtype` explicitly to suppress this warning.
+  new_static = _coerce_string_dtypes(new_static)
+</pre></div>
+</div>
+</div>
+</div>
+<p>The second component we need are buses. <strong>Buses</strong> are the fundamental nodes of the network, to which all other components like loads, generators and transmission lines attach. They enforce energy conservation for all elements feeding in and out of it (i.e. Kirchhoff’s Current Law).</p>
+<img src="https://docs.pypsa.org/latest/assets/images/buses.png" width="500px" />
+<p>Components can be added to the network <code class="docutils literal notranslate"><span class="pre">n</span></code> using the <code class="docutils literal notranslate"><span class="pre">n.add()</span></code> function. It takes the component name as a first argument, the name of the component as a second argument and possibly further parameters as keyword arguments. Let’s use this function, to add buses for each country to our network:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"Bus"</span><span class="p">,</span> <span class="s2">"Copperbelt"</span><span class="p">,</span> <span class="n">y</span><span class="o">=-</span><span class="mf">15.42</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mf">28.2</span><span class="p">,</span> <span class="n">v_nom</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span> <span class="c1"># v_nom is nominal valtage [kV]</span>
+<span class="n">n</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"Bus"</span><span class="p">,</span> <span class="s2">"Lusaka"</span><span class="p">,</span> <span class="n">y</span><span class="o">=-</span><span class="mf">13.0</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mf">28.0</span><span class="p">,</span> <span class="n">v_nom</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For each class of components, the data describing the components is stored as specific type <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> defined in <code class="docutils literal notranslate"><span class="pre">pandas</span></code> package which will be covered in Python session. You can check what is inside each component using <code class="docutils literal notranslate"><span class="pre">n.{component}</span></code>, such as</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">buses</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>v_nom</th>
+      <th>type</th>
+      <th>x</th>
+      <th>y</th>
+      <th>carrier</th>
+      <th>unit</th>
+      <th>location</th>
+      <th>v_mag_pu_set</th>
+      <th>v_mag_pu_min</th>
+      <th>v_mag_pu_max</th>
+      <th>control</th>
+      <th>generator</th>
+      <th>sub_network</th>
+    </tr>
+    <tr>
+      <th>name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Copperbelt</th>
+      <td>400.0</td>
+      <td></td>
+      <td>28.2</td>
+      <td>-15.42</td>
+      <td>AC</td>
+      <td></td>
+      <td></td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>inf</td>
+      <td>PQ</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Lusaka</th>
+      <td>400.0</td>
+      <td></td>
+      <td>28.0</td>
+      <td>-13.00</td>
+      <td>AC</td>
+      <td></td>
+      <td></td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>inf</td>
+      <td>PQ</td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>You can look up on all the attributes available for buses here <a class="reference external" href="https://docs.pypsa.org/latest/user-guide/components/buses/">https://docs.pypsa.org/latest/user-guide/components/buses/</a>, and similarly for all other components.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">n.add()</span></code> function is very general. It lets you add any component to the network object <code class="docutils literal notranslate"><span class="pre">n</span></code>. For instance, in the next step we add <strong>Line</strong> component to connect both nodes:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+    <span class="s2">"Line"</span><span class="p">,</span>
+    <span class="s2">"Lusaka-Copperbelt"</span><span class="p">,</span>
+    <span class="n">bus0</span><span class="o">=</span><span class="s2">"Lusaka"</span><span class="p">,</span>
+    <span class="n">bus1</span><span class="o">=</span><span class="s2">"Copperbelt"</span><span class="p">,</span>
+    <span class="n">s_nom</span><span class="o">=</span><span class="mi">1_500</span><span class="p">,</span> <span class="c1"># transmission capacity [MW]</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">r</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">explore</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+        <iframe
+            width="100%"
+            height=500
+            frameborder="0"
+            srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=UTF-8&quot; /&gt;
+    &lt;title&gt;pydeck&lt;/title&gt;
+        &lt;script src=&quot;https://api.tiles.mapbox.com/mapbox-gl-js/v1.13.0/mapbox-gl.js&quot;&gt;&lt;/script&gt;
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css&quot; /&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css&quot; /&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://unpkg.com/maplibre-gl@5.14.0/dist/maplibre-gl.css&quot; /&gt;
+    &lt;script src=&#x27;https://cdn.jsdelivr.net/npm/@deck.gl/jupyter-widget@~9.3.*/dist/index.js&#x27;&gt;&lt;/script&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=https://cdn.jsdelivr.net/npm/@deck.gl/widgets@~9.3.*/dist/stylesheet.css /&gt;
+    &lt;style&gt;
+    body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#deck-container {
+  width: 100vw;
+  height: 100vh;
+}
+
+#deck-container canvas {
+  z-index: 1;
+  background: none;
+}
+
+#deck-container .error_text {
+  color: red;
+  background: none;
+  position: absolute;
+  z-index: 100;
+}
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div id=&quot;deck-container&quot;&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+  &lt;script&gt;
+    const container = document.getElementById(&#x27;deck-container&#x27;);
+    const jsonInput = {
+  &quot;initialViewState&quot;: {
+    &quot;bearing&quot;: 0,
+    &quot;latitude&quot;: -14.21,
+    &quot;longitude&quot;: 28.1,
+    &quot;pitch&quot;: 0,
+    &quot;zoom&quot;: 4
+  },
+  &quot;layers&quot;: [
+    {
+      &quot;@@type&quot;: &quot;PathLayer&quot;,
+      &quot;autoHighlight&quot;: true,
+      &quot;data&quot;: [
+        {
+          &quot;bus0&quot;: &quot;Lusaka&quot;,
+          &quot;bus1&quot;: &quot;Copperbelt&quot;,
+          &quot;color&quot;: &quot;rosybrown&quot;,
+          &quot;name&quot;: &quot;Lusaka-Copperbelt&quot;,
+          &quot;path&quot;: [
+            [
+              28.0,
+              -13.0
+            ],
+            [
+              28.2,
+              -15.42
+            ]
+          ],
+          &quot;rgba&quot;: [
+            188,
+            143,
+            143,
+            230
+          ],
+          &quot;tooltip_html&quot;: &quot;&lt;b&gt;Lusaka-Copperbelt&lt;/b&gt;\n&lt;table&gt;\n&lt;tr&gt;&lt;td style=&#x27;font-weight:bold&#x27;&gt;bus0:&lt;/td&gt;&lt;td style=&#x27;text-align:left&#x27;&gt;Lusaka&lt;/td&gt;&lt;/tr&gt;\n&lt;tr&gt;&lt;td style=&#x27;font-weight:bold&#x27;&gt;bus1:&lt;/td&gt;&lt;td style=&#x27;text-align:left&#x27;&gt;Copperbelt&lt;/td&gt;&lt;/tr&gt;\n&lt;tr&gt;&lt;td style=&#x27;font-weight:bold&#x27;&gt;color:&lt;/td&gt;&lt;td style=&#x27;text-align:left&#x27;&gt;rosybrown&lt;/td&gt;&lt;/tr&gt;\n&lt;tr&gt;&lt;td style=&#x27;font-weight:bold&#x27;&gt;width:&lt;/td&gt;&lt;td style=&#x27;text-align:left&#x27;&gt;2&lt;/td&gt;&lt;/tr&gt;\n&lt;/table&gt;&quot;,
+          &quot;width&quot;: 2,
+          &quot;width_pdk&quot;: 2000.0
+        }
+      ],
+      &quot;getColor&quot;: &quot;@@=rgba&quot;,
+      &quot;getPath&quot;: &quot;@@=path&quot;,
+      &quot;getWidth&quot;: &quot;@@=width_pdk&quot;,
+      &quot;id&quot;: &quot;4828bb53-ca38-4b61-92e9-ef2c741440c0&quot;,
+      &quot;parameters&quot;: {
+        &quot;depthTest&quot;: false
+      },
+      &quot;pickable&quot;: true
+    },
+    {
+      &quot;@@type&quot;: &quot;PolygonLayer&quot;,
+      &quot;autoHighlight&quot;: true,
+      &quot;data&quot;: [
+        {
+          &quot;arrow&quot;: [
+            [
+              28.099999999999998,
+              -14.21323599508623
+            ],
+            [
+              28.099999999999998,
+              -14.21323599508623
+            ],
+            [
+              28.099999999999998,
+              -14.21323599508623
+            ]
+          ],
+          &quot;bus0&quot;: &quot;Lusaka&quot;,
+          &quot;bus1&quot;: &quot;Copperbelt&quot;,
+          &quot;color&quot;: &quot;rosybrown&quot;,
+          &quot;flow_pdk&quot;: 0,
+          &quot;name&quot;: &quot;Lusaka-Copperbelt&quot;,
+          &quot;path&quot;: [
+            [
+              28.0,
+              -13.0
+            ],
+            [
+              28.2,
+              -15.42
+            ]
+          ],
+          &quot;rgba&quot;: [
+            188,
+            143,
+            143,
+            230
+          ],
+          &quot;rgba_arrow&quot;: [
+            188,
+            143,
+            143,
+            230
+          ],
+          &quot;tooltip_html&quot;: &quot;&lt;b&gt;Lusaka-Copperbelt&lt;/b&gt;\n&quot;,
+          &quot;width&quot;: 2,
+          &quot;width_pdk&quot;: 2000.0
+        }
+      ],
+      &quot;getFillColor&quot;: &quot;@@=rgba_arrow&quot;,
+      &quot;getPolygon&quot;: &quot;@@=arrow&quot;,
+      &quot;id&quot;: &quot;228287f0-1238-4762-ab62-d2beeb2770fa&quot;,
+      &quot;parameters&quot;: {
+        &quot;depthTest&quot;: false
+      },
+      &quot;pickable&quot;: true
+    },
+    {
+      &quot;@@type&quot;: &quot;ScatterplotLayer&quot;,
+      &quot;autoHighlight&quot;: true,
+      &quot;data&quot;: [
+        {
+          &quot;rgba&quot;: [
+            95,
+            158,
+            160,
+            230
+          ],
+          &quot;size&quot;: 25,
+          &quot;size_pdk&quot;: 2820.9479177387816,
+          &quot;tooltip_html&quot;: &quot;&lt;b&gt;Copperbelt&lt;/b&gt;\n&lt;table&gt;\n&lt;tr&gt;&lt;td style=&#x27;font-weight:bold&#x27;&gt;x:&lt;/td&gt;&lt;td style=&#x27;text-align:left&#x27;&gt;28.2&lt;/td&gt;&lt;/tr&gt;\n&lt;tr&gt;&lt;td style=&#x27;font-weight:bold&#x27;&gt;y:&lt;/td&gt;&lt;td style=&#x27;text-align:left&#x27;&gt;-15.42&lt;/td&gt;&lt;/tr&gt;\n&lt;tr&gt;&lt;td style=&#x27;font-weight:bold&#x27;&gt;size:&lt;/td&gt;&lt;td style=&#x27;text-align:left&#x27;&gt;25&lt;/td&gt;&lt;/tr&gt;\n&lt;/table&gt;&quot;,
+          &quot;x&quot;: 28.2,
+          &quot;y&quot;: -15.42
+        },
+        {
+          &quot;rgba&quot;: [
+            95,
+            158,
+            160,
+            230
+          ],
+          &quot;size&quot;: 25,
+          &quot;size_pdk&quot;: 2820.9479177387816,
+          &quot;tooltip_html&quot;: &quot;&lt;b&gt;Lusaka&lt;/b&gt;\n&lt;table&gt;\n&lt;tr&gt;&lt;td style=&#x27;font-weight:bold&#x27;&gt;x:&lt;/td&gt;&lt;td style=&#x27;text-align:left&#x27;&gt;28&lt;/td&gt;&lt;/tr&gt;\n&lt;tr&gt;&lt;td style=&#x27;font-weight:bold&#x27;&gt;y:&lt;/td&gt;&lt;td style=&#x27;text-align:left&#x27;&gt;-13&lt;/td&gt;&lt;/tr&gt;\n&lt;tr&gt;&lt;td style=&#x27;font-weight:bold&#x27;&gt;size:&lt;/td&gt;&lt;td style=&#x27;text-align:left&#x27;&gt;25&lt;/td&gt;&lt;/tr&gt;\n&lt;/table&gt;&quot;,
+          &quot;x&quot;: 28.0,
+          &quot;y&quot;: -13.0
+        }
+      ],
+      &quot;getColor&quot;: &quot;@@=rgba&quot;,
+      &quot;getPosition&quot;: &quot;@@=[x, y]&quot;,
+      &quot;getRadius&quot;: &quot;@@=size_pdk&quot;,
+      &quot;id&quot;: &quot;e4908310-df9e-44d5-8f71-8657ebeaca44&quot;,
+      &quot;parameters&quot;: {
+        &quot;depthTest&quot;: false
+      },
+      &quot;pickable&quot;: true
+    }
+  ],
+  &quot;mapProvider&quot;: &quot;carto&quot;,
+  &quot;mapStyle&quot;: &quot;https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json&quot;,
+  &quot;views&quot;: [
+    {
+      &quot;@@type&quot;: &quot;MapView&quot;,
+      &quot;controller&quot;: true
+    }
+  ]
+};
+    const tooltip = {&#x27;html&#x27;: &#x27;{tooltip_html}&#x27;, &#x27;style&#x27;: {&#x27;backgroundColor&#x27;: &#x27;rgba(0, 0, 0, 0.70)&#x27;, &#x27;color&#x27;: &#x27;white&#x27;, &#x27;fontFamily&#x27;: &#x27;Arial&#x27;, &#x27;fontSize&#x27;: &#x27;12px&#x27;, &#x27;borderCollapse&#x27;: &#x27;collapse&#x27;, &#x27;border&#x27;: &#x27;1px solid white&#x27;, &#x27;padding&#x27;: &#x27;10px&#x27;, &#x27;maxWidth&#x27;: &#x27;300px&#x27;, &#x27;overflowWrap&#x27;: &#x27;break-word&#x27;, &#x27;overflow&#x27;: &#x27;hidden&#x27;}};
+    const customLibraries = null;
+    const configuration = null;
+
+    const deckInstance = createDeck({
+                  container,
+      jsonInput,
+      tooltip,
+      customLibraries,
+      configuration,
+          });
+
+  &lt;/script&gt;
+&lt;/html&gt;"
+        ></iframe>
+    </div></div>
+</div>
+<p>Information about carriers must be added to distinguish between different energy sources. To make visualization nicer, we can also specify nice names and plotting colors.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+    <span class="s2">"Carrier"</span><span class="p">,</span>
+    <span class="p">[</span><span class="s2">"coal"</span><span class="p">,</span> <span class="s2">"oil"</span><span class="p">,</span> <span class="s2">"hydro"</span><span class="p">],</span>
+    <span class="c1">#co2_emissions=emissions,</span>
+    <span class="n">nice_name</span><span class="o">=</span><span class="p">[</span><span class="s2">"Coal"</span><span class="p">,</span> <span class="s2">"Oil"</span><span class="p">,</span> <span class="s2">"Hydro"</span><span class="p">],</span>
+    <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s2">"dimgrey"</span><span class="p">,</span> <span class="s2">"olive"</span><span class="p">,</span> <span class="s2">"royalblue"</span><span class="p">],</span>
+<span class="p">)</span>
+
+<span class="n">n</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"Carrier"</span><span class="p">,</span> <span class="s2">"AC"</span><span class="p">,</span> <span class="n">nice_name</span><span class="o">=</span><span class="s2">"Electricity"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"crimson"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="add-generators">
+<h3>Add generators<a class="headerlink" href="#add-generators" title="Link to this heading">#</a></h3>
+<p><strong>Generator</strong> is component which can feed in power. Generators convert energy from their carrier to the carrier of the bus to which they attach with user-specified parameters for energy availability and transformation efficiency. They can be used to represent renewable generators with variable potential, dispatchable conventional power plants, or supply of grid electricity or an external import.</p>
+<p>Availability of renewable generators is usually defined with <code class="docutils literal notranslate"><span class="pre">p_max_pu</span></code> which is the maximum value of the capacity factor.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+    <span class="s2">"Generator"</span><span class="p">,</span>
+    <span class="s2">"Hydro Generation"</span><span class="p">,</span>
+    <span class="n">bus</span><span class="o">=</span><span class="s2">"Lusaka"</span><span class="p">,</span>
+    <span class="n">carrier</span><span class="o">=</span><span class="s2">"hydro"</span><span class="p">,</span>
+    <span class="n">p_nom</span><span class="o">=</span><span class="mi">5000</span><span class="p">,</span> <span class="c1"># MW</span>
+    <span class="n">p_max_pu</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="c1"># hydro availability which depends on the weather year</span>
+    <span class="n">marginal_cost</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="c1"># default</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For conventional generators, efficiencies and fuel costs can be specified:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fuel_cost</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="n">coal</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
+    <span class="n">oil</span><span class="o">=</span><span class="mi">48</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">efficiency</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="n">coal</span><span class="o">=</span><span class="mf">0.33</span><span class="p">,</span>
+    <span class="n">oil</span><span class="o">=</span><span class="mf">0.35</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+    <span class="s2">"Generator"</span><span class="p">,</span>
+    <span class="s2">"Coal Generation"</span><span class="p">,</span>
+    <span class="n">bus</span><span class="o">=</span><span class="s2">"Copperbelt"</span><span class="p">,</span>
+    <span class="n">carrier</span><span class="o">=</span><span class="s2">"coal"</span><span class="p">,</span>
+    <span class="n">efficiency</span><span class="o">=</span><span class="n">efficiency</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"coal"</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+    <span class="n">p_nom</span><span class="o">=</span><span class="mi">1750</span><span class="p">,</span>
+    <span class="n">marginal_cost</span><span class="o">=</span><span class="n">fuel_cost</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"coal"</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">/</span> <span class="n">efficiency</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"coal"</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+<span class="p">)</span>
+<span class="n">n</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+    <span class="s2">"Generator"</span><span class="p">,</span>
+    <span class="s2">"Oil Generation"</span><span class="p">,</span>
+    <span class="n">bus</span><span class="o">=</span><span class="s2">"Copperbelt"</span><span class="p">,</span>
+    <span class="n">carrier</span><span class="o">=</span><span class="s2">"oil"</span><span class="p">,</span>
+    <span class="n">efficiency</span><span class="o">=</span><span class="n">efficiency</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"oil"</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+    <span class="n">p_nom</span><span class="o">=</span><span class="mi">1200</span><span class="p">,</span>
+    <span class="n">marginal_cost</span><span class="o">=</span><span class="n">fuel_cost</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"oil"</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">/</span> <span class="n">efficiency</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"oil"</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As a result, the <code class="docutils literal notranslate"><span class="pre">n.generators</span></code> DataFrame looks like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">generators</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>bus</th>
+      <th>control</th>
+      <th>type</th>
+      <th>p_nom</th>
+      <th>p_nom_mod</th>
+      <th>p_nom_extendable</th>
+      <th>p_nom_min</th>
+      <th>p_nom_max</th>
+      <th>p_nom_set</th>
+      <th>p_min_pu</th>
+      <th>...</th>
+      <th>min_down_time</th>
+      <th>up_time_before</th>
+      <th>down_time_before</th>
+      <th>ramp_limit_up</th>
+      <th>ramp_limit_down</th>
+      <th>ramp_limit_start_up</th>
+      <th>ramp_limit_shut_down</th>
+      <th>weight</th>
+      <th>p_nom_opt</th>
+      <th>capital_cost_piecewise_opt</th>
+    </tr>
+    <tr>
+      <th>name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Hydro Generation</th>
+      <td>Lusaka</td>
+      <td>PQ</td>
+      <td></td>
+      <td>5000.0</td>
+      <td>0.0</td>
+      <td>False</td>
+      <td>0.0</td>
+      <td>inf</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Coal Generation</th>
+      <td>Copperbelt</td>
+      <td>PQ</td>
+      <td></td>
+      <td>1750.0</td>
+      <td>0.0</td>
+      <td>False</td>
+      <td>0.0</td>
+      <td>inf</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Oil Generation</th>
+      <td>Copperbelt</td>
+      <td>PQ</td>
+      <td></td>
+      <td>1200.0</td>
+      <td>0.0</td>
+      <td>False</td>
+      <td>0.0</td>
+      <td>inf</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>3 rows × 47 columns</p>
+</div></div></div>
+</div>
+</section>
+<section id="add-loads">
+<h3>Add loads<a class="headerlink" href="#add-loads" title="Link to this heading">#</a></h3>
+<p>Next, we’re going to add the electricity demand. A positive value for <code class="docutils literal notranslate"><span class="pre">p_set</span></code> means consumption of power from the bus (in MW).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">loads</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"Lusaka"</span><span class="p">:</span> <span class="mi">700</span><span class="p">,</span>
+    <span class="s2">"Copperbelt"</span><span class="p">:</span> <span class="mi">3000</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+    <span class="s2">"Load"</span><span class="p">,</span>
+    <span class="s2">"Lusaka electricity demand"</span><span class="p">,</span>
+    <span class="n">bus</span><span class="o">=</span><span class="s2">"Lusaka"</span><span class="p">,</span>
+    <span class="n">p_set</span><span class="o">=</span><span class="n">loads</span><span class="p">[</span><span class="s2">"Lusaka"</span><span class="p">],</span>
+    <span class="n">carrier</span><span class="o">=</span><span class="s2">"AC"</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+    <span class="s2">"Load"</span><span class="p">,</span>
+    <span class="s2">"Copperbelt electricity demand"</span><span class="p">,</span>
+    <span class="n">bus</span><span class="o">=</span><span class="s2">"Copperbelt"</span><span class="p">,</span>
+    <span class="n">p_set</span><span class="o">=</span><span class="n">loads</span><span class="p">[</span><span class="s2">"Copperbelt"</span><span class="p">],</span>
+    <span class="n">carrier</span><span class="o">=</span><span class="s2">"AC"</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_dry_year</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">n_wet_year</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">optimize</span><span class="p">(</span><span class="n">solver_name</span><span class="o">=</span><span class="s2">"highs"</span><span class="p">,</span> <span class="n">log_to_console</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_3021/1044684643.py:1: FutureWarning: The default value of `include_objective_constant` will change from True to False in version 2.0. Set `include_objective_constant` explicitly to suppress this warning. Using False improves LP numerical conditioning by not including the objective constant as a variable.
+  n.optimize(solver_name="highs", log_to_console=False)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:linopy.model: Solve problem using Highs solver
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:linopy.model:Solver options:
+ - log_to_console: False
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:linopy.io: Writing time: 0.03s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:linopy.constants: Optimization successful: 
+Status: ok
+Termination condition: optimal
+Solution: 4 primals, 10 duals
+Objective: 4.12e+04
+Solver: highs
+Runtime: 0.00s
+MIP gap: inf
+Dual bound: 0.00e+00
+Solver model: available
+Solver message: Optimal
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:pypsa.optimization.optimize:The shadow-prices of the constraints Generator-fix-p-lower, Generator-fix-p-upper, Line-fix-s-lower, Line-fix-s-upper were not assigned to the network.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>('ok', 'optimal')
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">loads</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{'Lusaka': 700, 'Copperbelt': 3000}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">statistics</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>Optimal Capacity</th>
+      <th>Installed Capacity</th>
+      <th>Supply</th>
+      <th>Withdrawal</th>
+      <th>Energy Balance</th>
+      <th>Transmission</th>
+      <th>Capacity Factor</th>
+      <th>Curtailment</th>
+      <th>Capital Expenditure</th>
+      <th>Operational Expenditure</th>
+      <th>Revenue</th>
+      <th>Market Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="3" valign="top">Generator</th>
+      <th>Coal</th>
+      <td>1750.0</td>
+      <td>1750.0</td>
+      <td>1700.0</td>
+      <td>0.0</td>
+      <td>1700.0</td>
+      <td>0.0</td>
+      <td>0.971429</td>
+      <td>50.0</td>
+      <td>0.0</td>
+      <td>41212.12121</td>
+      <td>41212.12121</td>
+      <td>24.242424</td>
+    </tr>
+    <tr>
+      <th>Hydro</th>
+      <td>5000.0</td>
+      <td>5000.0</td>
+      <td>2000.0</td>
+      <td>0.0</td>
+      <td>2000.0</td>
+      <td>0.0</td>
+      <td>0.400000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.00000</td>
+      <td>48484.84848</td>
+      <td>24.242424</td>
+    </tr>
+    <tr>
+      <th>Oil</th>
+      <td>1200.0</td>
+      <td>1200.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>1200.0</td>
+      <td>0.0</td>
+      <td>0.00000</td>
+      <td>0.00000</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Line</th>
+      <th>Electricity</th>
+      <td>1500.0</td>
+      <td>1500.0</td>
+      <td>0.0</td>
+      <td>1300.0</td>
+      <td>-1300.0</td>
+      <td>1300.0</td>
+      <td>0.866667</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.00000</td>
+      <td>-31515.15152</td>
+      <td>-24.242424</td>
+    </tr>
+    <tr>
+      <th>Load</th>
+      <th>Electricity</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3700.0</td>
+      <td>-3700.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.00000</td>
+      <td>-89696.96970</td>
+      <td>-24.242424</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+<section id="modify-network">
+<h2>Modify network<a class="headerlink" href="#modify-network" title="Link to this heading">#</a></h2>
+<p>Add a power transmission line with a specific transmission capacity <code class="docutils literal notranslate"><span class="pre">s_nom</span></code> [MW]</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">lines</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">"Lusaka-Copperbelt"</span><span class="p">,</span> <span class="s2">"s_nom"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">750</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">optimize</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_3021/1261279110.py:1: FutureWarning: The default value of `include_objective_constant` will change from True to False in version 2.0. Set `include_objective_constant` explicitly to suppress this warning. Using False improves LP numerical conditioning by not including the objective constant as a variable.
+  n.optimize()
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:linopy.model: Solve problem using Highs solver
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:linopy.io: Writing time: 0.02s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:linopy.constants: Optimization successful: 
+Status: ok
+Termination condition: optimal
+Solution: 4 primals, 10 duals
+Objective: 1.11e+05
+Solver: highs
+Runtime: 0.00s
+MIP gap: inf
+Dual bound: 0.00e+00
+Solver model: available
+Solver message: Optimal
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:pypsa.optimization.optimize:The shadow-prices of the constraints Generator-fix-p-lower, Generator-fix-p-upper, Line-fix-s-lower, Line-fix-s-upper were not assigned to the network.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Running HiGHS 1.15.1 (git hash: n/a): Copyright (c) 2026 under MIT licence terms
+Includes third-party software components, see THIRD_PARTY_NOTICES.md for full details
+LP linopy-problem-nqt_8h7z has 10 rows; 4 cols; 13 nonzeros
+Coefficient ranges:
+  Matrix  [1e+00, 1e+00]
+  Cost    [2e+01, 1e+02]
+  Bound   [0e+00, 0e+00]
+  RHS     [7e+02, 3e+03]
+Presolving model
+1 rows, 2 cols, 2 nonzeros 0s
+0 rows, 0 cols, 0 nonzeros 0s
+Presolve reductions: rows 0(-10); columns 0(-4); nonzeros 0(-13) - Reduced to empty
+Performed postsolve
+Solving the original LP from the solution after postsolve
+
+Model name          : linopy-problem-nqt_8h7z
+Model status        : Optimal
+Objective value     :  1.1099567100e+05
+P-D objective error :  1.3110285785e-16
+HiGHS run time      :          0.00
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>('ok', 'optimal')
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">statistics</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>Optimal Capacity</th>
+      <th>Installed Capacity</th>
+      <th>Supply</th>
+      <th>Withdrawal</th>
+      <th>Energy Balance</th>
+      <th>Transmission</th>
+      <th>Capacity Factor</th>
+      <th>Curtailment</th>
+      <th>Capital Expenditure</th>
+      <th>Operational Expenditure</th>
+      <th>Revenue</th>
+      <th>Market Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="3" valign="top">Generator</th>
+      <th>Coal</th>
+      <td>1750.0</td>
+      <td>1750.0</td>
+      <td>1750.0</td>
+      <td>0.0</td>
+      <td>1750.0</td>
+      <td>0.0</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>42424.24242</td>
+      <td>240000.00000</td>
+      <td>137.142857</td>
+    </tr>
+    <tr>
+      <th>Hydro</th>
+      <td>5000.0</td>
+      <td>5000.0</td>
+      <td>1450.0</td>
+      <td>0.0</td>
+      <td>1450.0</td>
+      <td>0.0</td>
+      <td>0.290000</td>
+      <td>550.0</td>
+      <td>0.0</td>
+      <td>0.00000</td>
+      <td>0.00000</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Oil</th>
+      <td>1200.0</td>
+      <td>1200.0</td>
+      <td>500.0</td>
+      <td>0.0</td>
+      <td>500.0</td>
+      <td>0.0</td>
+      <td>0.416667</td>
+      <td>700.0</td>
+      <td>0.0</td>
+      <td>68571.42857</td>
+      <td>68571.42857</td>
+      <td>137.142857</td>
+    </tr>
+    <tr>
+      <th>Line</th>
+      <th>Electricity</th>
+      <td>750.0</td>
+      <td>750.0</td>
+      <td>0.0</td>
+      <td>750.0</td>
+      <td>-750.0</td>
+      <td>750.0</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.00000</td>
+      <td>0.00000</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Load</th>
+      <th>Electricity</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3700.0</td>
+      <td>-3700.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.00000</td>
+      <td>-411428.57143</td>
+      <td>-111.196911</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="hydrological-scenarios">
+<h2>Hydrological scenarios<a class="headerlink" href="#hydrological-scenarios" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_dry_year</span><span class="o">.</span><span class="n">generators</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">"Hydro Generation"</span><span class="p">,</span> <span class="s2">"p_max_pu"</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.3</span>
+<span class="n">n_wet_year</span><span class="o">.</span><span class="n">generators</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">"Hydro Generation"</span><span class="p">,</span> <span class="s2">"p_max_pu"</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.6</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_dry_year</span><span class="o">.</span><span class="n">optimize</span><span class="p">(</span><span class="n">solver_name</span><span class="o">=</span><span class="s2">"highs"</span><span class="p">,</span> <span class="n">log_to_console</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_3021/2248954950.py:1: FutureWarning: The default value of `include_objective_constant` will change from True to False in version 2.0. Set `include_objective_constant` explicitly to suppress this warning. Using False improves LP numerical conditioning by not including the objective constant as a variable.
+  n_dry_year.optimize(solver_name="highs", log_to_console=False)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:linopy.model: Solve problem using Highs solver
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:linopy.model:Solver options:
+ - log_to_console: False
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:linopy.io: Writing time: 0.02s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:linopy.constants: Optimization successful: 
+Status: ok
+Termination condition: optimal
+Solution: 4 primals, 10 duals
+Objective: 1.04e+05
+Solver: highs
+Runtime: 0.00s
+MIP gap: inf
+Dual bound: 0.00e+00
+Solver model: available
+Solver message: Optimal
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:pypsa.optimization.optimize:The shadow-prices of the constraints Generator-fix-p-lower, Generator-fix-p-upper, Line-fix-s-lower, Line-fix-s-upper were not assigned to the network.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>('ok', 'optimal')
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_wet_year</span><span class="o">.</span><span class="n">optimize</span><span class="p">(</span><span class="n">solver_name</span><span class="o">=</span><span class="s2">"highs"</span><span class="p">,</span> <span class="n">log_to_console</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_3021/1711631617.py:1: FutureWarning: The default value of `include_objective_constant` will change from True to False in version 2.0. Set `include_objective_constant` explicitly to suppress this warning. Using False improves LP numerical conditioning by not including the objective constant as a variable.
+  n_wet_year.optimize(solver_name="highs", log_to_console=False)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:linopy.model: Solve problem using Highs solver
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:linopy.model:Solver options:
+ - log_to_console: False
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:linopy.io: Writing time: 0.02s
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:linopy.constants: Optimization successful: 
+Status: ok
+Termination condition: optimal
+Solution: 4 primals, 10 duals
+Objective: 3.64e+04
+Solver: highs
+Runtime: 0.00s
+MIP gap: inf
+Dual bound: 0.00e+00
+Solver model: available
+Solver message: Optimal
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:pypsa.optimization.optimize:The shadow-prices of the constraints Generator-fix-p-lower, Generator-fix-p-upper, Line-fix-s-lower, Line-fix-s-upper were not assigned to the network.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>('ok', 'optimal')
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="o">.</span><span class="n">statistics</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>Optimal Capacity</th>
+      <th>Installed Capacity</th>
+      <th>Supply</th>
+      <th>Withdrawal</th>
+      <th>Energy Balance</th>
+      <th>Transmission</th>
+      <th>Capacity Factor</th>
+      <th>Curtailment</th>
+      <th>Capital Expenditure</th>
+      <th>Operational Expenditure</th>
+      <th>Revenue</th>
+      <th>Market Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="3" valign="top">Generator</th>
+      <th>Coal</th>
+      <td>1750.0</td>
+      <td>1750.0</td>
+      <td>1750.0</td>
+      <td>0.0</td>
+      <td>1750.0</td>
+      <td>0.0</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>42424.24242</td>
+      <td>240000.00000</td>
+      <td>137.142857</td>
+    </tr>
+    <tr>
+      <th>Hydro</th>
+      <td>5000.0</td>
+      <td>5000.0</td>
+      <td>1450.0</td>
+      <td>0.0</td>
+      <td>1450.0</td>
+      <td>0.0</td>
+      <td>0.290000</td>
+      <td>550.0</td>
+      <td>0.0</td>
+      <td>0.00000</td>
+      <td>0.00000</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Oil</th>
+      <td>1200.0</td>
+      <td>1200.0</td>
+      <td>500.0</td>
+      <td>0.0</td>
+      <td>500.0</td>
+      <td>0.0</td>
+      <td>0.416667</td>
+      <td>700.0</td>
+      <td>0.0</td>
+      <td>68571.42857</td>
+      <td>68571.42857</td>
+      <td>137.142857</td>
+    </tr>
+    <tr>
+      <th>Line</th>
+      <th>Electricity</th>
+      <td>750.0</td>
+      <td>750.0</td>
+      <td>0.0</td>
+      <td>750.0</td>
+      <td>-750.0</td>
+      <td>750.0</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.00000</td>
+      <td>0.00000</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Load</th>
+      <th>Electricity</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3700.0</td>
+      <td>-3700.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.00000</td>
+      <td>-411428.57143</td>
+      <td>-111.196911</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_dry_year</span><span class="o">.</span><span class="n">statistics</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>Optimal Capacity</th>
+      <th>Installed Capacity</th>
+      <th>Supply</th>
+      <th>Withdrawal</th>
+      <th>Energy Balance</th>
+      <th>Transmission</th>
+      <th>Capacity Factor</th>
+      <th>Curtailment</th>
+      <th>Capital Expenditure</th>
+      <th>Operational Expenditure</th>
+      <th>Revenue</th>
+      <th>Market Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="3" valign="top">Generator</th>
+      <th>Coal</th>
+      <td>1750.0</td>
+      <td>1750.0</td>
+      <td>1750.0</td>
+      <td>0.0</td>
+      <td>1750.0</td>
+      <td>0.0</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>42424.24242</td>
+      <td>240000.00000</td>
+      <td>137.142857</td>
+    </tr>
+    <tr>
+      <th>Hydro</th>
+      <td>5000.0</td>
+      <td>5000.0</td>
+      <td>1500.0</td>
+      <td>0.0</td>
+      <td>1500.0</td>
+      <td>0.0</td>
+      <td>0.300000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.00000</td>
+      <td>205714.28571</td>
+      <td>137.142857</td>
+    </tr>
+    <tr>
+      <th>Oil</th>
+      <td>1200.0</td>
+      <td>1200.0</td>
+      <td>450.0</td>
+      <td>0.0</td>
+      <td>450.0</td>
+      <td>0.0</td>
+      <td>0.375000</td>
+      <td>750.0</td>
+      <td>0.0</td>
+      <td>61714.28571</td>
+      <td>61714.28571</td>
+      <td>137.142857</td>
+    </tr>
+    <tr>
+      <th>Line</th>
+      <th>Electricity</th>
+      <td>1500.0</td>
+      <td>1500.0</td>
+      <td>0.0</td>
+      <td>800.0</td>
+      <td>-800.0</td>
+      <td>800.0</td>
+      <td>0.533333</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.00000</td>
+      <td>-109714.28571</td>
+      <td>-137.142857</td>
+    </tr>
+    <tr>
+      <th>Load</th>
+      <th>Electricity</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3700.0</td>
+      <td>-3700.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.00000</td>
+      <td>-507428.57143</td>
+      <td>-137.142857</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_wet_year</span><span class="o">.</span><span class="n">statistics</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>Optimal Capacity</th>
+      <th>Installed Capacity</th>
+      <th>Supply</th>
+      <th>Withdrawal</th>
+      <th>Energy Balance</th>
+      <th>Transmission</th>
+      <th>Capacity Factor</th>
+      <th>Curtailment</th>
+      <th>Capital Expenditure</th>
+      <th>Operational Expenditure</th>
+      <th>Revenue</th>
+      <th>Market Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="3" valign="top">Generator</th>
+      <th>Coal</th>
+      <td>1750.0</td>
+      <td>1750.0</td>
+      <td>1500.0</td>
+      <td>0.0</td>
+      <td>1500.0</td>
+      <td>0.0</td>
+      <td>0.857143</td>
+      <td>250.0</td>
+      <td>0.0</td>
+      <td>36363.63636</td>
+      <td>36363.63636</td>
+      <td>24.242424</td>
+    </tr>
+    <tr>
+      <th>Hydro</th>
+      <td>5000.0</td>
+      <td>5000.0</td>
+      <td>2200.0</td>
+      <td>0.0</td>
+      <td>2200.0</td>
+      <td>0.0</td>
+      <td>0.440000</td>
+      <td>800.0</td>
+      <td>0.0</td>
+      <td>0.00000</td>
+      <td>0.00000</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Oil</th>
+      <td>1200.0</td>
+      <td>1200.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>1200.0</td>
+      <td>0.0</td>
+      <td>0.00000</td>
+      <td>0.00000</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Line</th>
+      <th>Electricity</th>
+      <td>1500.0</td>
+      <td>1500.0</td>
+      <td>0.0</td>
+      <td>1500.0</td>
+      <td>-1500.0</td>
+      <td>1500.0</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.00000</td>
+      <td>0.00000</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Load</th>
+      <th>Electricity</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3700.0</td>
+      <td>-3700.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.00000</td>
+      <td>-72727.27273</td>
+      <td>-19.656020</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Comprehensive documentation is available for PyPSA</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Example for modelling interconnection between South Africa and Mozambique
+<a class="reference external" href="https://www.youtube.com/embed/ORZgewOo1Ro">https://www.youtube.com/embed/ORZgewOo1Ro</a></p>
+</div>
+<section id="further-reading">
+<h3>Further reading<a class="headerlink" href="#further-reading" title="Link to this heading">#</a></h3>
+<p>From software perspective, PyPSA builds upon the following Python dependencies:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pandas</span></code> for storing data about network components and time series</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">numpy</span></code> and <code class="docutils literal notranslate"><span class="pre">scipy</span></code> for linear algebra and sparse matrix calculations</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> and <code class="docutils literal notranslate"><span class="pre">cartopy</span></code> for plotting and spatial visualisations</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">networkx</span></code> for network calculations</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">linopy</span></code> for handling optimisation problems</p></li>
+</ul>
+<p>To get more confindence in working with PyPSA models, it is recommended to get some basic understanding of Python and PyPSA dependencies.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="01-modelling-and-scenarios.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Introduction to Modelling and Scenarios</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="05-workshop-python.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Python</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#individual-learning-outcomes">Individual learning outcomes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-structure">Basic Structure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-structured-data-to-optimisation">From structured data to optimisation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-example">Simple example</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-generators">Add generators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-loads">Add loads</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modify-network">Modify network</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hydrological-scenarios">Hydrological scenarios</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further reading</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Open Energy Transition
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
