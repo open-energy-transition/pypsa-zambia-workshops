@@ -518,13 +518,13 @@
 <p><strong>PyPSA is an optimisation modelling framework.</strong> That means PyPSA-based models are looking for a solution for energy supply which has minimal costs.</p>
 <p>The design principle of PyPSA is that each component is associated with a set of variables and constraints. Variables are values quantifying equipment and processes in a real system, such as installed capacity or hydro potential. Constraints are limitations resulted from hiw physical world is functining, such as varying availability of hydro across seasons.</p>
 <p>To build the model, it’s structure is created by connecting different components. Variables and constraints are be added to the optimisation model based on the input data stored for the components. For an <em>hourly</em> electricity market simulation, PyPSA will solve an optimisation problem which mathematical formulation looks like this</p>
-<div class="amsmath math notranslate nohighlight" id="equation-05d7bb19-42b6-4aff-ba22-9030157d5dcc">
-<span class="eqno">(1)<a class="headerlink" href="#equation-05d7bb19-42b6-4aff-ba22-9030157d5dcc" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-cbd158de-bfed-4067-9ea1-7e22baecda73">
+<span class="eqno">(1)<a class="headerlink" href="#equation-cbd158de-bfed-4067-9ea1-7e22baecda73" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \min_{g_{i,s,t}; f_{\ell,t}; g_{i,r,t,\text{charge}}; g_{i,r,t,\text{discharge}}; e_{i,r,t}} \sum_s o_{s} g_{i,s,t}
 \end{equation}\]</div>
 <p>such that</p>
-<div class="amsmath math notranslate nohighlight" id="equation-30c51ec9-e0e4-420d-919e-7ca77163946d">
-<span class="eqno">(2)<a class="headerlink" href="#equation-30c51ec9-e0e4-420d-919e-7ca77163946d" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c93866c2-d7f4-4342-a1d9-fe45eb3f8d42">
+<span class="eqno">(2)<a class="headerlink" href="#equation-c93866c2-d7f4-4342-a1d9-fe45eb3f8d42" title="Permalink to this equation">#</a></span>\[\begin{align}
 0 &amp; \leq g_{i,s,t} \leq \hat{g}_{i,s,t} G_{i,s}  &amp; \text{generation limits : generator} \\
 -F_\ell &amp;\leq f_{\ell,t} \leq F_\ell &amp; \text{transmission limits : line}  \\
 d_{i,t} &amp;= \sum_s g_{i,s,t} + \sum_r g_{i,r,t,\text{discharge}} - \sum_r g_{i,r,t,\text{charge}} - \sum_\ell K_{i\ell} f_{\ell,t} &amp; \text{KCL : bus} \\
@@ -597,12 +597,12 @@ Requirement already satisfied: tqdm in /home/runner/miniconda3/envs/pypsa-zambia
 Requirement already satisfied: click&gt;=8.1 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from dask&gt;=0.18.0-&gt;linopy&gt;=0.9.0-&gt;pypsa) (8.5.0)
 Requirement already satisfied: cloudpickle&gt;=3.0.0 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from dask&gt;=0.18.0-&gt;linopy&gt;=0.9.0-&gt;pypsa) (3.1.2)
 Requirement already satisfied: fsspec&gt;=2021.09.0 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from dask&gt;=0.18.0-&gt;linopy&gt;=0.9.0-&gt;pypsa) (2026.7.0)
-Requirement already satisfied: partd&gt;=1.4.0 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from dask&gt;=0.18.0-&gt;linopy&gt;=0.9.0-&gt;pypsa) (1.4.2)
-Requirement already satisfied: pyyaml&gt;=5.4.1 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from dask&gt;=0.18.0-&gt;linopy&gt;=0.9.0-&gt;pypsa) (6.0.3)
-Requirement already satisfied: python-dateutil&gt;=2.8.2 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from pandas&gt;=3.0-&gt;pypsa) (2.9.0.post0)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: locket in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from partd&gt;=1.4.0-&gt;dask&gt;=0.18.0-&gt;linopy&gt;=0.9.0-&gt;pypsa) (1.0.0)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: partd&gt;=1.4.0 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from dask&gt;=0.18.0-&gt;linopy&gt;=0.9.0-&gt;pypsa) (1.4.2)
+Requirement already satisfied: pyyaml&gt;=5.4.1 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from dask&gt;=0.18.0-&gt;linopy&gt;=0.9.0-&gt;pypsa) (6.0.3)
+Requirement already satisfied: python-dateutil&gt;=2.8.2 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from pandas&gt;=3.0-&gt;pypsa) (2.9.0.post0)
+Requirement already satisfied: locket in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from partd&gt;=1.4.0-&gt;dask&gt;=0.18.0-&gt;linopy&gt;=0.9.0-&gt;pypsa) (1.0.0)
 Requirement already satisfied: polars-runtime-32==1.44.2 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from polars&gt;=1.31.1-&gt;linopy&gt;=0.9.0-&gt;pypsa) (1.44.2)
 Requirement already satisfied: jinja2&gt;=2.10.1 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from pydeck&gt;=0.6-&gt;pypsa) (3.1.6)
 Requirement already satisfied: MarkupSafe&gt;=2.0 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from jinja2&gt;=2.10.1-&gt;pydeck&gt;=0.6-&gt;pypsa) (3.0.3)
@@ -615,7 +615,9 @@ Requirement already satisfied: pillow&gt;=8 in /home/runner/miniconda3/envs/pyps
 Requirement already satisfied: pyparsing&gt;=3 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from matplotlib-&gt;pypsa) (3.3.2)
 Requirement already satisfied: cftime in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from netcdf4-&gt;pypsa) (1.6.5)
 Requirement already satisfied: certifi in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from netcdf4-&gt;pypsa) (2026.7.22)
-Requirement already satisfied: narwhals&gt;=1.15.1 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from plotly-&gt;pypsa) (2.26.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: narwhals&gt;=1.15.1 in /home/runner/miniconda3/envs/pypsa-zambia-workshops/lib/python3.13/site-packages (from plotly-&gt;pypsa) (2.26.0)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Note: you may need to restart the kernel to use updated packages.
@@ -865,7 +867,7 @@ Requirement already satisfied: narwhals&gt;=1.15.1 in /home/runner/miniconda3/en
       &quot;getColor&quot;: &quot;@@=rgba&quot;,
       &quot;getPath&quot;: &quot;@@=path&quot;,
       &quot;getWidth&quot;: &quot;@@=width_pdk&quot;,
-      &quot;id&quot;: &quot;45a26e9f-997f-4c3d-aa7d-d8515d785fa8&quot;,
+      &quot;id&quot;: &quot;9f368cb8-a93d-482f-8058-8d68edbb306d&quot;,
       &quot;parameters&quot;: {
         &quot;depthTest&quot;: false
       },
@@ -924,7 +926,7 @@ Requirement already satisfied: narwhals&gt;=1.15.1 in /home/runner/miniconda3/en
       ],
       &quot;getFillColor&quot;: &quot;@@=rgba_arrow&quot;,
       &quot;getPolygon&quot;: &quot;@@=arrow&quot;,
-      &quot;id&quot;: &quot;3fad2988-ae61-4738-98e8-55c574429e5a&quot;,
+      &quot;id&quot;: &quot;3c30f928-ce61-4a70-8714-19e7ef875c4a&quot;,
       &quot;parameters&quot;: {
         &quot;depthTest&quot;: false
       },
@@ -964,7 +966,7 @@ Requirement already satisfied: narwhals&gt;=1.15.1 in /home/runner/miniconda3/en
       &quot;getColor&quot;: &quot;@@=rgba&quot;,
       &quot;getPosition&quot;: &quot;@@=[x, y]&quot;,
       &quot;getRadius&quot;: &quot;@@=size_pdk&quot;,
-      &quot;id&quot;: &quot;ebdf30d0-fe9f-4ad2-aa97-f35899974f04&quot;,
+      &quot;id&quot;: &quot;31ae4722-ff75-49d5-9523-d9f23974e5a1&quot;,
       &quot;parameters&quot;: {
         &quot;depthTest&quot;: false
       },
@@ -1283,7 +1285,7 @@ Requirement already satisfied: narwhals&gt;=1.15.1 in /home/runner/miniconda3/en
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2569/1044684643.py:1: FutureWarning: The default value of `include_objective_constant` will change from True to False in version 2.0. Set `include_objective_constant` explicitly to suppress this warning. Using False improves LP numerical conditioning by not including the objective constant as a variable.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2503/1044684643.py:1: FutureWarning: The default value of `include_objective_constant` will change from True to False in version 2.0. Set `include_objective_constant` explicitly to suppress this warning. Using False improves LP numerical conditioning by not including the objective constant as a variable.
   n.optimize(solver_name="highs", log_to_console=False)
 </pre></div>
 </div>
@@ -1472,7 +1474,7 @@ Solver message: Optimal
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2569/1261279110.py:1: FutureWarning: The default value of `include_objective_constant` will change from True to False in version 2.0. Set `include_objective_constant` explicitly to suppress this warning. Using False improves LP numerical conditioning by not including the objective constant as a variable.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2503/1261279110.py:1: FutureWarning: The default value of `include_objective_constant` will change from True to False in version 2.0. Set `include_objective_constant` explicitly to suppress this warning. Using False improves LP numerical conditioning by not including the objective constant as a variable.
   n.optimize()
 </pre></div>
 </div>
@@ -1500,7 +1502,7 @@ Solver message: Optimal
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Running HiGHS 1.15.1 (git hash: n/a): Copyright (c) 2026 under MIT licence terms
 Includes third-party software components, see THIRD_PARTY_NOTICES.md for full details
-LP linopy-problem-l50fa4ms has 10 rows; 4 cols; 13 nonzeros
+LP linopy-problem-8rlyvbg3 has 10 rows; 4 cols; 13 nonzeros
 Coefficient ranges:
   Matrix  [1e+00, 1e+00]
   Cost    [2e+01, 1e+02]
@@ -1513,7 +1515,7 @@ Presolve reductions: rows 0(-10); columns 0(-4); nonzeros 0(-13) - Reduced to em
 Performed postsolve
 Solving the original LP from the solution after postsolve
 
-Model name          : linopy-problem-l50fa4ms
+Model name          : linopy-problem-8rlyvbg3
 Model status        : Optimal
 Objective value     :  1.1099567100e+05
 P-D objective error :  1.3110285785e-16
@@ -1666,7 +1668,7 @@ HiGHS run time      :          0.00
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2569/2248954950.py:1: FutureWarning: The default value of `include_objective_constant` will change from True to False in version 2.0. Set `include_objective_constant` explicitly to suppress this warning. Using False improves LP numerical conditioning by not including the objective constant as a variable.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2503/2248954950.py:1: FutureWarning: The default value of `include_objective_constant` will change from True to False in version 2.0. Set `include_objective_constant` explicitly to suppress this warning. Using False improves LP numerical conditioning by not including the objective constant as a variable.
   n_dry_year.optimize(solver_name="highs", log_to_console=False)
 </pre></div>
 </div>
@@ -1708,7 +1710,7 @@ Solver message: Optimal
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2569/1711631617.py:1: FutureWarning: The default value of `include_objective_constant` will change from True to False in version 2.0. Set `include_objective_constant` explicitly to suppress this warning. Using False improves LP numerical conditioning by not including the objective constant as a variable.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2503/1711631617.py:1: FutureWarning: The default value of `include_objective_constant` will change from True to False in version 2.0. Set `include_objective_constant` explicitly to suppress this warning. Using False improves LP numerical conditioning by not including the objective constant as a variable.
   n_wet_year.optimize(solver_name="highs", log_to_console=False)
 </pre></div>
 </div>
